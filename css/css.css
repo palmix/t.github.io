@@ -229,29 +229,7 @@
 
 
 
-@font-face {
-font-family: 'Droid Arabic Kufi';
-font-style: normal;
-font-weight: 400;
-src: local('Droid Arabic Kufi'), local('DroidArabicKufi'), url(/www/css/font/DroidArabicKufi.woff2) format('woff2');
-unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
-font-display: swap;
-}
-/* arabic */
-@font-face {
-font-family: 'Droid Arabic Naskh';
-font-style: normal;
-font-weight: 400;
-src: local('Droid Arabic Naskh'), local('DroidArabicNaskh'), url(/www/css/font/DroidArabicNaskh.woff2) format('woff2');
-unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
-font-display: swap;
-}
-@font-face {
-	font-family: 'Frutiger';
-	src:url('/www/css/font/FrutigerLTArabic-55Roman.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
+
 
 #palmix,.swal2-container{
 font-family:'Frutiger',droid arabic naskh,var(--bs-body-font-family),Arial,sans-serif;
