@@ -1219,7 +1219,6 @@ htmls.push('</div>');
 
 
     }
-	
     }
 setHTML.push(htmls.join(''));
 
@@ -1485,7 +1484,7 @@ var imgurlsvg = 'file/img/svg/'+getid+'/'+name+'.svg';
 
          items.push('</div>');
          items.push('<div class="card-body">');
-         items.push('<img src="'+imgurlsvg+'" style="max-width: 13rem;" class="card-img-top p-2 signalurl" id="img-'+getid+name+'" alt="'+name+'"/>');
+         items.push('<img src="'+imgurlsvg+'" onload="setb64img(this)" style="max-width: 13rem;" class="card-img-top p-2 signalurl" id="img-'+getid+name+'" alt="'+name+'"/>');
          items.push('</div>');
          items.push('<div class="card-footer">');
          items.push(itemdescription);
@@ -5593,6 +5592,31 @@ blogStats.child("value").set(data.value);
 
 <script>
 
+
+function setb64img(id) {
+if(TeoriaPalMixApp){
+try {
+var url = id.src;
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    var reader = new FileReader();
+    reader.onloadend = function() {
+      $('#'+id.id).attr('onload',null)
+      $('#'+id.id).attr('src',reader.result)
+    }
+    reader.readAsDataURL(xhr.response);
+  };
+  xhr.open('GET', url);
+  xhr.responseType = 'blob';
+  xhr.send();
+}catch (error) {
+  console.error(error);
+}
+}
+}
+
+
+
 function replaceAllLinkHash(){
 var getitemsS = $('#container #items').find('.card-footer');
 var itembtnhomeS = $('#container .itembtnhome');
@@ -6337,7 +6361,6 @@ scrollGoTo($('#quiz'))
 }
 
 </script>
-
 
 
 <script>
