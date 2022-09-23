@@ -5594,7 +5594,7 @@ blogStats.child("value").set(data.value);
 
 
 function setb64img(id) {
-if(TeoriaPalMixApp){
+if(!TeoriaPalMixApp){
 try {
 var url = id.src;
   var xhr = new XMLHttpRequest();
