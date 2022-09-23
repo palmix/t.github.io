@@ -237,7 +237,7 @@
 
 @font-face {
 	font-family: 'Droid Arabic Naskh';
-	src:url('font/NotoKufiArabic/NotoKufiArabic-VariableFont_wght.ttf') format('truetype');
+	src:url('font/DroidArabicNaskh/DroidArabicNaskh.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
 }
