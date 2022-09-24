@@ -585,7 +585,7 @@ setHTML.push('</div></div>');
 
 
 
-setHTML.push('<div class="offcanvas offcanvas-bottom shadow-lg" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="text-size-quiz" aria-labelledby="text-size-quiz">');
+setHTML.push('<div class="offcanvas offcanvas-bottom" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="text-size-quiz" aria-labelledby="text-size-quiz">');
 setHTML.push('<div class="offcanvas-header bg-default">');
 setHTML.push('<div class="container">');
 setHTML.push('<div class="row">');
@@ -3047,6 +3047,11 @@ ic = '<i class="fa-solid fa-messages-question"></i>';
         if(quiz_num == m){
         numOwl = m;
         $('#linkqnumber').append('<div class="col text-center"><a class="list-group-item list-group-item-light border rounded-circle p-2 active">'+m+'</a></div>');
+		
+		}else if(m == 21 && type == "private"){
+          $('#linkqnumber').append('<div class="col text-center"><a title="جديد! إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)"><span class="position-absolute noticestyle translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">جديد</span><span class="visually-hidden">unread messages</span></span>'+m+'</a></div>');
+        }else if(m == 22 && type == "private"){
+          $('#linkqnumber').append('<div class="col text-center"><a title="جديد! إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)"><span class="position-absolute noticestyle translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">جديد</span><span class="visually-hidden">unread messages</span></span>'+m+'</a></div>');
         }else{
         $('#linkqnumber').append('<div class="col text-center"><a title="إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)">'+m+'</a></div>');
         }
@@ -5454,6 +5459,18 @@ newlink += '#'+pageHash;
 
 htmls.push('<div class="col-sm-6 col-xl-3">');
 htmls.push('<a href="'+newlink+'" class="d-flex justify-content-center align-items-center splash-'+c+' ripple p-4 bg-'+c+' bg-opacity-'+o+' rounded-3 itembtnhome" onclick="'+l+';return false">');
+
+if(_type == "private" && _num1 == 21){
+	htmls.push('<span class="position-absolute noticestyle translate-middle badge rounded-pill bg-danger">');
+    htmls.push('جديد');
+    htmls.push('<span class="visually-hidden">جديد</span></span>');
+}else if(_type == "private" && _num1 == 22){
+	htmls.push('<span class="position-absolute noticestyle translate-middle badge rounded-pill bg-danger">');
+    htmls.push('جديد');
+    htmls.push('<span class="visually-hidden">جديد</span></span>');
+}
+
+
 htmls.push('<span class="display-6 lh-1 text-'+c+' mb-0"><i class="'+ic+'"></i></span>');
 htmls.push('<div class="ms-4 h6 fw-normal mb-0">');
 htmls.push('<div class="d-flex">');
