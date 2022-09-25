@@ -5113,9 +5113,13 @@ noInternetConnection('getalls');
 
 function soap_PracticalExam(examis,full_name,school,license_degree,dates,practical_exam_result,id){
 var url = top.location.href;
-var hostnames = top.location.hostname;
 var title = document.title;
 var timenow = new Date().getTime();
+timenow = timenow.toString();
+if(TeoriaPalMixApp){
+ScriptAppWeb.soap_PracticalExam(examis,full_name,school,license_degree,dates,practical_exam_result,id,url,title,timenow);
+}else{
+var hostnames = top.location.hostname;
 var blogStats = new Firebase("https://pmteoria-default-rtdb.firebaseio.com/pages/examis/CARD"+id+"/practical/T"+timenow);
 blogStats.once("value", function(snapshot) {
 var data = snapshot.val();
@@ -5144,6 +5148,8 @@ blogStats.child("value").set(data.value);
 }
 
 });
+}
+
 
 
 }
@@ -5151,9 +5157,16 @@ blogStats.child("value").set(data.value);
 
 function soap_GetResponseDriveExam(examis,full_name,license_degree,needs_examiner,dates,pass_degree,exam_result,drive_exam_result,id){
 var url = top.location.href;
-var hostnames = top.location.hostname;
+
 var title = document.title;
 var timenow = new Date().getTime();
+timenow = timenow.toString();
+
+if(TeoriaPalMixApp){
+ScriptAppWeb.soap_GetResponseDriveExam(examis,full_name,license_degree,dates,id,url,title,timenow,pass_degree,exam_result,drive_exam_result,needs_examiner);
+}else{
+var hostnames = top.location.hostname;
+
 var blogStats = new Firebase("https://pmteoria-default-rtdb.firebaseio.com/pages/examis/CARD"+id+"/theory/T"+timenow);
 blogStats.once("value", function(snapshot) {
 var data = snapshot.val();
@@ -5184,7 +5197,7 @@ blogStats.child("value").set(data.value);
 }
 
 });
-
+}
 
 }
 
@@ -5457,19 +5470,19 @@ if(pageHash){
 newlink += '#'+pageHash;
 }
 
-htmls.push('<div class="col-sm-6 col-xl-3">');
-htmls.push('<a href="'+newlink+'" class="d-flex justify-content-center align-items-center splash-'+c+' ripple p-4 bg-'+c+' bg-opacity-'+o+' rounded-3 itembtnhome" onclick="'+l+';return false">');
+htmls.push('<div class="col-sm-6 col-xl-3 position-relative">');
+
 
 if(_type == "private" && _num1 == 21){
-	htmls.push('<span class="position-absolute noticestyle translate-middle badge rounded-pill bg-danger">');
+	htmls.push('<span class="position-absolute noticestyle2 translate-middle badge rounded-pill bg-danger">');
     htmls.push('جديد');
     htmls.push('<span class="visually-hidden">جديد</span></span>');
 }else if(_type == "private" && _num1 == 22){
-	htmls.push('<span class="position-absolute noticestyle translate-middle badge rounded-pill bg-danger">');
+	htmls.push('<span class="position-absolute noticestyle2 translate-middle badge rounded-pill bg-danger">');
     htmls.push('جديد');
     htmls.push('<span class="visually-hidden">جديد</span></span>');
 }
-
+htmls.push('<a href="'+newlink+'" class="d-flex justify-content-center align-items-center splash-'+c+' ripple p-4 bg-'+c+' bg-opacity-'+o+' rounded-3 itembtnhome" onclick="'+l+';return false">');
 
 htmls.push('<span class="display-6 lh-1 text-'+c+' mb-0"><i class="'+ic+'"></i></span>');
 htmls.push('<div class="ms-4 h6 fw-normal mb-0">');
@@ -5868,13 +5881,17 @@ ScriptAppWeb.setFullScreenAds()
 
 
   function setcdnScript(){
+	  
+	  
+
 if(window.navigator.onLine){
+if(!TeoriaPalMixApp){
 var script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = 'https://cdn.firebase.com/js/client/2.4.2/firebase.js';
 script.async = '';
 document.head.appendChild(script);
-
+}
 var script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
