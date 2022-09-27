@@ -3026,19 +3026,7 @@ ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل جيد�
 }
 }
 }
-Swal.fire({
-  icon: 'success',
-  title: 'لقد نجحت بامتياز!',
-  text: 'عمل رائع، تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.',
-  confirmButtonText: 'مراجعة الأسئلة',
-  confirmButtonColor: '#198754',
-    background: 'url(./file/img/site/sw/b1.jpg)',
-  backdrop: `
-    rgba(0,0,123,0.4)
-    url("./file/img/site/sw/s.gif")
-    repeat
-  `
-});
+
 function setAllquestions(type,quiz_num){
 var typeAr,ic;
 if(type == "private"){
