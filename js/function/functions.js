@@ -1,4 +1,16 @@
 
+var TeoriaPalMixApp = /TeoriaPalMixApp/.test(navigator.userAgent);
+var dnonesapp = "";
+var dnonesapppud = "";
+if(TeoriaPalMixApp){
+dnonesapp = " d-none";
+dnonesapppud = " pb-5 mb-5";
+
+}
+
+
+
+
 function setSiteColor(color){
 $('#palmix').attr('data-theme',color);
 $('body').attr('data-theme',color);
@@ -157,8 +169,11 @@ sethomeHTML.push('</div></div></nav>');
 sethomeHTML.push('</div>');
 sethomeHTML.push('<div id="container"></div>');
 
-sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalCourses"id="CoursesModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalCourses">الأسعار الرسمية</h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body">التسعيرة الرسمية للدورات الاستكمالية من وزارة النقل والمواصلات الفلسطينية والتي بدأ العمل بها من تاريخ 27/07/2011 حسب قرار مدير عام سلطة الترخيص:<table class="table table-striped"style="font-size:.8em"><thead><tr><th scope="col fs-6">نوع الدورة</th><th scope="col">الرسوم</th><th scope="col">عدد الساعات</th></tr></thead><tbody><tr><td>عمومي وباص</td><td>1700</td><td>172</td></tr><tr><td>شحن ثقيل</td><td>1700</td><td>154</td></tr><tr><td>مدربي سياقة</td><td>5400</td><td>600 منها 34 عملي</td></tr><tr><td>مدراء مهنيين لمدارس سياقة</td><td>3000</td><td>250</td></tr><tr><td>محاضري قوانين سير</td><td>3600</td><td>280</td></tr><tr><td>سائقي مركبات اسعاف</td><td>3000</td><td>129 نظري</td></tr><tr><td>سائقي مركبات الجر والتخليص</td><td>1900</td><td>208</td></tr><tr><td>سائقي الجرار (التركتور)</td><td>1100</td><td>44</td></tr><tr><td>سائقي الرافعات الشوكية</td><td>500</td><td>19 نظري + 8 عملي</td></tr><tr><td>فاحصي المركبات</td><td>3000</td><td>150 نظري + 20 عملي</td></tr><tr><td>فاحصي السياقة</td><td>4000</td><td>368 نظري + 52 عملي</td></tr><tr><td>المدراء المهنيين للكراجات</td><td>2700</td><td>147 نظري + 20 عملي</td></tr><tr><td>ضباط السلامة والأمن</td><td>5000</td><td>452 نظري + 18عملي</td></tr><tr><td>نقل المواد الخطرة</td><td>2600</td><td>38</td></tr><tr><td>السياقة المانعة</td><td>500</td><td>20</td></tr><tr><td>السياقة النظرية (التؤوريا)</td><td>200</td><td>10</td></tr></tbody></table><span class="text-black-50"style="font-size:12px">- التسعيرة بالشيكل<br>- الرسوم لا تشمل القرطاسية</span></div><div class="modal-footer"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
-sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalExam"id="ExamModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalExam"></h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body p-0"><iframe allowfullscreen frameborder="0"height="100%"id="iframeExam"style="min-height:700px"width="100%"></iframe></div><div class="modal-footer"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
+
+
+
+sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalCourses"id="CoursesModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalCourses">الأسعار الرسمية</h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body '+ dnonesapppud +'">التسعيرة الرسمية للدورات الاستكمالية من وزارة النقل والمواصلات الفلسطينية والتي بدأ العمل بها من تاريخ 27/07/2011 حسب قرار مدير عام سلطة الترخيص:<table class="table table-striped"style="font-size:.8em"><thead><tr><th scope="col fs-6">نوع الدورة</th><th scope="col">الرسوم</th><th scope="col">عدد الساعات</th></tr></thead><tbody><tr><td>عمومي وباص</td><td>1700</td><td>172</td></tr><tr><td>شحن ثقيل</td><td>1700</td><td>154</td></tr><tr><td>مدربي سياقة</td><td>5400</td><td>600 منها 34 عملي</td></tr><tr><td>مدراء مهنيين لمدارس سياقة</td><td>3000</td><td>250</td></tr><tr><td>محاضري قوانين سير</td><td>3600</td><td>280</td></tr><tr><td>سائقي مركبات اسعاف</td><td>3000</td><td>129 نظري</td></tr><tr><td>سائقي مركبات الجر والتخليص</td><td>1900</td><td>208</td></tr><tr><td>سائقي الجرار (التركتور)</td><td>1100</td><td>44</td></tr><tr><td>سائقي الرافعات الشوكية</td><td>500</td><td>19 نظري + 8 عملي</td></tr><tr><td>فاحصي المركبات</td><td>3000</td><td>150 نظري + 20 عملي</td></tr><tr><td>فاحصي السياقة</td><td>4000</td><td>368 نظري + 52 عملي</td></tr><tr><td>المدراء المهنيين للكراجات</td><td>2700</td><td>147 نظري + 20 عملي</td></tr><tr><td>ضباط السلامة والأمن</td><td>5000</td><td>452 نظري + 18عملي</td></tr><tr><td>نقل المواد الخطرة</td><td>2600</td><td>38</td></tr><tr><td>السياقة المانعة</td><td>500</td><td>20</td></tr><tr><td>السياقة النظرية (التؤوريا)</td><td>200</td><td>10</td></tr></tbody></table><span class="text-black-50"style="font-size:12px">- التسعيرة بالشيكل<br>- الرسوم لا تشمل القرطاسية</span></div><div class="modal-footer '+ dnonesapp +'"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
+sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalExam"id="ExamModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalExam"></h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body p-0"><iframe allowfullscreen frameborder="0"height="100%"id="iframeExam"style="min-height:700px"width="100%"></iframe></div><div class="modal-footer '+dnonesapp+'"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
 
 
 
@@ -1652,17 +1667,26 @@ sethtmlcontainer(page,false)
 })
 return false
 }
+
+
+if(TeoriaPalMixApp){
+var gethref = window.location.href;
+if(page != 'ProgramPDF'){
 scrollGoTo('body');
+}
+}else{
+scrollGoTo('body');
+}
+
 
 
 if(page == 'ExamPage'){
 examPage(adSlotTop,adSlotCenter,adSlotBottom);
 }else if(page ==  'TrafficLawPage'){
 trafficLaw(adSlotTop,adSlotCenter,adSlotBottom);
-}else if(page ==  'ProgramPDF'){
+}else if(page == 'ProgramPDF'){
 if(TeoriaPalMixApp){
-window.location.href = 'css/program.pdf';
-sethtmlcontainer('HomePage')
+ScriptAppWeb.goToPDF();
 return false;
 }else{
 programPDF(adSlotTop,adSlotCenter,adSlotBottom);
@@ -3002,7 +3026,19 @@ ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل جيد�
 }
 }
 }
-
+Swal.fire({
+  icon: 'success',
+  title: 'لقد نجحت بامتياز!',
+  text: 'عمل رائع، تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.',
+  confirmButtonText: 'مراجعة الأسئلة',
+  confirmButtonColor: '#198754',
+    background: 'url(./file/img/site/sw/b1.jpg)',
+  backdrop: `
+    rgba(0,0,123,0.4)
+    url("./file/img/site/sw/s.gif")
+    repeat
+  `
+});
 function setAllquestions(type,quiz_num){
 var typeAr,ic;
 if(type == "private"){
@@ -3047,7 +3083,7 @@ ic = '<i class="fa-solid fa-messages-question"></i>';
         if(quiz_num == m){
         numOwl = m;
         $('#linkqnumber').append('<div class="col text-center"><a class="list-group-item list-group-item-light border rounded-circle p-2 active">'+m+'</a></div>');
-		
+
 		}else if(m == 21 && type == "private"){
           $('#linkqnumber').append('<div class="col text-center"><a title="جديد! إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)"><span class="position-absolute noticestyle translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">جديد</span><span class="visually-hidden">unread messages</span></span>'+m+'</a></div>');
         }else if(m == 22 && type == "private"){
@@ -5845,7 +5881,7 @@ window.location.hash = "ExitModal";
 }
 
 }
-  
+
 function scrollgototop(){
 scrollGoTo('#palmix');
 }
@@ -5881,8 +5917,8 @@ ScriptAppWeb.setFullScreenAds()
 
 
   function setcdnScript(){
-	  
-	  
+
+
 
 if(window.navigator.onLine){
 if(!TeoriaPalMixApp){
@@ -5891,11 +5927,12 @@ script.type = 'text/javascript';
 script.src = 'https://cdn.firebase.com/js/client/2.4.2/firebase.js';
 script.async = '';
 document.head.appendChild(script);
-}
+
 var script = document.createElement('script');
 script.type = 'text/javascript';
 script.src = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
 script.async = '';
 document.head.appendChild(script);
+}
 }
     }
