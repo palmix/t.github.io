@@ -3000,10 +3000,10 @@ Swal.fire({
   text: 'عمل رائع، تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.',
   confirmButtonText: 'مراجعة الأسئلة',
   confirmButtonColor: '#198754',
-    background: 'url(file/img/site/sw/img/b1.jpg)',
+    background: 'url(./file/img/site/sw/b1.jpg)',
   backdrop: `
     rgba(0,0,123,0.4)
-    url("file/img/site/sw/img/s.gif")
+    url("./file/img/site/sw/s.gif")
     repeat
   `
 
@@ -5641,7 +5641,7 @@ if (page == 'ExamPage') {
                 view = 0;
         }
         startsetHtml(type,exam,question,view,isback)
-} else if(page == 'TrafficLawPage'||page == 'ProgramPDF'||page == 'signalsPage'||page == 'HomePage'||page == 'tableUserPage'||page == 'AllExamsPage'||page == 'ContactUsPage'||page == 'private'||page == 'truck'||page == 'haulage'||page == 'taxi'||page == 'tractor'||page == 'motorcycle'){
+} else if(page == 'TrafficLawPage'||page == 'privacy'||page == 'ProgramPDF'||page == 'signalsPage'||page == 'HomePage'||page == 'tableUserPage'||page == 'AllExamsPage'||page == 'ContactUsPage'||page == 'private'||page == 'truck'||page == 'haulage'||page == 'taxi'||page == 'tractor'||page == 'motorcycle'){
 
 
         sethtmlcontainer(page,isback)
