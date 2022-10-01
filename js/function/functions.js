@@ -1,15 +1,5 @@
 
 var TeoriaPalMixApp = /TeoriaPalMixApp/.test(navigator.userAgent);
-var dnonesapp = "";
-var dnonesapppud = "";
-if(TeoriaPalMixApp){
-dnonesapp = " d-none";
-dnonesapppud = " pb-5 mb-5";
-
-}
-
-
-
 
 function setSiteColor(color){
 $('#palmix').attr('data-theme',color);
@@ -172,8 +162,8 @@ sethomeHTML.push('<div id="container"></div>');
 
 
 
-sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalCourses"id="CoursesModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalCourses">الأسعار الرسمية</h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body '+ dnonesapppud +'">التسعيرة الرسمية للدورات الاستكمالية من وزارة النقل والمواصلات الفلسطينية والتي بدأ العمل بها من تاريخ 27/07/2011 حسب قرار مدير عام سلطة الترخيص:<table class="table table-striped"style="font-size:.8em"><thead><tr><th scope="col fs-6">نوع الدورة</th><th scope="col">الرسوم</th><th scope="col">عدد الساعات</th></tr></thead><tbody><tr><td>عمومي وباص</td><td>1700</td><td>172</td></tr><tr><td>شحن ثقيل</td><td>1700</td><td>154</td></tr><tr><td>مدربي سياقة</td><td>5400</td><td>600 منها 34 عملي</td></tr><tr><td>مدراء مهنيين لمدارس سياقة</td><td>3000</td><td>250</td></tr><tr><td>محاضري قوانين سير</td><td>3600</td><td>280</td></tr><tr><td>سائقي مركبات اسعاف</td><td>3000</td><td>129 نظري</td></tr><tr><td>سائقي مركبات الجر والتخليص</td><td>1900</td><td>208</td></tr><tr><td>سائقي الجرار (التركتور)</td><td>1100</td><td>44</td></tr><tr><td>سائقي الرافعات الشوكية</td><td>500</td><td>19 نظري + 8 عملي</td></tr><tr><td>فاحصي المركبات</td><td>3000</td><td>150 نظري + 20 عملي</td></tr><tr><td>فاحصي السياقة</td><td>4000</td><td>368 نظري + 52 عملي</td></tr><tr><td>المدراء المهنيين للكراجات</td><td>2700</td><td>147 نظري + 20 عملي</td></tr><tr><td>ضباط السلامة والأمن</td><td>5000</td><td>452 نظري + 18عملي</td></tr><tr><td>نقل المواد الخطرة</td><td>2600</td><td>38</td></tr><tr><td>السياقة المانعة</td><td>500</td><td>20</td></tr><tr><td>السياقة النظرية (التؤوريا)</td><td>200</td><td>10</td></tr></tbody></table><span class="text-black-50"style="font-size:12px">- التسعيرة بالشيكل<br>- الرسوم لا تشمل القرطاسية</span></div><div class="modal-footer '+ dnonesapp +'"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
-sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalExam"id="ExamModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalExam"></h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body p-0"><iframe allowfullscreen frameborder="0"height="100%"id="iframeExam"style="min-height:700px"width="100%"></iframe></div><div class="modal-footer '+dnonesapp+'"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
+sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalCourses"id="CoursesModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalCourses">الأسعار الرسمية</h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body">التسعيرة الرسمية للدورات الاستكمالية من وزارة النقل والمواصلات الفلسطينية والتي بدأ العمل بها من تاريخ 27/07/2011 حسب قرار مدير عام سلطة الترخيص:<table class="table table-striped"style="font-size:.8em"><thead><tr><th scope="col fs-6">نوع الدورة</th><th scope="col">الرسوم</th><th scope="col">عدد الساعات</th></tr></thead><tbody><tr><td>عمومي وباص</td><td>1700</td><td>172</td></tr><tr><td>شحن ثقيل</td><td>1700</td><td>154</td></tr><tr><td>مدربي سياقة</td><td>5400</td><td>600 منها 34 عملي</td></tr><tr><td>مدراء مهنيين لمدارس سياقة</td><td>3000</td><td>250</td></tr><tr><td>محاضري قوانين سير</td><td>3600</td><td>280</td></tr><tr><td>سائقي مركبات اسعاف</td><td>3000</td><td>129 نظري</td></tr><tr><td>سائقي مركبات الجر والتخليص</td><td>1900</td><td>208</td></tr><tr><td>سائقي الجرار (التركتور)</td><td>1100</td><td>44</td></tr><tr><td>سائقي الرافعات الشوكية</td><td>500</td><td>19 نظري + 8 عملي</td></tr><tr><td>فاحصي المركبات</td><td>3000</td><td>150 نظري + 20 عملي</td></tr><tr><td>فاحصي السياقة</td><td>4000</td><td>368 نظري + 52 عملي</td></tr><tr><td>المدراء المهنيين للكراجات</td><td>2700</td><td>147 نظري + 20 عملي</td></tr><tr><td>ضباط السلامة والأمن</td><td>5000</td><td>452 نظري + 18عملي</td></tr><tr><td>نقل المواد الخطرة</td><td>2600</td><td>38</td></tr><tr><td>السياقة المانعة</td><td>500</td><td>20</td></tr><tr><td>السياقة النظرية (التؤوريا)</td><td>200</td><td>10</td></tr></tbody></table><span class="text-black-50"style="font-size:12px">- التسعيرة بالشيكل<br>- الرسوم لا تشمل القرطاسية</span></div><div class="modal-footer"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
+sethomeHTML.push('<div class="fade modal"aria-hidden="true"aria-labelledby="modalExam"id="ExamModal"tabindex="-1"><div class="modal-dialog modal-fullscreen-sm-down"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"id="modalExam"></h5><button class="btn-close"data-bs-dismiss="modal"type="button"aria-label="Close"></button></div><div class="modal-body p-0"><iframe allowfullscreen frameborder="0"height="100%"id="iframeExam"style="min-height:700px"width="100%"></iframe></div><div class="modal-footer"><button class="btn btn-secondary"data-bs-dismiss="modal"type="button">إغلاق</button></div></div></div></div>');
 
 
 
@@ -469,10 +459,6 @@ setTimeout(() => {
 navbarScroll()
 
 showPage(false);
-if(TeoriaPalMixApp){
-ScriptAppWeb.onloadWeb();
-}
-
 
 }, 1000)
 }
@@ -2020,6 +2006,11 @@ ScriptAppWeb.onSendQuizs();
 var jsonpush = createCID.join();
 setCJ(jsonpush,data,type,quiz_num,trueans)
 
+
+
+
+
+
 setAlertQuiz(data.length,trueans,success,msg);
 $(".progressd").addClass('d-none');
 startAns = false;
@@ -2214,6 +2205,8 @@ var getqid = localStorage.getItem('q'+setexamreview);
 if(getqid != null){
 getqid = JSON.parse(getqid);
 var getqidl = getqid.result.length;
+
+
 if(getqidl >1){
 
 $('.showAansQuiz').addClass('d-none');
@@ -2237,6 +2230,54 @@ $('#Q'+i).attr('data-userans',getuserans);
 
 setqsave(setexamreview,msgx);
 }
+
+
+}else if(window.navigator.onLine){
+
+$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz/q"+setexamreview+".json", {}).catch(function(error) {
+
+     $('#alerts').removeClass('d-none').addClass('border-warning');
+     $('#alerts .card-body').addClass('text-secondary');
+     $('#alerts .card-header').html('<i class="fa-solid fa-hexagon-exclamation"></i> حدث خطأ');
+     $('#alerts .card-title').html('حدث خطأ في جلب نتيجة هذا الإختبار!').addClass('text-dark');
+     $('#alerts .card-text').html('الرجاء إعادة المحاولة فيما بعد.');
+
+
+}).done(function(recosts) {
+if(recosts != null){
+
+    var getjsonUrl = window.atob(recosts.jsonFile);
+    var getqid = JSON.parse(getjsonUrl);
+    var getqidl = getqid.result.length;
+
+
+    if (getqidl > 1) {
+        $('.showAansQuiz').addClass('d-none');
+        $('#chautoNext').html('<span class="fs-7">مدة الإختبار</span>');
+        var durations = getqid.duration;
+        $(document).ready(function() {
+            clearInterval(xTimeInterval);
+            clearedTime = true;
+            $('#quiz-timer').html(durations);
+        });
+        for (var i = 0; i < getqidl; i++) {
+            getuserans = getqid.result[i].ua;
+            $('#Q' + i).attr('data-userans', getuserans);
+        }
+        setqsave(setexamreview, msgx);
+    }
+    }else{
+     $('#alerts').removeClass('d-none').addClass('border-warning');
+     $('#alerts .card-body').addClass('text-secondary');
+     $('#alerts .card-header').html('<i class="fa-solid fa-hexagon-exclamation"></i> لم نعثر عليه');
+     $('#alerts .card-title').html('لم نعثر على ملخص هذا الإختبار!').addClass('text-dark');
+     $('#alerts .card-text').html('يبدو أنك اتبعت رابط خاطئ أو أن نتيجة هذا الإختبار تم حذفها.');
+     }
+});
+
+
+
+
 }else{
 
 
@@ -2244,8 +2285,8 @@ $( document ).ready(function() {
 $('#alerts').removeClass('d-none').addClass('border-warning');
 $('#alerts .card-body').addClass('text-secondary');
 $('#alerts .card-header').html('<i class="fa-solid fa-hexagon-exclamation"></i> لم نعثر عليه');
-$('#alerts .card-title').html('لم نعثر على الإمتحان!').addClass('text-dark');
-$('#alerts .card-text').html('يبدو أنك قمت بحذف هذا الإختبار من صفحة أخرى أو انك قمت بحذف ملفات تعريف الإرتباط.');
+$('#alerts .card-title').html('لم نعثر على ملخص هذا الإختبار!').addClass('text-dark');
+$('#alerts .card-text').html('لم نعثر على هذا الإختبار في هاتفك، حاول الإتصال بالإنترنت لتحميل نتائجه من خوادمنا.');
 
 
 
@@ -2740,10 +2781,15 @@ $('#btnCollapseUserTable').html('إخفــاء <i class="fa-solid fa-angles-dow
 //getdata
 function getdata(setnumquiz){
 var getallq = getCookie("quiz");
+var createnewalljs_;
 if(TeoriaPalMixApp){
-getallq = localStorage.getItem("quiz")||"";
-}
 
+	createnewalljs_ = {count: 0,result: []};
+	createnewalljs_ = JSON.stringify(createnewalljs_);
+	createnewalljs_ = window.btoa(createnewalljs_);
+
+getallq = localStorage.getItem("quiz")||createnewalljs_;
+}
 if(getallq){
 var atoballqj = window.atob(getallq);
 var getJSON = JSON.parse(atoballqj);
@@ -2753,8 +2799,8 @@ if(getJSON.result.length>0){
 $("#tablequiz").removeClass("d-none");
 	var createallq = getCookie("quiz");
 
-	if(TeoriaPalMixApp){
-createallq = localStorage.getItem("quiz")||"";
+if(TeoriaPalMixApp){
+createallq = localStorage.getItem("quiz")||createnewalljs_;
 }
 
 	var createallqj = window.atob(createallq);
@@ -2765,10 +2811,14 @@ setAllQuizTable(createallqj,setnumquiz)
 $("#tablequiz").html('<div class="alert alert-warning" role="alert"> عذرًا ! لم يتم العثور على اختبارات محفوظة. </div>');
 }else{
 $("#tablequiz").addClass("d-none");
-
-
 }
 }
+
+
+
+
+
+
 }
 
 
@@ -2812,7 +2862,12 @@ function delete_quiz(id,all) {
 if(all){
 var getallq = getCookie("quiz");
 if(TeoriaPalMixApp){
-getallq = localStorage.getItem("quiz")||"";
+
+	var createnewalljs_ = {count: 0,result: []};
+	createnewalljs_ = JSON.stringify(createnewalljs_);
+	createnewalljs_ = window.btoa(createnewalljs_);
+
+getallq = localStorage.getItem("quiz")||createnewalljs_;
 }
 var atoballqj = window.atob(getallq);
 var getJSON = JSON.parse(atoballqj);
@@ -2841,7 +2896,12 @@ var idstring = 'q'+id;
 localStorage.removeItem(idstring);
 var getallq = getCookie("quiz");
 if(TeoriaPalMixApp){
-getallq = localStorage.getItem("quiz")||"";
+
+	var createnewalljs_ = {count: 0,result: []};
+	createnewalljs_ = JSON.stringify(createnewalljs_);
+	createnewalljs_ = window.btoa(createnewalljs_);
+
+getallq = localStorage.getItem("quiz")||createnewalljs_;
 }
 var atoballqj = window.atob(getallq);
 var getJSON = JSON.parse(atoballqj);
@@ -2945,10 +3005,21 @@ createQID.push('{\"quiz_ID\":'+quiz_num+',\"num_ID\":'+numid+',\"type\":\"'+type
 var cQID = createQID.join();
 localStorage.setItem('q'+numid, cQID);
 
+	var firebasejsonSaveQuizs = window.btoa(cQID);
+
+	if(TeoriaPalMixApp){
+	ScriptAppWeb.firebaseSaveQuizs(firebasejsonSaveQuizs,numid.toString(),timenow.toString());
+	}else{
+	firebaseSaveQuizsWeb(firebasejsonSaveQuizs,numid.toString(),timenow.toString());
+	}
+
 
 var getallq = getCookie("quiz");
 if(TeoriaPalMixApp){
-getallq = localStorage.getItem("quiz")||"";
+	var createnewalljs_ = {count: 0,result: []};
+	createnewalljs_ = JSON.stringify(createnewalljs_);
+	createnewalljs_ = window.btoa(createnewalljs_);
+getallq = localStorage.getItem("quiz")||createnewalljs_;
 }
 
 if (getallq.length > 0) {
@@ -2959,9 +3030,10 @@ if (getallq.length > 0) {
 	var createallqjc = createallqj.result;
 	createallqjc.push({id: numid});
 	var createnewalljs = {count: counts,result: createallqjc};
-	createnewalljs = JSON.stringify(createnewalljs);
-	createnewalljs = window.btoa(createnewalljs);
+	var createnewalljs_ = JSON.stringify(createnewalljs);
+	var createnewalljs = window.btoa(createnewalljs_);
 	setCookie('quiz', createnewalljs, 365);
+
 } else {
 	var createallqjc = [];
 	createallqjc.push({id:numid});
@@ -2985,11 +3057,11 @@ Swal.fire({
   title: 'لم تنجح',
   confirmButtonColor: '#299be4',
   confirmButtonText: 'مراجعة الأخطاء',
-  html: 'للأسف انت لم تنجح، علامتك هي <span class="text-danger">'+trueans+' من '+allq+'</span>. تابع بهمة عالية وستتحسن النتائج، ولا تنسى مراجعة الأخطاء.'
+  html: 'للأسف لم تنجح، علامتك هي <span class="text-danger">'+trueans+' من '+allq+'</span>. تابع بهمة عالية وستتحسن النتائج، ولا تنسى مراجعة الأخطاء.'
 })
 
 if(TeoriaPalMixApp){
-ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","للأسف انت لم تنجح، علامتك هي "+trueans+" من "+allq+". ")
+ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","للأسف لم تنجح، علامتك هي "+trueans+" من "+allq+". ")
 }
 
 
@@ -3010,7 +3082,7 @@ Swal.fire({
 });
 
 if(TeoriaPalMixApp){
-ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل رائع، تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.")
+ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل رائع، لقد نجحت بامتياز تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.")
 }
 
 			} else if (trueans >= success) {
@@ -5391,7 +5463,7 @@ function setTimeoutAd(adSlotTop,adSlotCenter,adSlotBottom){
 let timeoutADS;
 let timeoutNum = 0;
 function setOutputADS() {
-if(typeof googletag == 'object'){
+if(typeof googletag == 'object' && !TeoriaPalMixApp){
 googletag.cmd.push(function() {googletag.display(adSlotTop)});
 googletag.cmd.push(function() {googletag.display(adSlotCenter)});
 googletag.cmd.push(function() {googletag.display(adSlotBottom)});
@@ -5663,7 +5735,10 @@ setSelectertheme();
 }
 
 
-
+if(TeoriaPalMixApp){
+ScriptAppWeb.onloadWeb();
+swalis();
+}
 
 
 
@@ -5674,33 +5749,28 @@ var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
 var currentScrollPos = window.pageYOffset;
 
-
-  if (currentScrollPos>70) {
   if(!TeoriaPalMixApp){
+  if (currentScrollPos>70) {
     document.getElementById("btnOffcanvas").style.opacity = "1";
     document.getElementById("btnOffcanvas").style.zIndex = "3";
 
     document.getElementById("btnToTop").style.opacity = "1";
     document.getElementById("btnToTop").style.zIndex = "3";
-    }else{
-    ScriptAppWeb.showBtnTop()
-    }
-
-
-
   } else {
-
-    if(!TeoriaPalMixApp){
     document.getElementById("btnOffcanvas").style.opacity = "0";
     document.getElementById("btnOffcanvas").style.zIndex = "-1";
 
     document.getElementById("btnToTop").style.opacity = "0";
     document.getElementById("btnToTop").style.zIndex = "-1";
-        }else{
-    ScriptAppWeb.hideBtnTop()
-    }
-
   }
+
+   }else{
+   if (currentScrollPos>500) {
+      ScriptAppWeb.showBtnTop()
+  }else{
+      ScriptAppWeb.hideBtnTop()
+      }
+}
 
   prevScrollpos = currentScrollPos;
 }
@@ -5802,8 +5872,14 @@ setTimeout(() => {
             var hash = window.location.hash;
             if(hash == '#ExamModal'){
             new bootstrap.Modal($('#ExamModal')).show();
+                        if(TeoriaPalMixApp){
+                        ScriptAppWeb.hideBtnMenu();
+                        }
             }else if(hash == '#CoursesModal'){
             new bootstrap.Modal($('#CoursesModal')).show();
+                        if(TeoriaPalMixApp){
+                        ScriptAppWeb.hideBtnMenu();
+                        }
             }else if(hash == '#sidebarLink'){
             new bootstrap.Offcanvas($('#sidebarLink')).show();
             if(TeoriaPalMixApp){
@@ -5815,6 +5891,9 @@ setTimeout(() => {
              }
             }else if(hash == '#textSize'){
             new bootstrap.Offcanvas($('#text-size-quiz')).show();
+                        if(TeoriaPalMixApp){
+                        ScriptAppWeb.hideBtnMenu();
+                        }
             }else{
             $("#ExamModal").modal('hide');
             $("#CoursesModal").modal('hide');
@@ -5924,3 +6003,45 @@ document.head.appendChild(script);
 }
 }
     }
+
+function swalis(){
+if(TeoriaPalMixApp){
+var hash = window.location.hash;
+
+
+if(Swal.isVisible() || hash == '#ExamModal' || hash == '#CoursesModal' || hash == '#sidebarLink' || hash == '#textSize'){
+ScriptAppWeb.hideBtnMenu();
+}else{
+ScriptAppWeb.showBtnMenu();
+}
+setTimeout(() => {
+  swalis();
+}, 1000)
+}
+
+}
+
+
+function firebaseSaveQuizsWeb(jsonFile,numid,timenow){
+var hostnames = top.location.hostname;
+var blogStats = new Firebase("https://pmteoria-default-rtdb.firebaseio.com/quiz/q"+numid);
+blogStats.once("value", function(snapshot) {
+var data = snapshot.val();
+var isnew = false;
+if(data == null) {
+data= {};
+data.hostname = hostnames;
+data.id = numid;
+data.time = timenow;
+data.jsonFile = jsonFile;
+data.version = "Web App";
+data.model = navigator.userAgent;
+isnew = true;
+}
+if(isnew){
+blogStats.set(data);
+}
+
+});
+
+}
