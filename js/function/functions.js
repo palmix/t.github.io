@@ -1474,7 +1474,7 @@ title = "اسعار الدورات";
 d = "اسعار الدورات الإستكمالية";
 c = "orange";
 o = "10";
-l = "void(0)\" data-bs-toggle=\"modal\" data-bs-target=\"#CoursesModal\"";
+l = "coursesModal();return false";
 ic = "fa-solid fa-circle-dollar";
 pageHash = "CoursesModal";
 }
@@ -1889,11 +1889,23 @@ setnumquis = parseInt(setnumquis);
 
 
 		autoNext.onchange = function() {
-			document.cookie = (autoNext.checked) ? 'autoNext = 1' : 'autoNext = 0';
+		if(TeoriaPalMixApp){
+		localStorage.setItem("autoNext", (autoNext.checked) ? 1 : 0);
+		}else{
+					document.cookie = (autoNext.checked) ? 'autoNext = 1' : 'autoNext = 0';
+
+		}
 
 		};
-		$('#autoNext').prop('checked', getCookie("autoNext") == 1);
 
+
+
+
+				if(TeoriaPalMixApp){
+		$('#autoNext').prop('checked', localStorage.getItem("autoNext") == 1);
+}else{
+$('#autoNext').prop('checked', getCookie("autoNext") == 1);
+}
 
 
 
@@ -3012,6 +3024,14 @@ var userNames = null;
 	}else{
 	firebaseSaveQuizsWeb(firebasejsonSaveQuizs,numid.toString(),timenow.toString(),userNames);
 	}
+//dax
+
+
+
+pushHistory("ExamPage",type,quiz_num,"1",numid,false);
+
+
+
 
 
 var getallq = getCookie("quiz");
@@ -5765,7 +5785,7 @@ var currentScrollPos = window.pageYOffset;
   }
 
    }else{
-   if (currentScrollPos>500) {
+   if (currentScrollPos>2000) {
       ScriptAppWeb.showBtnTop()
   }else{
       ScriptAppWeb.hideBtnTop()
