@@ -2819,7 +2819,7 @@ createallq = localStorage.getItem("quiz")||createnewalljs_;
 	createallqj = JSON.parse(createallqj);
 
 setAllQuizTable(createallqj,setnumquiz)
-}else if(setnumquiz == 9){
+}else if(setnumquiz == 9 || getJSON.result.length==0){
 $("#tablequiz").html('<div class="alert alert-warning" role="alert"> عذرًا ! لم يتم العثور على اختبارات محفوظة. </div>');
 }else{
 $("#tablequiz").addClass("d-none");
