@@ -148,6 +148,9 @@ sethomeHTML.push('<div class="dropdown-menu dropdown-menu-end" aria-labelledby="
 
 sethomeHTML.push('<a href="?page=privacy" onclick="sethtmlcontainer(\'privacy\');return false" class="dropdown-item splash-default ripple"><i class="fas fa-tasks me-2"></i>سياسة الخصوصية</a>');
 
+
+
+
 sethomeHTML.push('<a href="?page=ContactUsPage" onclick="sethtmlcontainer(\'ContactUsPage\');return false" class="dropdown-item splash-default ripple"><i class="fa-solid fa-envelope me-2"></i>إتصل بنا</a>');
 sethomeHTML.push('<div class="divider dropdown-divider  d-none"></div>');
 sethomeHTML.push('<a href="#" class="dropdown-item splash-default ripple d-none"><i class="fa-solid fa-power-off"></i> تسجيل خروج</a>');
@@ -729,6 +732,175 @@ setTimeoutAd(adSlotTop,adSlotCenter,adSlotBottom);
 scrollGoTo($('#container'))
 
 }
+
+
+
+var TotalExams = 0;
+var Allcorrect_answers = 0;
+var uset_quiz_length = 0;
+var averagemarks = 0;
+var averagemarksNum = 0;
+
+function userProfilePage(){
+var logoSite = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMsIC5jbHMtNSB7CiAgICAgICAgZmlsbDogI2Y4ZjlmYTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMgewogICAgICAgIHN0cm9rZS1saW5lam9pbjogcm91bmQ7CiAgICAgICAgc3Ryb2tlLW9wYWNpdHk6IDA7CiAgICAgICAgc3Ryb2tlLXdpZHRoOiAxcHg7CiAgICAgIH0KCiAgICAgIC5jbHMtMiwgLmNscy0zLCAuY2xzLTQsIC5jbHMtNSB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIHN0cm9rZTogdXJsKCNsaW5lYXItZ3JhZGllbnQtMik7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgc3Ryb2tlOiB1cmwoI2xpbmVhci1ncmFkaWVudC0zKTsKICAgICAgfQoKICAgICAgLmNscy00IHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjI0OS41IiB5MT0iNDk5IiB4Mj0iMjQ5LjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWMyMTI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzIxMzAzZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIiIHgxPSIxNTQuNjAzIiB5MT0iMzUyLjI4MSIgeDI9IjM0NC43MDkiIHkyPSI3MC40MzgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjI4IiBzdG9wLW9wYWNpdHk9IjAuNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNzIiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSIyMjMuNDI3IiB5MT0iNDI4LjU2MiIgeDI9IjI3Ni40MTciIHkyPSIzNTAiIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQtMiIvPgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJyYWRpYWwtZ3JhZGllbnQiIGN4PSIyNTAiIGN5PSIyMDEiIHI9IjEwMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNkYzM1NDUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGMzNTQ1Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8Zz4KICAgIDxlbGxpcHNlIGNsYXNzPSJjbHMtMSIgY3g9IjI0OS41IiBjeT0iMjQ5LjUiIHJ4PSIyNTAuNSIgcnk9IjI0OS41Ii8+CiAgICA8cGF0aCBpZD0iRWxsaXBzZV8xX2NvcHlfNSIgZGF0YS1uYW1lPSJFbGxpcHNlIDEgY29weSA1IiBjbGFzcz0iY2xzLTIiIGQ9Ik0yNDkuNjUxLDcwLjQ0MUExNzkuMjMyLDE3OS4yMzIsMCwwLDEsMzk3LjI3MiwzNTEuMjg4QzM3MS4yLDMxNC44MzYsMjUxLDE4NCwyNTEsMTg0UzExOS4zOSwzMjkuMzg0LDEwMi43MjIsMzUyLjI4NUExNzkuMjMxLDE3OS4yMzEsMCwwLDEsMjQ5LjY1MSw3MC40NDFaIi8+CiAgICA8cGF0aCBpZD0iRWxsaXBzZV8xX2NvcHlfOCIgZGF0YS1uYW1lPSJFbGxpcHNlIDEgY29weSA4IiBjbGFzcz0iY2xzLTMiIGQ9Ik0yNDkuNjUxLDQyOC41NTlBMTc4LjcwNiwxNzguNzA2LDAsMCwwLDM3OS45MjksMzcyLjQxQzM3OS44NTMsMzcyLjQzOCwzNjIsMzUwLDM2MiwzNTBzLTQwLjM2NSw1Mi0xMTIsNTItMTEyLTUwLTExMi01MC0xOC4xNTEsMjAuOS0xOC4wODMsMjAuOTg0QTE3OC43LDE3OC43LDAsMCwwLDI0OS42NTEsNDI4LjU1OVoiLz4KICAgIDxwYXRoIGlkPSJFbGxpcHNlXzNfY29weSIgZGF0YS1uYW1lPSJFbGxpcHNlIDMgY29weSIgY2xhc3M9ImNscy00IiBkPSJNMjUwLDk5YzgzLjk0NywwLDE1Miw2Ny44MjksMTUyLDE1MS41YTE4NS45NjEsMTg1Ljk2MSwwLDAsMS04LDUyLjVMMjUxLDE0MywxMDgsMzAzcy0xMC0yNC4wNjMtMTAtNTIuNUM5OCwxNjYuODI5LDE2Ni4wNTMsOTksMjUwLDk5WiIvPgogIDwvZz4KICA8ZyBpZD0ibGluZV9jb3B5IiBkYXRhLW5hbWU9ImxpbmUgY29weSI+CiAgICA8cGF0aCBpZD0iUmVjdGFuZ2xlXzFfY29weV8zIiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAxIGNvcHkgMyIgY2xhc3M9ImNscy01IiBkPSJNMjQ4LjA0NywyMzYuMTYzaDUuMjA4djIzLjM5NGgtNS4yMDhWMjM2LjE2M1oiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTI0OS4zNDksMjA4LjkwNmgyLjZ2MTQuMjhoLTIuNnYtMTQuMjhaIi8+CiAgICA8cGF0aCBpZD0iUmVjdGFuZ2xlXzFfY29weSIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMSBjb3B5IiBjbGFzcz0iY2xzLTUiIGQ9Ik0yNDYuNzQ1LDI3Ny43NDNoNy44MTJWMzAzLjdoLTcuODEyVjI3Ny43NDNaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik0yMzEuMTYzLDMzMC45NTVoMTQuMjh2MzguOTc2aC0xNC4yOFYzMzAuOTU1WiIvPgogICAgPHBhdGggaWQ9IlJlY3RhbmdsZV8zX2NvcHkiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDMgY29weSIgY2xhc3M9ImNscy01IiBkPSJNMjU1Ljg1OSwzMzAuOTU1aDE0LjI4djM4Ljk3NmgtMTQuMjhWMzMwLjk1NVoiLz4KICA8L2c+Cjwvc3ZnPgo=";
+var setHTML = [''];
+
+
+setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
+
+var FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model;
+ TotalExams = 0;
+ Allcorrect_answers = 0;
+ uset_quiz_length = 0;
+ averagemarks = 0;
+ averagemarksNum = 0;
+
+
+
+
+
+ UserId = localStorage.getItem("Id");
+if(UserId.length != "" && UserId != null && UserId != undefined){
+ FirstName = localStorage.getItem("FirstName");
+ LastName = localStorage.getItem("LastName");
+ FullName = localStorage.getItem("FullName");
+ Email = localStorage.getItem("Email");
+ UserId = localStorage.getItem("Id");
+ MiddleName = localStorage.getItem("MiddleName");
+ profilePic = localStorage.getItem("profilePic");
+ profilePic64 = localStorage.getItem("profilePic64");
+ loginWith = localStorage.getItem("loginWith");
+ model = localStorage.getItem("model");
+
+
+
+ setHTML.push('<div id="MyProfile" class="m-auto mb-2"><div class="card-header"><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 align-items-center text-center">');
+  setHTML.push('<div class="col"><a href="javascript:;" class="avatar rounded-circle"><img alt="Image" id="profilePic" src="'+logoSite+'" width="160" height="160" class="rounded-circle"></a></div>');
+  setHTML.push('<div class="col"> <small href="#!" class="d-block h6 mb-0 mt-1" id="FullName"></small> <small dir="ltr" class="d-block text-muted mt-1" id="MiddleName"></small> </div>');
+  setHTML.push('<div class="col"> <small class="d-block text-muted mt-1" id="login_With"></small> <small class="d-block text-muted mt-1" id="loginWith"></small> </div>');
+  setHTML.push('</div></div>');
+  setHTML.push('<div class="card card-fluid"><div class="card-header text-center">');
+  setHTML.push('<h4>إعدادات مشاركة الإختبارات</h4>');
+  setHTML.push('</div>');
+  setHTML.push('<div class="card-body">');
+  setHTML.push('<div>عندما تقوم بمشاركة نتيجة أحد إختبارتك مع أصدقائك، سيرى في الملاحظات <br/><span class="fst-italic">تم إجراء هذا الإختبار بواسطة <span class="fw-bold" id="UserShareName">إسمك</span></span></div>');
+  setHTML.push('<div class="my-2">يمكنك تعديل الإسم أو اللقب أدناه.</div>');
+  setHTML.push('<div class="input-group my-3"> <label class="input-group-text"  for="inputUserShareName">الإسم الحالي</label> <input type="text" class="form-control" id="inputUserShareName" placeholder="الإسم أو اللقب..." aria-label="Username" aria-describedby="inputUserShareName"> </div>');
+  setHTML.push('<div class="form-check my-3 form-switch '+formswitchlg+'"> <input class="form-check-input form-check-default" type="checkbox" role="switch" id="checkedUserShareName" onchange="checkedUser()" checked> <span><label class="form-check-label" for="checkedUserShareName">مشاركة الإسم</label></span> </div>');
+  setHTML.push('<div class="alert alert-primary fst-italic d-none" role="alert" id="checkedUsernote"> ملاحظة: عند إيقاف خاصية مشاركة الإسم سيظهر في الملاحظات بواسطة مجهول </div>');
+  setHTML.push('<div class="alert alert-warning d-none" role="alert" id="checkedUserAlert"> </div>');
+  setHTML.push('<div class="text-center"> <button type="button" onclick="saveMySetting()" class="btn btn-default shadow-none splash-default ripple my-2" id="btnsaveMySetting">حفــظ</button> </div>');
+  setHTML.push('</div><div></div></div>');
+  setHTML.push('<div class="card card-fluid">');
+  setHTML.push('<div class="card-header text-center"> <h4>إختباراتك المخزنة في خوادمنا</h4> </div>');
+  setHTML.push('<div class="card-body"> <div id="table_quiz_saver"> <div class="row"> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="TotalExams"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">مجموع الإختبارات</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="SuccessfulExams"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">الناجح منها</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="Successfulpercent"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">نسبة النجاح</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="averageMarks"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">متوسط العلامات</span> </div></div>');
+
+  setHTML.push('<div id="tablequiz">');
+  setHTML.push('<div class="table-responsive">');
+ setHTML.push('<div class="table-wrapper px-1 pb-0">');
+ setHTML.push('<div class="table-title bg-default">');
+
+ setHTML.push('<div class="row">');
+ setHTML.push('<div class="col col-md-7">');
+ setHTML.push('<div class="titletable"><i class="fa-solid fa-folder-user" style=""></i> <b>سجل </b>إختبارتك على الخادم</div>');
+ setHTML.push('</div>');
+
+
+
+
+ setHTML.push('</div>');
+ setHTML.push('</div>');
+ setHTML.push('<table class="table table-striped table-hover">');
+
+ setHTML.push('<thead><tr>');
+ setHTML.push('<th>#</th>');
+ setHTML.push('<th class="t_type">تؤوريا</th>');
+ setHTML.push('<th class="t_idQuiz">رقم الإمتحان</th>');
+ setHTML.push('<th class="t_date">التاريخ</th>');
+ setHTML.push('<th class="t_duration">المدة</th>');
+ setHTML.push('<th class="t_mark"><span>العلامة</span></th>');
+ setHTML.push('<th class="t_result"><span>النتيجة</span></th>');
+ setHTML.push('<th>إجرائات</th>');
+ setHTML.push('</tr></thead>');
+
+ setHTML.push('<tbody id="tableSetAll">');
+
+
+
+
+
+
+
+
+
+
+ setHTML.push('</tbody>');
+ setHTML.push('</table>');
+
+
+
+
+
+ setHTML.push('</div></div>');
+  setHTML.push('</div>');
+
+  setHTML.push('</div> <div id="table_noquiz" class=" d-none"> <div class="alert alert-light d-flex align-items-center rounded-0 rounded-bottom" role="alert"><i class="fas fa-rss mx-2 fs-4"></i><span>ملاحظة</span></div> </div> </div>');
+  setHTML.push('</div></div>');
+
+
+
+
+
+}else{
+ setHTML.push("يجب تسجيل الدخول للمتابعة");
+}
+
+
+
+
+
+
+setHTML.push('</div>');
+
+
+
+var htmlset = setHTML.join('');
+document.title = "الملف الشخصي";
+$('#container').html(htmlset);
+
+
+
+
+
+
+if(profilePic64){
+$("#profilePic").attr('src',profilePic64);
+}else{
+$("#profilePic").attr('src',profilePic);
+}
+if(FullName){
+$("#FullName").html(FullName);
+}
+if(MiddleName){
+$("#MiddleName").html(MiddleName);
+}
+if(loginWith){
+$("#login_With").html("دخول عبر");
+$("#loginWith").html(loginWith);
+}
+
+
+startGetQuiz(FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model)
+
+
+
+
+scrollGoTo($('#container'))
+
+}
+
+
+
 
 
 //set quiz page
@@ -1700,8 +1872,10 @@ setTypePage(page,adSlotTop,adSlotCenter,adSlotBottom)
 }else if(page == 'motorcycle'){
 setTypePage(page,adSlotTop,adSlotCenter,adSlotBottom)
 }else if(page == 'privacy'){
-privacyPage(adSlotTop,adSlotCenter,adSlotBottom)
-}
+ privacyPage(adSlotTop,adSlotCenter,adSlotBottom)
+ }else if(page == 'userProfilePage'){
+  userProfilePage()
+  }
 
 
 
@@ -2248,6 +2422,7 @@ setqsave(setexamreview,msgx);
 
 $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz/q"+setexamreview+".json", {}).catch(function(error) {
 
+$('#alerts').removeClass('d-none').removeClass('border-success');
      $('#alerts').removeClass('d-none').addClass('border-warning');
      $('#alerts .card-body').addClass('text-secondary');
      $('#alerts .card-header').html('<i class="fa-solid fa-hexagon-exclamation"></i> حدث خطأ');
@@ -2257,10 +2432,15 @@ $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz/q"+setexamreview+".
 
 }).done(function(recosts) {
 if(recosts != null){
-
+var userIdSite = recosts.userId;
     var getjsonUrl = window.atob(recosts.jsonFile);
     var getqid = JSON.parse(getjsonUrl);
     var getqidl = getqid.result.length;
+
+
+
+
+
 
 
     if (getqidl > 1) {
@@ -2278,8 +2458,62 @@ if(recosts != null){
         }
         setqsave(setexamreview, msgx);
     }
+
+
+
+$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/User/ID"+userIdSite+".json", {
+         }).catch(function(error) {
+
+    }).done(function(recosts) {
+
+if(recosts){
+    var userFullName = recosts.profile.FullName;
+    var userSetting = recosts.setting;
+var nickname = null;
+var shareName = null;
+var userNickname = null;
+var FullName = null;
+if(!userSetting){
+nickname = userFullName;
+shareName = true;
+}else{
+nickname = recosts.setting.nickname;
+shareName = recosts.setting.shareName;
+}
+if(shareName == false || shareName == null){
+nickname = "مجهـول";
+}
+
+$('#alerts').removeClass('d-none').removeClass('border-warning');
+     $('#alerts').removeClass('d-none').addClass('border-success');
+     $('#alerts .card-body').addClass('text-secondary');
+     $('#alerts .card-header').html('<i class="fa-duotone fa-user"></i> ملاحظة');
+     $('#alerts .card-title').html('حول هذا الإختبار').addClass('text-dark');
+     $('#alerts .card-text').html('تم إجراء هذا الإختبار بواسطة <b>' + nickname + '</b>');
+}else{
+$('#alerts').removeClass('d-none').removeClass('border-warning');
+     $('#alerts').removeClass('d-none').addClass('border-success');
+     $('#alerts .card-body').addClass('text-secondary');
+     $('#alerts .card-header').html('<i class="fa-duotone fa-user"></i> ملاحظة');
+     $('#alerts .card-title').html('حول هذا الإختبار').addClass('text-dark');
+     $('#alerts .card-text').html('تم إجراء هذا الإختبار بواسطة <b>مجهول</b>');
+
+}
+
+
+
+
+
+
+
+});
+
+
+
     }else{
+     $('#alerts').removeClass('d-none').removeClass('border-success');
      $('#alerts').removeClass('d-none').addClass('border-warning');
+
      $('#alerts .card-body').addClass('text-secondary');
      $('#alerts .card-header').html('<i class="fa-solid fa-hexagon-exclamation"></i> لم نعثر عليه');
      $('#alerts .card-title').html('لم نعثر على ملخص هذا الإختبار!').addClass('text-dark');
@@ -2294,7 +2528,8 @@ if(recosts != null){
 
 
 $( document ).ready(function() {
-$('#alerts').removeClass('d-none').addClass('border-warning');
+     $('#alerts').removeClass('d-none').removeClass('border-success');
+     $('#alerts').removeClass('d-none').addClass('border-warning');
 $('#alerts .card-body').addClass('text-secondary');
 $('#alerts .card-header').html('<i class="fa-solid fa-hexagon-exclamation"></i> لم نعثر عليه');
 $('#alerts .card-title').html('لم نعثر على ملخص هذا الإختبار!').addClass('text-dark');
@@ -3018,11 +3253,10 @@ var cQID = createQID.join();
 localStorage.setItem('q'+numid, cQID);
 
 	var firebasejsonSaveQuizs = window.btoa(cQID);
-var userNames = null;
 	if(TeoriaPalMixApp){
-	ScriptAppWeb.firebaseSaveQuizs(firebasejsonSaveQuizs,numid.toString(),timenow.toString(),userNames);
+	ScriptAppWeb.firebaseSaveQuizs(firebasejsonSaveQuizs,numid.toString(),timenow.toString());
 	}else{
-	firebaseSaveQuizsWeb(firebasejsonSaveQuizs,numid.toString(),timenow.toString(),userNames);
+	firebaseSaveQuizsWeb(firebasejsonSaveQuizs,numid.toString(),timenow.toString());
 	}
 //dax
 
@@ -5483,7 +5717,7 @@ function setTimeoutAd(adSlotTop,adSlotCenter,adSlotBottom){
 let timeoutADS;
 let timeoutNum = 0;
 function setOutputADS() {
-if(typeof googletag == 'object' && !TeoriaPalMixApp){
+if(typeof googletag == 'object'){
 googletag.cmd.push(function() {googletag.display(adSlotTop)});
 googletag.cmd.push(function() {googletag.display(adSlotCenter)});
 googletag.cmd.push(function() {googletag.display(adSlotBottom)});
@@ -5503,7 +5737,11 @@ function delayedADS() {
 function clearTimeoutADS() {
   clearTimeout(timeoutADS);
 }
+
+
+if(!TeoriaPalMixApp){
 setOutputADS();
+}
 
 var script = document.createElement('script');
 script.type = 'text/javascript';
@@ -5733,7 +5971,7 @@ if (page == 'ExamPage') {
                 view = 0;
         }
         startsetHtml(type,exam,question,view,isback)
-} else if(page == 'TrafficLawPage'||page == 'privacy'||page == 'ProgramPDF'||page == 'signalsPage'||page == 'HomePage'||page == 'tableUserPage'||page == 'AllExamsPage'||page == 'ContactUsPage'||page == 'private'||page == 'truck'||page == 'haulage'||page == 'taxi'||page == 'tractor'||page == 'motorcycle'){
+} else if(page == 'TrafficLawPage'||page == 'userProfilePage'||page == 'privacy'||page == 'ProgramPDF'||page == 'signalsPage'||page == 'HomePage'||page == 'tableUserPage'||page == 'AllExamsPage'||page == 'ContactUsPage'||page == 'private'||page == 'truck'||page == 'haulage'||page == 'taxi'||page == 'tractor'||page == 'motorcycle'){
 
 
         sethtmlcontainer(page,isback)
@@ -6034,15 +6272,20 @@ ScriptAppWeb.hideBtnMenu();
 }else{
 ScriptAppWeb.showBtnMenu();
 }
+
+
+
+
 setTimeout(() => {
   swalis();
+
 }, 1000)
 }
 
 }
 
 
-function firebaseSaveQuizsWeb(jsonFile,numid,timenow,userNames){
+function firebaseSaveQuizsWeb(jsonFile,numid,timenow){
 var hostnames = top.location.hostname;
 var blogStats = new Firebase("https://pmteoria-default-rtdb.firebaseio.com/quiz/q"+numid);
 blogStats.once("value", function(snapshot) {
@@ -6055,7 +6298,6 @@ data.id = numid;
 data.time = timenow;
 data.jsonFile = jsonFile;
 data.version = "Web App";
-data.name = userNames;
 data.model = navigator.userAgent;
 isnew = true;
 }
@@ -6066,3 +6308,405 @@ blogStats.set(data);
 });
 
 }
+
+
+
+const getBase64FromUrl = async (url) => {
+  const data = await fetch(url);
+  const blob = await data.blob();
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = () => {
+      const base64data = reader.result;
+      resolve(base64data);
+    }
+  });
+}
+
+
+
+
+ function setUserProfileWeb(FirstName,LastName,FullName,Email,Id,MiddleName,profilePic,loginWith,model){
+
+
+localStorage.setItem("FirstName", FirstName);
+localStorage.setItem("LastName", LastName);
+localStorage.setItem("FullName", FullName);
+localStorage.setItem("Email", Email);
+localStorage.setItem("Id", Id);
+localStorage.setItem("MiddleName", MiddleName);
+localStorage.setItem("profilePic", profilePic);
+localStorage.setItem("loginWith", loginWith);
+localStorage.setItem("model", model);
+
+
+getBase64FromUrl(profilePic).then(function(recosts) {
+localStorage.setItem("profilePic64", recosts);
+})
+
+
+ }
+
+
+
+function goToUserProfile(){
+sethtmlcontainer('userProfilePage');
+}
+
+
+
+
+
+//profile
+ function getQuiz(id,quizis,FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model){
+     $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz/"+id+".json", {
+         }).catch(function(error) {
+
+    }).done(function(recosts) {
+    if(recosts != null){
+   var userId = recosts.userId;
+
+    if(userId == UserId){
+        TotalExams++;
+
+
+    var FullName = recosts.FullName;
+    var host = recosts.host;
+    var id = recosts.id;
+    var jsonFile = window.atob(recosts.jsonFile);
+    var model = recosts.model;
+    var time = recosts.time;
+    var version = recosts.version;
+
+
+
+var getJsonFile = JSON.parse(jsonFile);
+var correct_answers = getJsonFile.correct_answers;
+correct_answers = parseInt(correct_answers)
+
+
+
+    if(correct_answers >= 25){
+    Allcorrect_answers++;
+    }
+
+
+
+var getTotalExamsFalse = Math.abs(Allcorrect_answers - TotalExams);
+
+
+	var useransd = TotalExams - getTotalExamsFalse;
+    var present = ((useransd / TotalExams) * 100 >> 0);
+
+
+
+
+
+
+
+$("#SuccessfulExams").html(Allcorrect_answers);
+$("#TotalExams").html(TotalExams);
+$("#Successfulpercent").html(present+"%");
+
+setAllQuizTableSarver(jsonFile,TotalExams,FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model);
+
+
+
+
+    }
+
+
+    if(TotalExams == 0){
+    $('#table_noquiz span').html('لم نعثر على إختبارات مسجلة لحسابك في خوادمنا');
+    $('#table_quiz_saver').addClass('d-none');
+    $('#table_noquiz').removeClass('d-none');
+    }else{
+    $('#table_quiz_saver').removeClass('d-none');
+    $('#table_noquiz').addClass('d-none');
+    }
+
+
+    }
+
+ });
+  }
+
+ function startGetQuiz(FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model){
+ if(window.navigator.onLine){
+
+ if(TeoriaPalMixApp){
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'https://cdn.firebase.com/js/client/2.4.2/firebase.js';
+document.head.appendChild(script);
+ }
+
+
+
+
+
+  $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/.json", {
+
+    }).catch(function(error) {
+
+$('#table_quiz_saver').addClass('d-none');
+$('#table_noquiz').removeClass('d-none');
+$('#table_noquiz span').html('حدث خطأ! يرجى المحاولة لاحقًا أو الإتصال بالدعم');
+
+
+}).done(function(recosts) {
+
+getUserSetting(recosts,FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model)
+
+
+
+
+
+});
+
+}else{
+$('#table_quiz_saver').addClass('d-none');
+$('#table_noquiz').removeClass('d-none');
+$('#table_noquiz span').html('يتطلب إظهار إحصائيات إختباراتك <b>الإتصال بالإنترنت</b>');
+}
+}
+
+function getInfoUser(id){
+$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/User/ID"+id+".json", {
+         }).catch(function(error) {
+
+    }).done(function(recosts) {
+    var userFullName = recosts.profile.FullName;
+    var userSetting = recosts.setting;
+var nickname = null;
+var shareName = null;
+var userNickname = null;
+var FullName = null;
+if(!userSetting){
+nickname = userFullName;
+shareName = true;
+}else{
+nickname = recosts.setting.nickname
+shareName = recosts.setting.shareName;
+}
+
+
+$('#checkedUserShareName').prop('checked',shareName);
+
+if(shareName){
+$('#inputUserShareName').attr("disabled",false);
+}else{
+$('#inputUserShareName').attr("disabled",true);
+$('#checkedUsernote').removeClass("d-none");
+}
+
+$("#inputUserShareName").val(nickname);
+$("#UserShareName").text(nickname);
+
+
+});
+}
+
+function getUserSetting(recosts,FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model){
+if(recosts != null){
+getInfoUser(UserId);
+
+//quizs
+ var getRecosts = recosts.quiz;
+ var reLangth = Object.keys(getRecosts).length;
+ for(var i=0;i<reLangth;i++){
+ var obj = Object.keys(getRecosts)[i];
+getQuiz(obj,recosts.quiz,FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model);
+
+ }
+}
+}
+
+
+function setAllQuizTableSarver(createallqj,QuizNumper,FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model){
+
+
+var p1 = [''];
+
+
+var correct_answers,duration,num_ID,number,quiz_ID,type,dates,resultQuiz,year,month,date,theTime,theDate,active,viewquiz,typeAr,hours12,textcolor,l10;
+
+active = '';
+l10 = 0;
+
+
+var dataStorage = JSON.parse(createallqj);
+
+
+correct_answers = dataStorage.correct_answers;
+duration = dataStorage.duration;
+num_ID = dataStorage.num_ID;
+number = dataStorage.number;
+quiz_ID = dataStorage.quiz_ID;
+type = dataStorage.type;
+dates = dataStorage.date;
+
+if(correct_answers == 30){
+resultQuiz = '<i class="fa-solid fa-trophy-star text-success" title="ناجح بامتياز"></i>'
+textcolor = 'text-success';
+}else if(correct_answers >= 25){
+resultQuiz = '<i class="fa-solid fa-face-smile text-success" title="ناجح"></i>'
+textcolor = 'text-success';
+}else{
+resultQuiz = '<i class="fa-solid fa-face-frown text-danger" title="لم تنجح"></i>';
+textcolor = 'text-danger';
+}
+
+var setDate = new Date(dates);
+
+year = setDate.getFullYear();
+month = setDate.getMonth() + 1;
+date = setDate.getDate();
+hours12 = formatAMPM(setDate);
+
+theDate = year+'/'+month+'/'+date;
+theTime = hours12;
+
+
+
+
+
+
+if(type == "private"){
+typeAr = "خصوصي"
+}else if(type == "truck"){
+typeAr = "شحن خفيف"
+}else if(type == "haulage"){
+typeAr = "شحن ثقيل"
+}else if(type == "taxi"){
+typeAr = "عمومي"
+}else if(type == "tractor"){
+typeAr = "تراكتور"
+}else if(type == "motorcycle"){
+typeAr = "دراجة نارية"
+}else{
+typeAr = type;
+}
+
+
+
+
+
+p1.push('<tr class="'+active+'">');
+p1.push('<td>'+QuizNumper+'</td>');
+p1.push('<td class="t_type"><a onclick="sethtmlcontainer(\''+type+'\');return false" href="?page='+type+'">'+typeAr+'</a></td>');
+p1.push('<td class="t_idQuiz"><a onclick="startsetHtml(\''+type+'\','+quiz_ID+',1,1)" href="javascript:;">'+quiz_ID+'</a></td>');
+p1.push('<td class="t_date" title="تاريخ الإمتحان '+theDate+' - '+theTime+'">'+theDate+'</td>');
+p1.push('<td class="t_duration">'+duration+'</td>');
+p1.push('<td class="t_mark '+textcolor+'">'+number+'/'+correct_answers+'</td>');
+p1.push('<td>'+resultQuiz+'</td>');
+p1.push('<td>');
+p1.push('<a onclick="startsetHtml(\''+type+'\','+quiz_ID+',1,'+num_ID+')" href="javascript:;" class="viewquiz '+viewquiz+'" title="مراجعة الإمتحان" data-toggle="tooltip"><i class="fa-solid fa-eye"></i></a>');
+p1.push('</td>');
+p1.push('</tr>');
+
+
+
+averagemarksNum++;
+averagemarks += correct_answers;
+var setaveragemarks = Math.round(averagemarks/averagemarksNum);
+
+$("#averageMarks").html(setaveragemarks+"/30");
+
+
+
+$("#tableSetAll").append(p1.join())
+
+
+
+
+
+
+
+}
+
+function saveMySetting(){
+ if(window.navigator.onLine){
+ $('#btnsaveMySetting').attr("disabled",true);
+ $('#btnsaveMySetting').html('حفــظ <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+$('#checkedUserAlert').addClass("d-none");
+
+ var s1 = $('#checkedUserShareName').is(':checked');
+ var s2 = $('#inputUserShareName').val();
+
+ var tests2 = s2.replace(/ /g,"")
+
+ var s2_length = tests2.length;
+ var uId = localStorage.getItem("Id");
+
+
+
+
+ if(s2_length < 2 && s1==true){
+ $('#btnsaveMySetting').attr("disabled",false);
+ $('#btnsaveMySetting').html('حفــظ');
+ $('#checkedUserAlert').html('الإسم قصير جدًا، الرجاء إختيار إسم من حرفين أو أكثر').removeClass("d-none");
+}else if(s2_length > 32 && s1==true){
+
+ $('#btnsaveMySetting').attr("disabled",false);
+ $('#btnsaveMySetting').html('حفــظ');
+
+ $('#checkedUserAlert').html('الإسم طويل جدًا، الرجاء إختيار إسم من 32 حرف أو أقل').removeClass("d-none");
+
+
+
+ }else{
+
+var blogStats = new Firebase("https://pmteoria-default-rtdb.firebaseio.com/User/ID"+uId+"/setting");
+blogStats.once("value", function(snapshot) {
+var data = snapshot.val();
+var isnew = false;
+if(data == null) {
+data= {};
+
+
+
+data.shareName = s1;
+data.nickname = s2;
+
+isnew = true;
+}
+if(isnew){
+blogStats.set(data);
+}else{
+blogStats.set(data);
+blogStats.child("shareName").set(s1);
+blogStats.child("nickname").set(s2);
+}
+
+
+ $('#btnsaveMySetting').attr("disabled",false);
+ $('#btnsaveMySetting').html('حفــظ');
+
+});
+
+ }
+
+
+ }else{
+ $('#btnsaveMySetting').attr("disabled",false);
+ $('#btnsaveMySetting').html('حفــظ');
+  $('#checkedUserAlert').html('يرجى التحقق من إتصالك بالإنترنت').removeClass("d-none");
+}
+
+
+
+}
+
+function checkedUser(){
+ if ($('#checkedUserShareName').is(':checked')) {
+$('#inputUserShareName').attr("disabled",false);
+$('#checkedUsernote').addClass("d-none");
+}else{
+$('#inputUserShareName').attr("disabled",true);
+$('#checkedUsernote').removeClass("d-none");
+}
+}
+
+//profile
