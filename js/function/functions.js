@@ -748,7 +748,7 @@ var setHTML = [''];
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
 
-var FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model;
+var FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,manager,model;
  TotalExams = 0;
  Allcorrect_answers = 0;
  uset_quiz_length = 0;
@@ -770,9 +770,14 @@ if(UserId.length != "" && UserId != null && UserId != undefined){
  profilePic = localStorage.getItem("profilePic");
  profilePic64 = localStorage.getItem("profilePic64");
  loginWith = localStorage.getItem("loginWith");
+ manager = localStorage.getItem("manager");
  model = localStorage.getItem("model");
 
-
+if(manager != "fasle"){
+if(manager == "true"|| manager == true){
+FullName = FullName +'<i class="fa-solid fa-badge-check text-primary mx-1"></i>';
+}
+}
 
  setHTML.push('<div id="MyProfile" class="m-auto mb-2"><div class="card-header"><div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 align-items-center text-center">');
   setHTML.push('<div class="col"><a href="javascript:;" class="avatar rounded-circle"><img alt="Image" id="profilePic" src="'+logoSite+'" width="160" height="160" class="rounded-circle"></a></div>');
@@ -786,7 +791,7 @@ if(UserId.length != "" && UserId != null && UserId != undefined){
   setHTML.push('<div>عندما تقوم بمشاركة نتيجة أحد إختبارتك مع أصدقائك، سيرى في الملاحظات <br/><span class="fst-italic">تم إجراء هذا الإختبار بواسطة <span class="fw-bold" id="UserShareName">إسمك</span></span></div>');
   setHTML.push('<div class="my-2">يمكنك تعديل الإسم أو اللقب أدناه.</div>');
   setHTML.push('<div class="input-group my-3"> <label class="input-group-text"  for="inputUserShareName">الإسم الحالي</label> <input type="text" class="form-control" id="inputUserShareName" placeholder="الإسم أو اللقب..." aria-label="Username" aria-describedby="inputUserShareName"> </div>');
-  setHTML.push('<div class="form-check my-3 form-switch '+formswitchlg+'"> <input class="form-check-input form-check-default" type="checkbox" role="switch" id="checkedUserShareName" onchange="checkedUser()" checked> <span><label class="form-check-label" for="checkedUserShareName">مشاركة الإسم</label></span> </div>');
+  setHTML.push('<div class="form-check my-2 form-switch '+formswitchlg+'"> <input class="form-check-input form-check-default" type="checkbox" role="switch" id="checkedUserShareName" onchange="checkedUser()" checked><span><label class="form-check-label" for="checkedUserShareName">مشاركة الإسم</label></span></div>');
   setHTML.push('<div class="alert alert-primary fst-italic d-none" role="alert" id="checkedUsernote"> ملاحظة: عند إيقاف خاصية مشاركة الإسم سيظهر في الملاحظات بواسطة مجهول </div>');
   setHTML.push('<div class="alert alert-warning d-none" role="alert" id="checkedUserAlert"> </div>');
   setHTML.push('<div class="text-center"> <button type="button" onclick="saveMySetting()" class="btn btn-default shadow-none splash-default ripple my-2" id="btnsaveMySetting">حفــظ</button> </div>');
@@ -848,7 +853,7 @@ if(UserId.length != "" && UserId != null && UserId != undefined){
   setHTML.push('</div></div>');
 
 
-
+  setHTML.push('<button type="button" class="btn btn-outline-danger" onclick="logoutUsers()">تسجيـل خـروج</button>');
 
 
 }else{
@@ -890,7 +895,7 @@ $("#loginWith").html(loginWith);
 }
 
 
-startGetQuiz(FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,model)
+startGetQuiz(FirstName,LastName,FullName,Email,UserId,MiddleName,profilePic,profilePic64,loginWith,manager,model)
 
 
 
@@ -899,9 +904,18 @@ scrollGoTo($('#container'))
 
 }
 
+function managerPage(){
+var logoSite = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMsIC5jbHMtNSB7CiAgICAgICAgZmlsbDogI2Y4ZjlmYTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMgewogICAgICAgIHN0cm9rZS1saW5lam9pbjogcm91bmQ7CiAgICAgICAgc3Ryb2tlLW9wYWNpdHk6IDA7CiAgICAgICAgc3Ryb2tlLXdpZHRoOiAxcHg7CiAgICAgIH0KCiAgICAgIC5jbHMtMiwgLmNscy0zLCAuY2xzLTQsIC5jbHMtNSB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIHN0cm9rZTogdXJsKCNsaW5lYXItZ3JhZGllbnQtMik7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgc3Ryb2tlOiB1cmwoI2xpbmVhci1ncmFkaWVudC0zKTsKICAgICAgfQoKICAgICAgLmNscy00IHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjI0OS41IiB5MT0iNDk5IiB4Mj0iMjQ5LjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWMyMTI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzIxMzAzZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIiIHgxPSIxNTQuNjAzIiB5MT0iMzUyLjI4MSIgeDI9IjM0NC43MDkiIHkyPSI3MC40MzgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjI4IiBzdG9wLW9wYWNpdHk9IjAuNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNzIiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSIyMjMuNDI3IiB5MT0iNDI4LjU2MiIgeDI9IjI3Ni40MTciIHkyPSIzNTAiIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQtMiIvPgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJyYWRpYWwtZ3JhZGllbnQiIGN4PSIyNTAiIGN5PSIyMDEiIHI9IjEwMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNkYzM1NDUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGMzNTQ1Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8Zz4KICAgIDxlbGxpcHNlIGNsYXNzPSJjbHMtMSIgY3g9IjI0OS41IiBjeT0iMjQ5LjUiIHJ4PSIyNTAuNSIgcnk9IjI0OS41Ii8+CiAgICA8cGF0aCBpZD0iRWxsaXBzZV8xX2NvcHlfNSIgZGF0YS1uYW1lPSJFbGxpcHNlIDEgY29weSA1IiBjbGFzcz0iY2xzLTIiIGQ9Ik0yNDkuNjUxLDcwLjQ0MUExNzkuMjMyLDE3OS4yMzIsMCwwLDEsMzk3LjI3MiwzNTEuMjg4QzM3MS4yLDMxNC44MzYsMjUxLDE4NCwyNTEsMTg0UzExOS4zOSwzMjkuMzg0LDEwMi43MjIsMzUyLjI4NUExNzkuMjMxLDE3OS4yMzEsMCwwLDEsMjQ5LjY1MSw3MC40NDFaIi8+CiAgICA8cGF0aCBpZD0iRWxsaXBzZV8xX2NvcHlfOCIgZGF0YS1uYW1lPSJFbGxpcHNlIDEgY29weSA4IiBjbGFzcz0iY2xzLTMiIGQ9Ik0yNDkuNjUxLDQyOC41NTlBMTc4LjcwNiwxNzguNzA2LDAsMCwwLDM3OS45MjksMzcyLjQxQzM3OS44NTMsMzcyLjQzOCwzNjIsMzUwLDM2MiwzNTBzLTQwLjM2NSw1Mi0xMTIsNTItMTEyLTUwLTExMi01MC0xOC4xNTEsMjAuOS0xOC4wODMsMjAuOTg0QTE3OC43LDE3OC43LDAsMCwwLDI0OS42NTEsNDI4LjU1OVoiLz4KICAgIDxwYXRoIGlkPSJFbGxpcHNlXzNfY29weSIgZGF0YS1uYW1lPSJFbGxpcHNlIDMgY29weSIgY2xhc3M9ImNscy00IiBkPSJNMjUwLDk5YzgzLjk0NywwLDE1Miw2Ny44MjksMTUyLDE1MS41YTE4NS45NjEsMTg1Ljk2MSwwLDAsMS04LDUyLjVMMjUxLDE0MywxMDgsMzAzcy0xMC0yNC4wNjMtMTAtNTIuNUM5OCwxNjYuODI5LDE2Ni4wNTMsOTksMjUwLDk5WiIvPgogIDwvZz4KICA8ZyBpZD0ibGluZV9jb3B5IiBkYXRhLW5hbWU9ImxpbmUgY29weSI+CiAgICA8cGF0aCBpZD0iUmVjdGFuZ2xlXzFfY29weV8zIiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAxIGNvcHkgMyIgY2xhc3M9ImNscy01IiBkPSJNMjQ4LjA0NywyMzYuMTYzaDUuMjA4djIzLjM5NGgtNS4yMDhWMjM2LjE2M1oiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTI0OS4zNDksMjA4LjkwNmgyLjZ2MTQuMjhoLTIuNnYtMTQuMjhaIi8+CiAgICA8cGF0aCBpZD0iUmVjdGFuZ2xlXzFfY29weSIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMSBjb3B5IiBjbGFzcz0iY2xzLTUiIGQ9Ik0yNDYuNzQ1LDI3Ny43NDNoNy44MTJWMzAzLjdoLTcuODEyVjI3Ny43NDNaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik0yMzEuMTYzLDMzMC45NTVoMTQuMjh2MzguOTc2aC0xNC4yOFYzMzAuOTU1WiIvPgogICAgPHBhdGggaWQ9IlJlY3RhbmdsZV8zX2NvcHkiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDMgY29weSIgY2xhc3M9ImNscy01IiBkPSJNMjU1Ljg1OSwzMzAuOTU1aDE0LjI4djM4Ljk3NmgtMTQuMjhWMzMwLjk1NVoiLz4KICA8L2c+Cjwvc3ZnPgo=";
+var setHTML = [''];
+setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
+setHTML.push('إدارة المحتوى');
+setHTML.push('</div>');
 
-
-
+var htmlset = setHTML.join('');
+document.title = "إدارة المحتوى";
+$('#container').html(htmlset);
+scrollGoTo($('#container'))
+}
 
 //set quiz page
 function programPDF(adSlotTop,adSlotCenter,adSlotBottom){
@@ -1874,8 +1888,10 @@ setTypePage(page,adSlotTop,adSlotCenter,adSlotBottom)
 }else if(page == 'privacy'){
  privacyPage(adSlotTop,adSlotCenter,adSlotBottom)
  }else if(page == 'userProfilePage'){
-  userProfilePage()
-  }
+    userProfilePage()
+    }else if(page == 'managerPage'){
+       managerPage()
+ }
 
 
 
@@ -2469,10 +2485,14 @@ $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/User/ID"+userIdSite+".js
 if(recosts){
     var userFullName = recosts.profile.FullName;
     var userSetting = recosts.setting;
+    var manager = recosts.profile.manager;
+
+
 var nickname = null;
 var shareName = null;
 var userNickname = null;
 var FullName = null;
+var isManager = null;
 if(!userSetting){
 nickname = userFullName;
 shareName = true;
@@ -2480,9 +2500,16 @@ shareName = true;
 nickname = recosts.setting.nickname;
 shareName = recosts.setting.shareName;
 }
+if(manager){
+nickname = nickname +'<i class="fa-solid fa-badge-check text-primary mx-1"></i>';
+}
+
 if(shareName == false || shareName == null){
 nickname = "مجهـول";
 }
+
+
+
 
 $('#alerts').removeClass('d-none').removeClass('border-warning');
      $('#alerts').removeClass('d-none').addClass('border-success');
@@ -5971,7 +5998,7 @@ if (page == 'ExamPage') {
                 view = 0;
         }
         startsetHtml(type,exam,question,view,isback)
-} else if(page == 'TrafficLawPage'||page == 'userProfilePage'||page == 'privacy'||page == 'ProgramPDF'||page == 'signalsPage'||page == 'HomePage'||page == 'tableUserPage'||page == 'AllExamsPage'||page == 'ContactUsPage'||page == 'private'||page == 'truck'||page == 'haulage'||page == 'taxi'||page == 'tractor'||page == 'motorcycle'){
+} else if(page == 'TrafficLawPage'||page == 'managerPage'||page == 'userProfilePage'||page == 'privacy'||page == 'ProgramPDF'||page == 'signalsPage'||page == 'HomePage'||page == 'tableUserPage'||page == 'AllExamsPage'||page == 'ContactUsPage'||page == 'private'||page == 'truck'||page == 'haulage'||page == 'taxi'||page == 'tractor'||page == 'motorcycle'){
 
 
         sethtmlcontainer(page,isback)
@@ -6327,7 +6354,7 @@ const getBase64FromUrl = async (url) => {
 
 
 
- function setUserProfileWeb(FirstName,LastName,FullName,Email,Id,MiddleName,profilePic,loginWith,model){
+ function setUserProfileWeb(FirstName,LastName,FullName,Email,Id,MiddleName,profilePic,loginWith,manager,model){
 
 
 localStorage.setItem("FirstName", FirstName);
@@ -6338,6 +6365,7 @@ localStorage.setItem("Id", Id);
 localStorage.setItem("MiddleName", MiddleName);
 localStorage.setItem("profilePic", profilePic);
 localStorage.setItem("loginWith", loginWith);
+localStorage.setItem("manager", manager);
 localStorage.setItem("model", model);
 
 
@@ -6709,4 +6737,48 @@ $('#checkedUsernote').removeClass("d-none");
 }
 }
 
+function logoutUsers(){
+if(TeoriaPalMixApp){
+ScriptAppWeb.logoutUser();
+}
+}
+
+function onLogoutpage(){
+sethtmlcontainer('HomePage');
+localStorage.removeItem("FirstName");
+localStorage.removeItem("LastName");
+localStorage.removeItem("FullName");
+localStorage.removeItem("Email");
+localStorage.removeItem("Id");
+localStorage.removeItem("MiddleName");
+localStorage.removeItem("profilePic");
+localStorage.removeItem("loginWith");
+localStorage.removeItem("manager");
+localStorage.removeItem("model");
+
+
+
+}
+
 //profile
+
+
+
+
+
+
+
+function goToManagerPage(){
+sethtmlcontainer('managerPage');
+}
+
+
+
+
+
+
+
+
+
+
+
