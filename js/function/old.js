@@ -355,11 +355,6 @@ sethomeHTML.push('</button>');
 sethomeHTML.push('<div class="collapse" id="info-collapse">');
 sethomeHTML.push('<ul class="nav nav-pills flex-column mb-auto">');
 sethomeHTML.push('<li class="nav-item border-top my-2 w-75 m-auto"></li>');
-
-
-
-
-
 sethomeHTML.push('<li class="nav-item">');
 sethomeHTML.push('<a href="?page=privacy" onclick="sethtmlcontainer(\'privacy\');return false" class="dropdown-item splash-default ripple"><i class="fas fa-tasks mx-2"></i>سياسة الخصوصية</a>');
 sethomeHTML.push('</li>');
@@ -370,14 +365,9 @@ sethomeHTML.push('</li></ul></div></li>');
 
 
 
-if(TeoriaPalMixApp){
-sethomeHTML.push('<li class="mb-1">');
-sethomeHTML.push('<a href="?page=HomePage" onclick="ScriptAppWeb.goToReport();return false" class="btn align-items-center rounded collapsed px-1 btn-single" data-bs-dismiss="offcanvas">');
-sethomeHTML.push('<i class="fa-solid fa-paper-plane me-3"></i>');
-sethomeHTML.push('<span>إرسال ملاحظات</span>');
-sethomeHTML.push('</a>');
-sethomeHTML.push('</li>');
-}
+
+
+
 
 
 sethomeHTML.push('</ul></div>');
@@ -447,10 +437,6 @@ window.location.hash = "ExitModal";
 })
 
 
-
-
-
-
 const btnOffcanvas = document.getElementById("btnOffcanvas");
 const btnOffcanvas2 = document.getElementById("btnOffcanvas2");
 btnOffcanvas.addEventListener("click", function() {
@@ -493,22 +479,16 @@ window.location.hash = "CoursesModal";
 //set quiz page
 function examPage(adSlotTop,adSlotCenter,adSlotBottom){
 var setHTML = [''];
-/*
-setHTML.push('<div class="col-12 text-center py-2 containeranimate d-none">');
+setHTML.push('<div class="col-12 text-center py-2 containeranimate">');
 setHTML.push('<div class="card text-dark mx-1">');
 setHTML.push('<div class="card-header" id="titlecardtype">قائمة الإمتحانات</div>');
 setHTML.push('<div class="card-body px-0">');
 setHTML.push('<div class="owl-carousel owl-theme align-items-center" id="linkqnumber">');
-setHTML.push('</div></div></div></div>');
-*/
+setHTML.push('</div></div></div></div></div>');
 setHTML.push('<div class="container-lg px-0 pt-2 overflow-hidden containeranimate">');
 setHTML.push('<div class="row">');
-setHTML.push('<div class="col-12 text-center my-2 overflow-hidden">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppTop"></div>');
-}else{
+setHTML.push('<div class="col-12 text-center my-2 overflow-hidden containeranimate">');
 setHTML.push('<div id="'+adSlotTop+'"></div>');
-}
 setHTML.push('</div>');
 setHTML.push('<div class="col-sm-12 col-md-8">');
 setHTML.push('<div class="progress progressd progressMobile rounded-0">');
@@ -667,34 +647,15 @@ setHTML.push('</div></div></div></div></div></div></div></div></div>');
 
 
 setHTML.push('<div class="col-12 text-center my-2 overflow-hidden containeranimate">');
-
-
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppCenter"></div>');
-}else{
 setHTML.push('<div id="'+adSlotCenter+'"></div>');
-}
-
 setHTML.push('</div>');
-
-setHTML.push('<div class="all_examis_quizs row g-4">');
-setHTML.push('</div>');
-
-
-
-setHTML.push('<div class="col-12 text-center my-2 overflow-hidden containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppBottom"></div>');
-}else{
-setHTML.push('<div id="'+adSlotBottom+'"></div>');
-}
-setHTML.push('</div>');
-
 
 setHTML.push('<div id="tablequiz" class="container-lg px-0 mt-3 containeranimate"> ');
 setHTML.push('</div>');
 
-
+setHTML.push('<div class="col-12 text-center my-2 overflow-hidden containeranimate">');
+setHTML.push('<div id="'+adSlotBottom+'"></div>');
+setHTML.push('</div>');
 
 
 
@@ -736,7 +697,11 @@ window.location.hash = "ExitModal";
 
 setTimeoutAd(adSlotTop,adSlotCenter,adSlotBottom);
 
-
+$( "#linkqnumber" ).hover(function() {
+ if(scrollY == 0){
+window.scrollTo(0, 1);
+}
+ });
 
 }
 
@@ -747,31 +712,18 @@ var setHTML = [''];
 
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppTop"></div>');
-}else{
 setHTML.push('<div id="'+adSlotTop+'"></div>');
-}
 setHTML.push('</div>');
 
 setHTML.push('<div class="container containeranimate"><div class="row"><div class="col-md-12 text-center"><h1 class="mb-4">القانون</h1><p>قانون المرور<br>رقم -5- لسنة 2000<br>رئيس اللجنة التنفيذية لمنظمة التحرير الفلسطينية.<br>رئيس السلطة الوطنية الفلسطينية.</p></div><div class="col-md-12"><p>بعد الاطلاع على قانون النقل على الطرق رقم (23) لسنة 1929م وتعديلاته المعمول به في محافظات غزة. وعلى الأمر رقم (354) لسنة 1970م، بشأن المرور وتعديلاته المعمول به في محافظات الضفة. وعلى الأمر رقم (1310) لسنة 1992م، بشأن المرور وتعديلاته المعمول به في محافظات الضفة. وعلى ما عرضه وزير النقل والمواصلات. وعلى مشروع القانون المقدم من مجلس الوزراء. وبعد إقرار المجلس التشريعي،</p><p>أصدرنا القانون التالي:</p></div><div class="col-md-12"><h4 class="text-primary"><strong>الباب الأول</strong></h4><h4 class="text-success">تعاريف</h4></div><div class="col-md-12"><h5>مادة (1)</h5><p>في تطبيق أحكام هذا القانون يكون للكلمات وللعبارات التالية المعاني المخصصة لها أدناه ما لم تدل القرينة على خلاف ذلك.</p><p><strong>الوزارة:</strong> وزارة النقل والمواصلات.<br><strong>الوزير:</strong> وزير النقل والمواصلات.<br><strong>السلطة المختصة:</strong> الوزير أو من يخوله بعض صلاحياته.<br><strong>سلطة الترخيص:</strong> من يكلفه الوزير مديراً عاماً لدوائر الترخيص في وزارة النقل والمواصلات أو من يفوضه المدير العام بعض صلاحياته.<br><strong>سلطة الشاخصات المحلية:</strong> من يعينه مراقب المرور لتحديد مواقع الشاخصات لمنطقة معينة.<br><strong>نادي السيارات الفلسطيني:</strong> مؤسسة فوضت من قبل الوزير بإصدار الرخص الدولية للمركبات وقائديها.<br><strong>مثمن المركبات:</strong> كل من يحمل شهادة مثمن مركبات صادرة عن سلطة الترخيص.<br><strong>الفاحص:</strong> من عينته سلطة الترخيص فاحصاً بمقتضى القانون والأنظمة الصادرة بموجبه كلها أو بعضها.<br><strong>الشرطي:</strong> كل شرطي مرور أو من تحدده القوانين والأنظمة بهذه الصفة.<br><strong>مراقب المرور:</strong> من يعينه الوزير مراقباً على المرور في جميع الأراضي الفلسطينية.<br><strong>المالك:</strong> من سجل اسمه في رخصة المركبة أو حاز المركبة بموجب اتفاق شراء من مالكها الأصلي.<br><strong>الراكب:</strong> الشخص الراغب في السفر والذي يدفع أجرة السفر أو المستعد لدفعها.<br><strong>المعاق:</strong> كل شخص صادقت عليه اللجنة الطبية المختصة المعينة بقرار من وزير الصحة بأنه يتوفر فيه أحد الأمرين التاليين:<br>-أنه معاق ويحتاج لمركبة كوسيلة حركة بسبب عجز في كلتا رجليه.<br>-أن درجة إعاقته تزيد عن 60% وأن سيره في الطريق بدون مركبة من شأنه أن يضعف حالته الصحية.<br><strong>عابر الطريق:</strong> من يستعمل الطريق للسفر أو المشي أو الوقوف.<br><strong>الحيوان:</strong> الدواب والحيوانات الأليفة باستثناء الكلاب والقطط والطيور.<br><strong>إعطاء حق الأولوية:</strong> عدم مواصلة قائد المركبة السير أو عدم البدء فيه إذا كان استمرار سيره سيعرض قادة المركبات الآخرين للتحول عن خط سيرهم أو تغيير سرعتهم.<br><strong>الليل:</strong> فترة الوقت التي تبدأ بعد ربع ساعة من غروب الشمس وتنتهي قبل ربع ساعة من شروقها.<br><strong>وقت الإنارة:</strong> الليل وكل وقت آخر تكون فيه الرؤية غير واضحة بسبب حالة الطقس أو لأي سبب آخر.<br><strong>تخفيف النور:</strong> إطفاء النور الكبير في المصابيح الأمامية وإنارة النور الصغير.<br><strong>الشاخصة:</strong> أية خطوط أو إشارة ضوئية أو رموز أو كلمات أو عبارات ذات دلالات معروفة ترسم أو تكتب على الطريق أو تثبت على جوانبها أو فوقها وضعت بمعرفة السلطة المختصة لتنظيم حركة السير وإرشاد مستعملي الطريق.<br><strong>الطريق:</strong> كل سبيل مفتوح للسير العام سواء للمشاة أو الحيوانات أو لوسائل النقل أو الجر ويشمل على سبيل المثال الطرقات والشوارع والساحات والممرات والجسور التي يجوز للناس عبورها.<br><strong>الطريق السريع:</strong> كل طريق خارج المدن ذو اتجاهين أو أكثر تفصل بينهما منطقة فاصلة وخصص لحركة المركبات الآلية فقط وكل منهما ذو مسلكين على الأقل بكل اتجاه ولا يمكن الوصول إليه من أفنيه مجاورة وهو خالٍ من ملتقيات السكة الحديد أو لمفترقات باستثناء اندماجات الطرق ووضعت في مدخله شاخصة تدل على أنه طريق سريع.<br><strong>طريق ذات اتجاه واحد:</strong> كل طريق مسموح فيها بحركة لسير في اتجاه واحد.<br><strong>طريق المركبات:</strong> قسم من الطريق معد لسير المركبات فقط.<br><strong>طريق بلدية:</strong> كل طريق يقع ضمن اختصاصات سلطة محلية أو سلطات محلية تتاخم إحداهما الأخرى ووضعت في مدخل ذلك المكان شاخصة معناها مدخل إلى طريق داخل مدينة أو قرية وذلك حتى المكان الذي وضعت فيه شاخصة معناها نهاية حدود طريق البلدية.<br><strong>السبيل:</strong> طريق أو قسم من طريق بخلاف طريق المركبات خصص لعابري السبيل.<br><strong>المسلك:</strong> أي جزء من الأجزاء الطويلة للطريق ويسمح عرضه بمرور صف واحد من المركبات.<br><strong>ممر عبور المشاة:</strong> المكان المخصص لعبور المشاة ومخطط لهذا الغرض في طريق المركبات.<br><strong>حافة الطريق:</strong> المساحة المجاورة لحافة طريق المركبات الخالية من الرصيف وذلك غاية عرض مقداره ثلاثة أمتار أو حافة قناة الصرف إذا كانت حافة القناة قريبة إلى حافة الطريق بأقل من ثلاثة أمتار.<br><strong>الرصيف:</strong> قسم من عرض الطريق غير معد لسير المركبات ويقع بجانب طريق المركبات وخصص للمارة سواء كان في مستوى طريق المركبات أو أعلى.<br><strong>المساحة الفاصلة:</strong> كل مبنى أو جزيرة أو مكان مرسوم على سطح الطريق أو حديقة أو ساحة غير معبدة أو ما أشبه وتقسم الطريق على امتدادها.<br><strong>خط التوقف:</strong> خط على عرض الطريق المعبدة أو على قسم من عرضها يسير إلى الحد الذي تقف عنده المركبة بالقرب من الإشارة الضوئية أو من شاخصة وقوف إجباري أو قبل ملتقى سكة حديد أو من مكان يقف عنده شرطي يقوم بتوجيه حركة السير.<br><strong>الوقوف:</strong> وجود المركبة في مكان ما لفترة محددة أو غير محددة وليس لغرض نقل الركاب أو إنزالهم أو تحميل شحنة أو تفريغها الفوري.<br><strong>المفترق:</strong> كل تلاقي أو تقابل أو تفرع للطريق على مستوى واحد أو أكثر شاملاً المساحة المكشوفة التي تكونت نتيجة لذلك.<br><strong>ملتقى سكة حديد:</strong> مكان تتقاطع قيه طريق مع سكة حديد على مستوى واحد وجرى وسمه بالشاخصة المقررة لذلك.<br><strong>أجرة السفر:</strong> الأجرة المحددة بمعرفة السلطة المختصة لنقل الركاب والأمتعة.<br><strong>خط السفر:</strong> خط سير المركبة العمومية في سفرة محدده من قبل مراقب المرور.<br><strong>السفرة الخصوصية:</strong> السفرة التي تكون بها المركبة العمومية كلها تحت تصرف المسافر.<br><strong>سفرة الخدمة:</strong> السفرة في مركبة عمومية بحيث يدفع كل راكب أجرته على انفراد.<br><strong>الدراجة العادية:</strong> مركبة ذات عجلتين أو أكثر وغير مجهزة بمحرك آلي وتسير بقوة راكبها.<br><strong>الدراجة الآلية:</strong> مركبة آلية ذات عجلين سواء أكانت مزودة بعربة جانبية أو بدونها.<br><strong>المركبة:</strong> كل وسيلة من وسائل النقل أو الجر أعدت للسير أو الجر على عجلات أو جنزير وتسير بقوة آلية أو جسدية.<br><strong>المركبة الآلية:</strong> كل مركبة آلية تسير بمحرك كهربائي ومعدة حسب تصميمها لنقل ثمانية ركاب عدا قائدها.<br><strong>المركبة الخصوصية:</strong> المركبة المعدة للاستعمال الشخصي.<br><strong>المركبة العمومية:</strong> المركبة المستعملة أو المعدة للاستعمال في نقل ركاب لقاء أجر.<br><strong>مركبة التأجير:</strong> وهي المركبة المسجلة بسلطة الترخيص تحت اسم شركة تأجير للسيارات وتستعمل لأغراض التأجير فقط وحسب النظام .<br><strong>المركبة التجارية:</strong> المركبة المعدة للاستعمال في نقل البضائع لقاء أجرة أو لنقلها فيما يتعلق بأعمال صاحب المركبة أو تجارته.<br><strong>مركبة أمن:</strong> وتشمل مركبة الإسعاف المعدة لنقل المرضى أو مركبة تابعة لقوات الشرطة أو الأمن العام أو مركبة إطفاء الحريق وكل مركبة أخرى صادقت سلطة الترخيص على أنها مركبة أمن وينبعث منها نور خاص متقطع أحمر أو أزرق وتطلق إشارة إنذار بواسطة صافرة أو جرس.<br><strong>مركبة تخليص:</strong> مركبة آلية معدة حسب تصميمها لتنفيذ أعمال تخليص وجر المركبات التي لم تعد صالحة للعمل بشكل مسيطر عليه.<br><strong>مركبة العمل:</strong> مركبة آلية غير معدة لنقل البضائع أو أشخاص وثبت عليها أجهزة عمل ثابتة.<br><strong>المركبة المجددة:</strong> المركبة التي لحقها ضرر إجمالي يتراوح ما بين 75.55% من قيمتها وقرر مثمن المركبات أنها قابلة للتصليح.<br><strong>المركبة القديمة:</strong> كل مركبة عدا الجرار الزراعي والمجرور التي بلغت في يوم تجديد رخصتها عشرين سنة.<br><strong>المركبة الهالكة:</strong> كل مركبة قرر مثمن المركبات بشأنها أنها لم تعد صالحة للاستعمال وأن ضررها الإجمالي يزيد على 75% من قيمتها وأنها غير قابلة للتصليح.<br><strong>الحافلة:</strong>المركبة الآلية المعدة لنقل ثمانية أشخاص أو أكثر عدا قائدها وذكر في رخصتها أنها حافلة.<br><strong>حافلة عمومية:</strong> مركبة عمومية من نوع حافلة مخصصة لنقل ركاب بأجر.<br><strong>حافلة خصوصية:</strong> كل حافلة ليست عمومية وتستعمل في نقل الأشخاص بدون أجر.<br><strong>الحافلة السياحية: </strong>كل حافلة ليست عمومية وتستعمل في نقل الأفواج السياحية أو الرحلات مقابل مبلغ مقطوع .<br><strong>الماكنة المتنقلة:</strong> مركبة آلية معدة حسب تصميمها لتنفيذ أعمال وغير مخصصة للجر.<br><strong>الجرار:</strong> مركبة آلية معدة حسب تصميمها للجر وتنفيذ أية أعمال أخرى.<br><strong>الساندة:</strong> مركبة آلية معدة حسب تصميمها لإسناد وجر مستندة.<br><strong>المستندة:</strong> مقطورة مبنية بشكل يستند فيه قسمها الأمامي على الساندة.<br><strong>المقطورة:</strong> مركبة بدون محرك صممت وضعت لكي تقطرها أو تجرها مركبة آلية.<br><strong>المدرسة:</strong> مدرسة لتعليم قيادة المركبات.<br><strong>المدير المهني:</strong> كل مدرب قيادة حصل على ترخيص بإدارة مدرسة من قبل سلطة الترخيص.<br><strong>مدرب القيادة:</strong> الحاصل على رخصة تعليم قيادة المركبات من قبل سلطة الترخيص.<br><strong>رخصة القيادة:</strong> الإجازة الرسمية الصادرة عن سلطة الترخيص والتي تجيز لصاحبها قيادة مركبة من نوع أو أنواع معنية من المركبات.<br><strong>رخصة القيادة الدولية:</strong> رخصة قيادة تصدر عن نادي السيارات الفلسطيني.<br><strong>رخصة تسيير المركبة:</strong> الإجازة الرسمية الصادرة عن سلطة الترخيص والتي تجيز تسيير المركبة على الطريق طوال مدة صلاحيتها بالشروط المنصوص عليها في القانون.<br><strong>سنة الصنع:</strong> السنة التي سجلتها سلطة الترخيص في رخصة المركبة بأنها سنة الصنع.<br><strong>الطول الإجمالي:</strong> البعد ما بين أقصى نقطعه من مقدمة المركبة وأقصى نقطة من مؤخرتها مقاساً ذلك بخط مستقيم وبصورة عمودية.<br><strong>العرض الإجمالي:</strong> عرض المركبة مقاساً بين المستويين العموديين المتوازيين المارين بين أقصى نقطتين من جانب المركبة.<br><strong>الارتفاع الإجمالي:</strong> الارتفاع العمودي الذي تصل إليه المركبة ابتداء من السطح الذي تقف إليه بعجلاتها إلى أعلى نقطة من جسمها وهي غير محملة.<br><strong>الوزن الإجمالي:</strong> وزن المركبة مضافاً إليه وزن حمولتها.<br><strong>الوزن الفارغ:</strong> وزن المركبة فارغة مضافاً إليها وزن جميع ملحقات المركبة من الوقود والماء والزيت.<br><strong>اللائحة:</strong> اللائحة التنفيذية لهذا القانون.</p></div><div class="col-md-12"><h4 class="text-primary"><strong>الباب الثاني</strong></h4><h4>تسجيل وترخيص المركبات</h4></div><div class="col-md-12"><h4 class="text-success">الفصل الأول</h4><h4>تسجيل المركبات</h4></div><div class="col-md-12"><h5>مادة (2)</h5><p>لا يجوز تسيير أية مركبة على الطريق إلا بعد تسجيلها لدى سلطة الترخيص والحصول على رخصة بتسييرها.</p></div><div class="col-md-12"><h5>مادة (3)</h5><p>ليشترط لتسيير المركبة توافر الشروط التالية:</p><ol><li>أن تكون مطابقة للمواصفات والمقاييس الفلسطينية.</li><li>أن تكون مستوفاة لشروط الأمن والمتانة.</li><li>أن يتم تسجليها لدى سلطة الترخيص، وأن يخصص لها رقم.</li><li>أن تكون المركبة مستوفية لشروط الفحص الفني الذي تحدده سلطة الترخيص.</li><li>أن تكون المركبة مؤمنة طبقاً لما هو وارد في هذا القانون.</li><li>أن يتم سداد رسوم التسجيل والفحص والترخيص المقررة بموجب هذا القانون.</li></ol></div><div class="col-md-12"><h5>مادة (4)</h5><p>تسري رخصة تسيير جميع المركبات لمدة لا تزيد على سنة “ميلادية” باستثناء مركبات العمل والجرار والدراجة العادية بمحرك مساعد وتعطي هذه الأنواع رخصة لا تزيد على سنتين</p></div><div class="col-md-12"><h5>مادة (5)</h5><p>يقدم طلب تسجيل المركبة من قبل مالك المركبة إلى سلطة الترخيص التي يقع سكنه في دائرة نشاطها مرفقاً بالوثائق والمستندات المقررة بمقتضى هذا القانون والأنظمة والتعليمات الصادرة بموجبه.</p></div><div class="col-md-12"><h5>مادة (6)</h5><p>تخضع المركبات للفحص الفني عند تسجيلها لأول مرة في سلطة الترخيص المختصة وفقاً للأنظمة المقررة.</p></div><div class="col-md-12"><h5>مادة (7)</h5><p>إذا وجدت سلطة الترخيص أن جميع الشروط متوافرة في المركبة، فعليها تحصيل الرسوم المقررة قانوناً ومنحها الرخصة المصدقة بخاتم سلطة الترخيص.</p></div><div class="col-md-12"><h5>مادة (8)</h5><p>يشترط تسجيل أية مركبة، كمركبة عمومية أو حافلة عمومية الحصول على رخصة بتسييرها لنقل الركاب بأجر.</p></div><div class="col-md-12"><h5>مادة (9)</h5><p>لا تسجل أية مركبة معدة للاستعمال في نقل سائل أكال أو مادة قابلة للاشتعال أو في نقل مواد خطرة إلا إذا توافرت فيها المواصفات التي أقرتها سلطة الترخيص.</p></div><div class="col-md-12"><h5>مادة (10)</h5><p>يجور لسلطة الترخيص أن تدرج في رخصة تسيير المركبة شروطاً في المواضيع التالية:</p><ol><li>تحديد سرعة قصوى تختلف عما هو محدد في هذا القانون.</li><li>تحديد علامة خاصة بالمركبة.</li><li>إضافة أجهزة وأدوات وملحقات علاوة على ما هو مقرر في هذا القانون.</li><li>تقييد نقل ملكية المركبات بسبب عدم دفع الرسوم الجمركية أ والضرائب المستحقة عنها أو لأي سبب آخر.</li></ol></div><div class="col-md-12"><h5>مادة (11)</h5><p>لا يجوز تسجيل أو تجديد ترخيص المركبات التالية:</p><ol><li>المركبة الهالكة.</li><li>المركبة العمومية إذا زاد عمرها عن ثماني عشرة سنة من سنة صنعها.</li><li>المركبة الخصوصية المخصصة لتعليم القيادة بعد مرور خمس عشرة سنة من سنة صنعها.</li><li>مركبات التخليص والحافلات والمركبات التجارية المخصصة لتعليم القيادة إذا زاد عمرها عن عشرين سنة من سنة صنعها.</li></ol></div><div class="col-md-12"><h5>مادة (12)</h5><ol><li>تعطي المركبة لوحتي تمييز بالشكل الذي تقرره سلطة الترخيص بعد إتمام إجراءات تسجيلها.</li><li>تعتبر لوحات التمييز ملك لسلطة الترخيص ولا يجوز أحداث أي تغيير في شكلها أو في بياناتها أو لونها أو مكانها من المركبة أو السفر بدونها.</li><li>في حالة الاستغناء عن المركبة لعدم صلاحيتها للسير أو طلب نقل قيدها أو تصديرها إلى خارج فلسطين نهائياً أو إيقافها لفترة مؤقتة يجب رد رخصة المركبة ولوحتي التمييز إلى سلطة الترخيص الصادرة عنها.</li><li>في حالة فقدان لوحتي التمييز أو أي منهما- أو تلفهما- يجب إبلاغ سلطة الترخيص الصادرة عنها ومركز الشرطة الذي فقدت بدائرته.</li></ol></div><div class="col-md-12"><h4 class="text-success">الفصل الثاني</h4><h4>ترخيص المركبات</h4></div><div class="col-md-12"><h5>مادة (13)</h5><p>لا يجوز تسيير أية مركبة على الطريق انتهت مدة صلاحية سيرها المحددة في رخصتها إلا بعد تجديدها طبقاً لما ورد في هذا القانون.</p></div><div class="col-md-12"><h5>مادة (14)</h5><ol><li>يتم تجديد رخصة المركبة بطلب من قبل مالكها خلال مدة ثلاثين يوماً قبل انتهاء مدة صلاحيتها.</li><li>لا يجوز تسيير المركبة إلا بعد فحصها فحصاً فنياً لدى مؤسسة مرخصة لفحص المركبات من قبل سلطة الترخيص.</li></ol></div><div class="col-md-12"><h5>مادة (15)</h5><ol><li>يكون تجديد رخصة المركبات القديمة، وكذا المركبات العمومية والحافلات التي مضى على سنة صنعها مدة عشر سنوات كل ستة أشهر.</li><li>لا يجوز تجديد رخصة المركبة القديمة إذا مضى على انتهاء صلاحية رخصة تسييرها مدة تزيد على سنة (ما عدا الدراجات النارية والمركبات الخصوصية والمركبات التجارية التي لا يزيد وزنها الإجمالي عن ستة آلاف كيلو جرام).</li></ol></div><div class="col-md-12"><h5>مادة (16)</h5><p>إذا ثبت عدم صلاحية المركبة للاستعمال أو إخراجها نهائياً من فلسطين، خلال مدة سريان رخصتها، يجوز لمالكها استرجاع الرسوم المدفوعة على الأشهر الكاملة من المدة المتبقية بنسبة 1/12 من الرسوم السنوية عن كل شهر.</p></div><div class="col-md-12 mt-4"><h5>مادة (17)</h5><p>على مالك المركبة في حالة بيعها أو إجراء أي تصرف بنقل ملكيتها للغير أن يبلغ ذلك كتابة إلى سلطة الترخيص خلال خمسة عشر يوماً من تاريخ البيع أو التصرف الناقل للملكية مبيناً اسم المالك الجديد وعنوانه، وتستمر مسئولية المالك الأصلي فيما يختص بتنفيذ أحكام هذا القانون إلى أن يتم نقل ملكيتها.</p></div><div class="col-md-12"><h5>مادة (18)</h5><ol><li>على كل شخص أصبح مالكاً لأية مركبة بأية طريقة من طرق نقل الملكية أن يتقدم بطلب إلى سلطة الترخيص المختصة لإتمام إجراءات نقل الملكية خلال مدة أقصاها ثلاثون يوماً.</li><li>إذا ثبت لسلطة الترخيص عدم وجود أي قيد يمنع نقل ملكية المركبة فيتم تحصيل رسوم نقل الملكية المقررة وإصدار رخصة باسم المالك الجديد.</li></ol></div><div class="col-md-12"><h5>مادة (19)</h5><p>إذا توفى مالك المركبة أو صدر حكم باعتباره مفقوداً، وجب على ورثته أو من يمثلهم إخطار سلطة الترخيص بذلك خلال ستين يوماً من اليوم التالي تاريخ الوفاة أو الحكم، ويتم تعيين مسئول عن المركبة من بين الورثة من قبل المحكمة المختصة، فإذا آلت المركبة إلى أحد الورثة، تنقل ملكية المركبة إلى المالك الجديد.</p></div><div class="col-md-12"><h5>مادة (20)</h5><ol><li>لا يجوز إجراء أي تغيير في أوجه استعمال المركبة أو استبدال أي جزء جوهري من أجزائها إلا بعد الحصول على موافقة سلطة الترخيص.</li><li>على مالك المركبة إخطار سلطة الترخيص خلال خمس عشر يوماً بأي تغيير يطرأ على محل إقامته أو عنوانه.</li></ol></div><div class="col-md-12"><h5>مادة (21)</h5><ol><li>يجوز سلطة الترخيص أن تخصص لوحات اختبار لمنتجي المركبات أو لمستورديها أو لتجار المركبات أو لمعهد المواصفات المرخص له بفحصها بعد استيفاء الرسوم المقررة</li><li>لا يجوز استعمال هذه اللوحات في غير الغرض التي تحدده اللائحة.</li></ol></div></div></div>');
 
 setHTML.push('<div class="col-12 text-center my-4 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppCenter"></div>');
-}else{
 setHTML.push('<div id="'+adSlotCenter+'"></div>');
-}
-
 setHTML.push('</div>');
 
 setHTML.push('<div class="container containeranimate"><div class="row"><div class="col-md-12"><h4 class="text-primary"><strong>الباب الثالث</strong></h4><h4>المتانة والأمن في المركبات</h4></div><div class="col-md-12"><h5>مادة (22)</h5><p>يجب أن تكون المركبة مستوفية لشروط المتانة والأمن التي تحددها اللائحة.</p></div><div class="col-md-12"><h5>مادة (23)</h5><p>لا يجوز لمالك المركبة استعمالها أو السماح لغيره باستعمالها إذا فقدت شرطاً من شروط المتانة والأمن المحددة في اللائحة.</p></div><div class="col-md-12"><h5>مادة (24)</h5><ol><li>لا يجوز إحداث أي تغيير في قياسات المركبة أو وزنها الإجمالي المسموح به أو حمولتها الذاتية أو قوة محركها عن المقدار الذي حدده منتج المركبة إلا بموافقة سلطة الترخيص.</li><li>لا يجوز وضع أية إضافات على جسم المركبة أو هيكلها أو ملحقاتها إلا بعد موافقة سلطة الترخيص.</li></ol></div><div class="col-md-12"><h5>مادة (25)</h5><ol><li>يجوز للفاحص الذي يحمل شهادة فاحص فني مركبات من سلطة الترخيص وللشرطي المؤهل لذلك أن يقوم بفحص المركبة بمعرفته.</li><li>إذا ثبت لأي فاحص أو شرطي من المذكورين في الفقرة (1) أن المركبة غير مستوفيه لشروط المتانة والأمن تسحب المركبة لأقرب مركز مرور ويتم سحب رخصتها ولوحتي أرقامها وذلك مع عدم الإخلال بالعقوبة المقررة. ولا تعاد الرخصة إلا بعد ثبوت صلاحية المركبة للسير وتسديد الرسوم المستقحة.</li></ol></div><div class="col-md-12"><h4 class="text-primary"><strong>الباب الرابع</strong></h4><h4>رخص قيادة المركبات</h4></div><div class="col-md-12"><h5>مادة (26)</h5><ol><li>لا يجوز لأحد قيادة مركبة آلية إلا إذا كان يحمل رخصة قيادة سارية المفعول لنوع المركبة التي يقودها صدرت بمقتضى أحكام هذا القانون، وأن يقدمها لرجال الشرطة عند طلبها .</li><li>لا يجوز لمالك المركبة أو من يملك السيطرة عليها أن يسمح لشخص آخر بقيادتها إذا لم يكن يحمل رخصة قيادة طبقاً لما هو وارد بالفقرة (1) أعلاه.</li><li>لا يجوز لأحد أن يحصل على أكثر من رخصة قيادة واحدة من نفس الدرجة.</li></ol></div><div class="col-md-12"><h5>مادة (27)</h5><p>تصدر سلطة الترخيص جميع أنواع رخص القيادة، وتحدد اللائحة درجاتها وصلاحية ومدة كل منها وشروط الحصول عليها وكيفية تجديدها.</p></div><div class="col-md-12"><h5>مادة (28)</h5><p>يشترط في طالب الحصول على رخصة قيادة مركبة آلية ما يلي:</p><ol><li>أن يكون قد أتم ستة عشر سنة ميلادية عند تقديم الطلب لأول مرة وتحدد اللائحة السن المقررة لكل درجة من درجات الرخص.</li><li>أن يكون لائقاً صحياً للقيادة من حيث سلامة البنية والنظر والسمع.</li><li>أن يجتاز الاختبارات النظرية والعملية في قيادة المركبات التي تقررها سلطة الترخيص.</li></ol></div><div class="col-md-12"><h5>مادة (29)</h5><p>استثناء مما ورد في المادة (27) يتولى نادي السيارات الفلسطيني إصدار رخص القيادة الدولية المبنية في الاتفاقيات الدولية للمرور المعقودة في فينا سنة 1968، ومدتها لا تتجاوز سنة ميلادية واحدة، ويشترط في طالب الحصول عليها أن يكون حائزاً على رخصة سوق فلسطينية سارية المفعول، ولا يجوز استخدام هذه الرخص لقيادة المركبات في فلسطين.</p></div><div class="col-md-12"><h5>مادة (30)</h5><p>يسمح لحاملي رخص القيادة الدولية الصادرة عن سلطة أجنبية بقيادة مركبة داخل الأراضي الفلسطينية ما دامت رخصهم صالحة لقيادتها وفي حدود مدة صلاحيتها، على أن تكون إقامتهم في فلسطين قانونية، وشريطة المعاملة بالمثل.</p></div><div class="col-md-12"><h5>مادة (31)</h5><p>يجوز استبدال رخص القيادة الأجنبية برخص قيادة فلسطينية من ذات الدرجة شريطة المعاملة بالمثل.</p></div><div class="col-md-12"><h5>مادة (32)</h5><p>لا يجوز تعلم قيادة مركبة آلية على الطريق إلا إذا كان المتدرب قد بلغ السن المحددة في اللائحة.</p></div><div class="col-md-12"><h5>مادة (33)</h5><p>تصدر سلطة الترخيص رخص مدارس تعليم قيادة المركبات، ورخص لتعليم قيادة المركبات، ورخص الإدارة المهنية لمدرسة تعليم قيادة المركبات، وتحدد اللائحة شروط ذلك.</p></div><div class="col-md-12"><h5>مادة (34)</h5><p>يعتبر مدرب قيادة المربكات في حكم قائد المركبة، ويكون مسئولاً وحده عما يقع من المخالفات لأحكام هذا القانون.</p></div><div class="col-md-12"><h4 class="text-primary"><strong>الباب الخامس</strong></h4><h4>قواعد المرور وآدابه</h4></div><div class="col-md-12"><h4 class="text-success">الفصل الأول</h4><h4>السلوك في الطريق</h4></div><div class="col-md-12"><h5>مادة (35)</h5><p>لا يجوز لعابر الطريق التصرف بحالة تعرض حياة الأشخاص أو الأموال للخطر، أو تعيق حركة السير، أو تعرقلها.</p></div><div class="col-md-12"><h5>مادة (36)</h5><p>لا يجوز قيادة مركبة إذا كان قائدها.</p><ol><li>غير ملم بتشغيل المركبة واستعمالها.</li><li>في حالة صحية من شانها تعريض عابري الطريق للخطر.</li><li>تحت تأثير المخدرات أو المكسرات.</li><li>في حالة لا يستطيع معها السيطرة على المركبة أو رؤية الطريق وحركة السير فيها.</li></ol></div><div class="col-md-12"><h5>مادة (37)</h5><p>لا يجوز الكتابة أو الرسم أو وضع أية بيانات أخرى على جسم المركبة أو أي جزء من أجزائها غير تلك الواجبة بحكم القانون أو النظام، ولا يجوز استعمال المركبة في الإعلان بتركيب مكبر صوت عليها أو بوضع لافتات أو نماذج مجسمة إلا بموافقة سلطة الترخيص ويجوز للشرطة حجز المركبة لحين إزالة أسباب المخالفة</p></div><div class="col-md-12"><h4 class="text-success">الفصل الثاني</h4><h4>الطريق ومسالكها</h4></div><div class="col-md-12"><h5>مادة (38)</h5><p>لا يجوز قيادة مركبة إلا على طريق مخصصة لنوعها.</p></div><div class="col-md-12"><h5>مادة (39)</h5><ol><li>في الطريق المقسمة على امتدادها بواسطة مساحة فاصلة تعتبر كل طريق من جانبي المساحة الفاصلة طريقاً ذات اتجاه واحد، وعلى قائد المركبة أو سائق العربة التي يجرها حيوان أن يستعمل الجانب الأيمن من المساحة الفاصلة وألا يجتازها أو بوقف المركبة أو العربة عليها إلا إذا سمحت شاخصة بذلك.</li><li>في الطريق المقسمة بواسطة خط فاصل متصل على قائد المركبة أن يستعمل الجانب الأيمن ولا يجتازه إلا إذا كان هناك خط متقطع على اليمين من الخط المتصل.</li></ol></div><div class="col-md-12"><h5>مادة (40)</h5><p>إذا كانت الطريق مقسمة إلى مسالك ومرسوماً عليها اسمها تحدد مسلك السير إلى اليمين أو الأمام أو اليسار فلا يجوز لقائد المركبة الدخول إلى المفترق أو السير فيه إلا من المسلك المرسوم المحدد لاتجاه سيره .</p></div><div class="col-md-12"><h5>مادة (41)</h5><p>في الطريق ذات الاتجاه الواحد لا يجوز لأحد قيادة مركبة في أي مقطع منها بالاتجاه المعاكس للاتجاه المسموح به في تلك الطريق، ولا يجوز لأحد قيادة مركبة أو حيوان على الرصيف إلا من أجل عبوره للدخول إلى فناء أو كراج أو الخروج منه.</p></div><div class="col-md-12"><h4 class="text-success">الفصل الثالث</h4><h4>التحول والاستدارة والسير للخلف</h4></div><div class="col-md-12"><h5>مادة (42)</h5><p>لا يجوز لقائد المركبة أن يتحول عن مسلك سيره أو يستدير للسير في الاتجاه المعاكس أو يسير بها إلى الخلف إلا إذا كانت حالة الطريق تسمح بذلك.</p></div><div class="col-md-12"><h5>مادة (43)</h5><p>لا يجوز لقائد المركبة الاستدارة إلى اليمين أو اليسار إلا إذا كانت استدارته من الطريق الخارج منها والدخول بالطريق المتجه إليها لا تعيق حركة السير للمركبات القادمة من أي اتجاه آخر.</p></div><div class="col-md-12"><h4 class="text-success">الفصل الرابع</h4><h4>الالتقاء والتجاوز والمسافة بين المركبات</h4></div><div class="col-md-12"><h5>مادة (44)</h5><p>إذا تقابلت مركبتان من اتجاهين متعاكسين في طريق لا يكفي عرضها لمرورهما فعلى قائدي المركبتين تخفيف سرعتهما والاتجاه بمركبتيها نحو الحافة اليمنى للطريق أو تخطي الحافة لضمان تفادي اصطدام المركبتين، وفي الطريق الصاعد على قائد المركبة النازلة إعطاء حق الأولوية للمركبة الصاعدة.</p></div><div class="col-md-12"><h5>مادة (45)</h5><p>لا يجوز لقائد المركبة تجاوز مركبة أخرى أو حيوان او محاولة تجاوزها إلا إذا كانت الطريق خالية بمسافة تكفي لتمكينه من التجاوز ومواصلة السير بأمان دون إعاقة لحركة السير.</p></div><div class="col-md-12"><h5>مادة (46)</h5><p>لا يجوز لقائد المركبة تجاوز مركبة أخرى إلا من جانبها الأيسر ويسمح بالتجاوز من جانب الأيمن في الحالات التالية:</p><ol><li>إذا كان قائد المركبة الأمامية ينوي الاستدارة إلى اليسار وأعطى إشارة بذلك.</li><li>إذا كانت الطريق ذات اتجاه واحد وفيها أكثر من مسلكين.</li><li>إذا كانت هنالك أسهم على الطريق تسمح بذلك.</li></ol></div><div class="col-md-12"><h5>مادة (47)</h5><p>على قائد المركبة المتجاوز عنها أن يتجه بمركبته إلى حافة الطريق قدر الإمكان لتمكين المركبة التي تتجاوز من إكمال تجاوزها بأمان وأن لا يزيد في سرعة سيره إلا بعد مرور المركبة المتجاوزة.</p></div><div class="col-md-12"><h5>مادة (48)</h5><p>على قائد المركبة أن يترك بينه وبين المركبة التي تسير أمامه مسافة كافية لتمكينه من إيقاف مركبته عند الضرورة وتمكين المركبة الآتية من خلفه وتسير بسرعة تزيد على سرعته من الدخول في تلك المسافة دون مضايقة.</p></div><div class="col-md-12"><h4 class="text-success">الفصل الخامس</h4><h4>السرعة</h4></div><div class="col-md-12"><h5>مادة (49)</h5><p>على قائد المركبة قيادة المركبة بسرعة تتفق وظروف الطريق، وتحدد اللائحة الحالات التي يتوجب على سائق المركبة تخفيف سرعته فيها.</p></div><div class="col-md-12"><h5>مادة (50)</h5><ol><li>يكون الحد الأقصى لسرعة سير المركبات في الطرق داخل المدن أو خارجها أو في الطريق السريعة طبقاً لما هو مبين في اللائحة.</li><li>إذا وضعت شاخصة على الطريق تحدد الحد الأقصى لسرعة السير فلا يجوز لقائد المركبة تجاوز هذه السرعة وحتى الوصول إلى الشاخصة التي تلغيها أو المفترق القريب.</li></ol></div><div class="col-md-12"><h3 class="text-success">الفصل السادس</h3><h4>حق الألوية في المرور</h4></div><div class="col-md-12"><h5>مادة (51)</h5><p>إذا لم توضع شاخصة تشير إلى إعطاء حق الأولوية في حالة دخول المفترق أو التوقف قبل المفترق، فعلى قائد المركبة أن يعطي حق الأولوية للمركبات القادمة من على يمين اتجاه سيره، وإذا كانت وجهته الاتجاه إلى اليسار، فعليه أن يعطي حق الأولوية للمركبة القادمة من الجهة المقابلة أو المركبات التي وصلت المفترق.</p></div><div class="col-md-12"><h5>مادة (52)</h5><p>على قائد المركبة إعطاء حق الأولوية للمشاة والمركبات في الحالات التالية:</p><ol><li>وجود شاخصة تشير إلى وجوب التوقف.</li><li>وجود شاخصة تشير إلى إعطاء حق الأولوية.</li><li>الخروج من طريق ترابية والدخول إلى طريق معبدة.</li><li>الخروج من فناء مبنى أو محطة وقود أو كراج خدمة.</li><li>انسداد مسلك السير في طريق ذات اتجاهين.</li><li>المركبات داخل الميدان.</li></ol></div></div></div>');
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppBottom"></div>');
-}else{
 setHTML.push('<div id="'+adSlotBottom+'"></div>');
-}
 setHTML.push('</div>');
 var htmlset = setHTML.join('');
 document.title = "قانون المرور";
@@ -846,7 +798,7 @@ FullName = FullName +'<i class="fa-solid fa-badge-check text-primary mx-1"></i>'
   setHTML.push('</div><div></div></div>');
   setHTML.push('<div class="card card-fluid">');
   setHTML.push('<div class="card-header text-center"> <h4>إختباراتك المخزنة في خوادمنا</h4> </div>');
-  setHTML.push('<div class="card-body"><div id="table_quiz_saver"> <div class="row"> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="TotalExams"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">مجموع الإختبارات</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="SuccessfulExams"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">الناجح منها</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="Successfulpercent"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">نسبة النجاح</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="averageMarks"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">متوسط العلامات</span> </div></div>');
+  setHTML.push('<div class="card-body"> <div id="table_quiz_saver"> <div class="row"> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="TotalExams"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">مجموع الإختبارات</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="SuccessfulExams"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">الناجح منها</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="Successfulpercent"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">نسبة النجاح</span> </div> <div class="col col-sm-6 col-md-3 text-center my-2"> <span class="h5 mb-0" id="averageMarks"><div class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">إنتظر...</span></div></span> <span class="d-block text-sm">متوسط العلامات</span> </div></div>');
 
   setHTML.push('<div id="tablequiz">');
   setHTML.push('<div class="table-responsive">');
@@ -955,208 +907,14 @@ scrollGoTo($('#container'))
 function managerPage(){
 var logoSite = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMsIC5jbHMtNSB7CiAgICAgICAgZmlsbDogI2Y4ZjlmYTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMgewogICAgICAgIHN0cm9rZS1saW5lam9pbjogcm91bmQ7CiAgICAgICAgc3Ryb2tlLW9wYWNpdHk6IDA7CiAgICAgICAgc3Ryb2tlLXdpZHRoOiAxcHg7CiAgICAgIH0KCiAgICAgIC5jbHMtMiwgLmNscy0zLCAuY2xzLTQsIC5jbHMtNSB7CiAgICAgICAgZmlsbC1ydWxlOiBldmVub2RkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIHN0cm9rZTogdXJsKCNsaW5lYXItZ3JhZGllbnQtMik7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgc3Ryb2tlOiB1cmwoI2xpbmVhci1ncmFkaWVudC0zKTsKICAgICAgfQoKICAgICAgLmNscy00IHsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjI0OS41IiB5MT0iNDk5IiB4Mj0iMjQ5LjUiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWMyMTI2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzIxMzAzZiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIiIHgxPSIxNTQuNjAzIiB5MT0iMzUyLjI4MSIgeDI9IjM0NC43MDkiIHkyPSI3MC40MzgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjI4IiBzdG9wLW9wYWNpdHk9IjAuNiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNzIiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTMiIHgxPSIyMjMuNDI3IiB5MT0iNDI4LjU2MiIgeDI9IjI3Ni40MTciIHkyPSIzNTAiIHhsaW5rOmhyZWY9IiNsaW5lYXItZ3JhZGllbnQtMiIvPgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJyYWRpYWwtZ3JhZGllbnQiIGN4PSIyNTAiIGN5PSIyMDEiIHI9IjEwMiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNkYzM1NDUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZGMzNTQ1Ii8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogIDwvZGVmcz4KICA8Zz4KICAgIDxlbGxpcHNlIGNsYXNzPSJjbHMtMSIgY3g9IjI0OS41IiBjeT0iMjQ5LjUiIHJ4PSIyNTAuNSIgcnk9IjI0OS41Ii8+CiAgICA8cGF0aCBpZD0iRWxsaXBzZV8xX2NvcHlfNSIgZGF0YS1uYW1lPSJFbGxpcHNlIDEgY29weSA1IiBjbGFzcz0iY2xzLTIiIGQ9Ik0yNDkuNjUxLDcwLjQ0MUExNzkuMjMyLDE3OS4yMzIsMCwwLDEsMzk3LjI3MiwzNTEuMjg4QzM3MS4yLDMxNC44MzYsMjUxLDE4NCwyNTEsMTg0UzExOS4zOSwzMjkuMzg0LDEwMi43MjIsMzUyLjI4NUExNzkuMjMxLDE3OS4yMzEsMCwwLDEsMjQ5LjY1MSw3MC40NDFaIi8+CiAgICA8cGF0aCBpZD0iRWxsaXBzZV8xX2NvcHlfOCIgZGF0YS1uYW1lPSJFbGxpcHNlIDEgY29weSA4IiBjbGFzcz0iY2xzLTMiIGQ9Ik0yNDkuNjUxLDQyOC41NTlBMTc4LjcwNiwxNzguNzA2LDAsMCwwLDM3OS45MjksMzcyLjQxQzM3OS44NTMsMzcyLjQzOCwzNjIsMzUwLDM2MiwzNTBzLTQwLjM2NSw1Mi0xMTIsNTItMTEyLTUwLTExMi01MC0xOC4xNTEsMjAuOS0xOC4wODMsMjAuOTg0QTE3OC43LDE3OC43LDAsMCwwLDI0OS42NTEsNDI4LjU1OVoiLz4KICAgIDxwYXRoIGlkPSJFbGxpcHNlXzNfY29weSIgZGF0YS1uYW1lPSJFbGxpcHNlIDMgY29weSIgY2xhc3M9ImNscy00IiBkPSJNMjUwLDk5YzgzLjk0NywwLDE1Miw2Ny44MjksMTUyLDE1MS41YTE4NS45NjEsMTg1Ljk2MSwwLDAsMS04LDUyLjVMMjUxLDE0MywxMDgsMzAzcy0xMC0yNC4wNjMtMTAtNTIuNUM5OCwxNjYuODI5LDE2Ni4wNTMsOTksMjUwLDk5WiIvPgogIDwvZz4KICA8ZyBpZD0ibGluZV9jb3B5IiBkYXRhLW5hbWU9ImxpbmUgY29weSI+CiAgICA8cGF0aCBpZD0iUmVjdGFuZ2xlXzFfY29weV8zIiBkYXRhLW5hbWU9IlJlY3RhbmdsZSAxIGNvcHkgMyIgY2xhc3M9ImNscy01IiBkPSJNMjQ4LjA0NywyMzYuMTYzaDUuMjA4djIzLjM5NGgtNS4yMDhWMjM2LjE2M1oiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtNSIgZD0iTTI0OS4zNDksMjA4LjkwNmgyLjZ2MTQuMjhoLTIuNnYtMTQuMjhaIi8+CiAgICA8cGF0aCBpZD0iUmVjdGFuZ2xlXzFfY29weSIgZGF0YS1uYW1lPSJSZWN0YW5nbGUgMSBjb3B5IiBjbGFzcz0iY2xzLTUiIGQ9Ik0yNDYuNzQ1LDI3Ny43NDNoNy44MTJWMzAzLjdoLTcuODEyVjI3Ny43NDNaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTUiIGQ9Ik0yMzEuMTYzLDMzMC45NTVoMTQuMjh2MzguOTc2aC0xNC4yOFYzMzAuOTU1WiIvPgogICAgPHBhdGggaWQ9IlJlY3RhbmdsZV8zX2NvcHkiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDMgY29weSIgY2xhc3M9ImNscy01IiBkPSJNMjU1Ljg1OSwzMzAuOTU1aDE0LjI4djM4Ljk3NmgtMTQuMjhWMzMwLjk1NVoiLz4KICA8L2c+Cjwvc3ZnPgo=";
 var setHTML = [''];
-setHTML.push('<div class="col-12 my-2 containeranimate">');
-
-
-
-
-
-
-setHTML.push('<div id="statistics" class="m-auto mb-2">');
-
-
-
-
-setHTML.push('<div class="loding_statistics text-center py-3" id="loding_statistics">');
-setHTML.push('<span class="mx-3">الرجاء الإنتظار</span>');
-setHTML.push('<div class="spinner-grow spinner-grow-sm" role="status">');
-setHTML.push('<span class="visually-hidden">الرجاء الإنتظار...</span>');
+setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
+setHTML.push('إدارة المحتوى');
 setHTML.push('</div>');
-setHTML.push('</div>');
-
-
-
-
-setHTML.push('<div id="table_statis">');
-setHTML.push('<div class="my-3 text-center mt-4 bg-dark bg-gradient text-white mb-0 p-2 rounded-top typeicone"><h5>إحصائيات سريعة</h5></div>');
-setHTML.push('<div class="alert alert-dark d-flex align-items-center rounded-0 rounded-bottom" role="alert"><i class="fas fa-rss mx-2 fs-4"></i><div>لا يوجد إحصائيات</div></div>');
-setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none">');
-
-setHTML.push('<table class="table table-borderless">');
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-duotone fa-user"></i> مجموع المشرفين</th>');
-setHTML.push('<td id="userAdmins_statis">0</td>');
-setHTML.push('</tr>');
-
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-solid fa-user"></i> مجموع المستخدمين</th>');
-setHTML.push('<td id="user_statis">0</td>');
-setHTML.push('</tr>');
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-solid fa-magnifying-glass"></i> عمليات البحث</th>');
-setHTML.push('<td id="searchCard_statis">0</td>');
-setHTML.push('</tr>');
-
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-solid fa-vial"></i> الإقتراحات المرسلة</th>');
-setHTML.push('<td id="reports_statis">0</td>');
-setHTML.push('</tr>');
-
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-solid fa-user"></i> مجموع الإختبارات</th>');
-setHTML.push('<td id="allQuiz_users">0</td>');
-setHTML.push('</tr>');
-
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-solid fa-square-plus"></i> مجموع الأجهزة</th>');
-setHTML.push('<td><span id="allfirstRunApp_users">0</span><i class="fa-brands fa-android mx-1 text-success"></i></td>');
-setHTML.push('</tr>');
-
-
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-regular fa-book-open-reader"></i> مرات التشغيل</th>');
-setHTML.push('<td id="allRunApp_users">0</td>');
-setHTML.push('</tr>');
-
-setHTML.push('<tr>');
-setHTML.push('<th><i class="fa-solid fa-route"></i> عمليات التنقل</th>');
-setHTML.push('<td id="allNavigation_users">0</td>');
-setHTML.push('</tr>');
-
-
-
-
-setHTML.push('</table>');
-
-setHTML.push('</div>');
-setHTML.push('</div>');
-
-
-
-
-
-
-setHTML.push('<div id="userAdmins">');
-setHTML.push('<div class="my-3 text-center mt-4 bg-primary bg-gradient text-white mb-0 p-2 rounded-top typeicone"><h5>المشرفون المُعتَمدون</h5></div>');
-setHTML.push('<div class="alert alert-primary d-flex align-items-center rounded-0 rounded-bottom" role="alert"><i class="fas fa-rss mx-2 fs-4"></i><div>لا يوجد مشرفين</div></div>');
-setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none"></div>');
-setHTML.push('</div>');
-
-
-
-
-setHTML.push('<div id="users">');
-setHTML.push('<div class="my-3 text-center mt-4 bg-success bg-gradient text-white mb-0 p-2 rounded-top typeicone">');
-setHTML.push('<h5>جميع المستخدمون</h5></div>');
-
-setHTML.push('<div class="alert alert-success d-flex align-items-center rounded-0 rounded-bottom" role="alert"><i class="fas fa-rss mx-2 fs-4"></i><div>لا يوجد مستخدمون</div></div>');
-setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none"></div>');
-setHTML.push('</div>');
-
-setHTML.push('<div id="searchCard">');
-setHTML.push('<div class="my-3 text-center mt-4 bg-warning bg-gradient mb-0 p-2 rounded-top typeicone">');
-setHTML.push('<h5>نتائج الإمتحانات الرسمية</h5></div>');
-
-setHTML.push('<div class="alert alert-warning d-flex align-items-center rounded-0 rounded-bottom" role="alert"><i class="fas fa-rss mx-2 fs-4"></i><div>لا يوجد عمليات بحث</div></div>');
-setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none"></div>');
-setHTML.push('</div>');
-
-
-
-
-setHTML.push('<div id="reports">');
-setHTML.push('<div class="my-3 text-center mt-4 bg-info bg-gradient mb-0 p-2 rounded-top typeicone">');
-setHTML.push('<h5>إقتراحات المستخدمين</h5></div>');
-
-setHTML.push('<div class="alert alert-info d-flex align-items-center rounded-0 rounded-bottom" role="alert"><i class="fas fa-rss mx-2 fs-4"></i><div>لا يوجد إقتراحات</div></div>');
-setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none"></div>');
-setHTML.push('</div>');
-
-
-setHTML.push('<div id="AllexamsOfApp">');
-setHTML.push('<div class="my-3 text-center mt-4 bg-danger bg-gradient mb-0 p-2 rounded-top typeicone text-white">');
-setHTML.push('<h5>إختبارات المستخدمين</h5></div>');
-
-setHTML.push('<div class="alert d-flex  rounded-0 rounded-bottom" role="alert">');
-setHTML.push('<button type="button" id="btnShowtableMarksAll" class="btn btn-default m-auto" onclick="tableMarksAll()">عرض جميع نتائج الإختبارات</button>');
-setHTML.push('<table class="table table-striped table-hover d-none" id="tableMarksAll"><thead><tr><th>#</th><th class="t_type">تؤوريا</th><th class="t_date">التاريخ</th><th class="t_mark"><span>العلامة</span></th><th>التفاصيل</th></tr></thead><tbody id="tableSetAll"></tbody></table>');
-setHTML.push('</div>');
-setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none"></div>');
-setHTML.push('</div>');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-setHTML.push('</div>');
-
-
-
-
-
-
-
-
-
-
-
-
-
-setHTML.push('</div>');
-
-
-setHTML.push('<div class="offcanvas offcanvas-bottom pb-5"aria-labelledby="offcanvasWithBothOptionsLabel"data-bs-scroll="true"id="offcanvasCard"tabindex="-1"><div class="offcanvas-header"><h5 class="offcanvas-title"id="titlesCard"></h5><button aria-label="Close"class="btn-close text-reset"data-bs-dismiss="offcanvas"type="button"></button></div><div class="offcanvas-body"><table class="table"><tbody><tr><th scope="row">نوع الإختبار</th><td id="QtypeAr"></td></tr><tr><th scope="row">رقم الإختبار</th><td id="QidQuiz"></td></tr><tr><th scope="row">تاريخ الإختبار</th><td id="Qdate"></td></tr><tr><th scope="row">الوقت المستغرق</th><td id="Qduration"></td></tr><tr><th scope="row">العلامة</th><td id="Qmark"></td></tr><tr><th scope="row">النتيجة</th><td id="QresultQuiz"></td></tr></tbody></table></div></div>');
-
 
 var htmlset = setHTML.join('');
 document.title = "إدارة المحتوى";
 $('#container').html(htmlset);
-var userIdget = localStorage.getItem("Id");
-
-if(window.navigator.onLine){
-testUserAdmin(userIdget);
-}else{
-$('#loding_statistics').html('<div class="alert alert-warning" role="alert">يرجى التحقق من إتصالك بالإنترنت</div>');
-}
-
-
-scrollGoTo($('#container'));
-
-var myOffcanvas = document.getElementById('offcanvasCard')
-myOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
-    setTimeout(() => {
-        if(window.location.hash == '#offcanvasCard') {
-            window.location.hash ='ExitModal';
-        }
-    }, 300)
-})
-
-
+scrollGoTo($('#container'))
 }
 
 //set quiz page
@@ -1164,11 +922,7 @@ function programPDF(adSlotTop,adSlotCenter,adSlotBottom){
 var setHTML = [''];
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppTop"></div>');
-}else{
 setHTML.push('<div id="'+adSlotTop+'"></div>');
-}
 setHTML.push('</div>');
 
 
@@ -1177,11 +931,7 @@ setHTML.push('<object data="css/program.pdf" type="application/pdf" width="100%"
 setHTML.push('</div>');
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppBottom"></div>');
-}else{
 setHTML.push('<div id="'+adSlotBottom+'"></div>');
-}
 setHTML.push('</div>');
 
 
@@ -1200,11 +950,7 @@ function privacyPage(adSlotTop,adSlotCenter,adSlotBottom){
 var setHTML = [''];
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppTop"></div>');
-}else{
 setHTML.push('<div id="'+adSlotTop+'"></div>');
-}
 setHTML.push('</div>');
 
 setHTML.push('<div class="container containeranimate"><div class="row"><div class="col-md-12">');
@@ -1222,11 +968,7 @@ setHTML.push('</div>');
 setHTML.push('</div>');
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppBottom"></div>');
-}else{
 setHTML.push('<div id="'+adSlotBottom+'"></div>');
-}
 setHTML.push('</div>');
 
 
@@ -1246,11 +988,7 @@ var htmls = [''];
 var setHTML = [''];
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppTop"></div>');
-}else{
 setHTML.push('<div id="'+adSlotTop+'"></div>');
-}
 setHTML.push('</div>');
 
 
@@ -1361,11 +1099,7 @@ if((s+1) == 12){
 htmls.push('</div>');
 htmls.push('</div>');
 htmls.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-htmls.push('<div id="adsAppCenter"></div>');
-}else{
 htmls.push('<div id="'+adSlotCenter+'"></div>');
-}
 htmls.push('</div>');
 htmls.push('<div class="container py-3 boxbtnlink containeranimate">');
 htmls.push('<div class="row g-4">');
@@ -1418,11 +1152,7 @@ htmls.push('</div>');
 setHTML.push(htmls.join(''));
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppBottom"></div>');
-}else{
 setHTML.push('<div id="'+adSlotBottom+'"></div>');
-}
 setHTML.push('</div>');
 
 var htmlset = setHTML.join('');
@@ -1493,11 +1223,7 @@ function tableUserquiz(adSlotTop,adSlotCenter,adSlotBottom){
 var setHTML = [''];
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppTop"></div>');
-}else{
 setHTML.push('<div id="'+adSlotTop+'"></div>');
-}
 setHTML.push('</div>');
 
 
@@ -1505,11 +1231,7 @@ setHTML.push('<div id="tablequiz" class="container-lg px-0 mt-3 containeranimate
 setHTML.push('</div>');
 
 setHTML.push('<div class="col-12 text-center my-2 containeranimate">');
-if(TeoriaPalMixApp){
-setHTML.push('<div id="adsAppBottom"></div>');
-}else{
 setHTML.push('<div id="'+adSlotBottom+'"></div>');
-}
 setHTML.push('</div>');
 
 
@@ -1615,22 +1337,12 @@ setitemsLinks(itemsLink,title,d,c,o,l,num);
 
 if(getid == "B"){
 items.push('<div class="col-12 text-center my-3 containeranimate">');
-if(TeoriaPalMixApp){
-items.push('<div id="adsAppCenter" class="ads" data-label="advertisement"></div>');
-}else{
 items.push('<div id="'+adSlotCenter+'" class="ads" data-label="advertisement"></div>');
-}
-
 items.push('</div>');
 }
 if(getid == "E"){
 items.push('<div class="col-12 text-center my-3 containeranimate">');
-if(TeoriaPalMixApp){
-items.push('<div id="adsAppBottom" class="ads" data-label="advertisement"></div>');
-}else{
 items.push('<div id="'+adSlotBottom+'" class="ads" data-label="advertisement"></div>');
-}
-
 items.push('</div>');
 }
 
@@ -2056,12 +1768,7 @@ sethtmlsqhome(htmls,title,description,c,o,l,ic,page);
 htmls.push('</div>');
 htmls.push('</div>');
 htmls.push('<div class="col-12 text-center my-3 containeranimate">');
-if(TeoriaPalMixApp){
-htmls.push('<div id="adsAppBottom" class="ads" data-label="advertisement"></div>');
-}else{
 htmls.push('<div id="'+adSlotBottom+'" class="ads" data-label="advertisement"></div>');
-}
-
 htmls.push('</div>');
 document.title = "نماذج اسئلة التؤوريا";
 $('#container').html(htmls.join(''));
@@ -2207,7 +1914,7 @@ if(TeoriaPalMixApp){
 ScriptAppWeb.onSendQuizs();
 
 ScriptAppWeb.closeanimateFab();
-ScriptAppWeb.onChangePages();
+
 if(page == 'ExamPage'){
 ScriptAppWeb.pageQuizs("true");
 }else{
@@ -2495,7 +2202,7 @@ $('#alerts .card-text').text('عمل جيد، علامتك هي ' + trueans + ' 
 if(TeoriaPalMixApp){
 ScriptAppWeb.onSendQuizs();
 }else{
-  $(".sendAnswers").addClass('d-none');
+            	$(".sendAnswers").addClass('d-none');
 }
 
 var jsonpush = createCID.join();
@@ -3163,9 +2870,6 @@ function formatAMPM(date) {
 
 //get all quiz
 function setAllQuizTable(createallqj,setnumquiz){
-
-
-
 var gc = createallqj.result.length;
 if(gc > 0){
 $('#tablequiz').html('');
@@ -3176,7 +2880,9 @@ var p1 = [''];
 
 
 
-p1.push('<div class="table-responsive mt-4">');
+
+
+p1.push('<div class="table-responsive">');
 p1.push('<div class="table-wrapper px-1 pb-0">');
 p1.push('<div class="table-title bg-default">');
 
@@ -3219,8 +2925,8 @@ l10 = 0;
 
     var getsq1 = 'q'+getsq;
 var dataStorage = localStorage.getItem(getsq1);
-var getQS = JSON.parse(dataStorage);
-dataStorage = JSON.parse(dataStorage);
+	var getQS = JSON.parse(dataStorage);
+	 dataStorage = JSON.parse(dataStorage);
 correct_answers = dataStorage.correct_answers;
 duration = dataStorage.duration;
 num_ID = dataStorage.num_ID;
@@ -3228,9 +2934,6 @@ number = dataStorage.number;
 quiz_ID = dataStorage.quiz_ID;
 type = dataStorage.type;
 dates = dataStorage.date;
-
-
-var num_ID_forquiz = quiz_ID;
 
 if(correct_answers == 30){
 resultQuiz = '<i class="fa-solid fa-trophy-star text-success" title="ناجح بامتياز"></i>'
@@ -3279,26 +2982,6 @@ typeAr = "دراجة نارية"
 }else{
 typeAr = type;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//typePageHas
-set_all_activeQuiz(type,quiz_ID)
-//typePageHas
-
-
-
 
 
 
@@ -3370,82 +3053,6 @@ $('#btnCollapseUserTable').html('إخفــاء <i class="fa-solid fa-angles-dow
 }
 
 //getdata
-
-
-
-
-
-function set_all_activeQuiz(type,quiz_ID){
-
-var getquiz_ID_lengthx = $(".quiz_numsx").length;
-for(var mxc = 0;mxc<getquiz_ID_lengthx;mxc++){
-$(".quiz_numsx").eq(mxc).remove();
-}
-
-
-setTimeout(() => {
-var hrefsss = location.href;
-if(hrefsss.includes("page=ExamPage")){
-var typePageHas = "";
-if(hrefsss.includes("type=private")){
-typePageHas = "private";
-}else if(hrefsss.includes("type=truck")){
-typePageHas = "truck";
-}else if(hrefsss.includes("type=haulage")){
-typePageHas = "haulage";
-}else if(hrefsss.includes("type=taxi")){
-typePageHas = "taxi";
-}else if(hrefsss.includes("type=tractor")){
-typePageHas = "tractor";
-}else if(hrefsss.includes("type=motorcycle")){
-typePageHas = "motorcycle";
-}
-
-
-
-if(typePageHas == type){
-var getalllinkquiz = $(".description_quiz_num").length;
-var getquiz_ID = quiz_ID - 1;
-
-for(var mx = 0;mx<getalllinkquiz;mx++){
-var getquiz_ID_length = $(".description_quiz_num").eq(mx).find(".quiz_numsx").length;
-
-
-if(mx == getquiz_ID){
-
-if(mx == 20){
-$(".noticestyle2").addClass('d-none');
-}
-
-
-if(getquiz_ID_length == 0){
-$(".description_quiz_num").eq(mx).html('عدد الإختبارات المُقدمة <b class="quiz_numsx">1</b>');
-}else{
-var ll = $(".description_quiz_num").eq(mx).find(".quiz_numsx").text();
-ll = parseInt(ll);
-$(".description_quiz_num").eq(mx).find(".quiz_numsx").html(ll+1)
-}
-
-
-}
-
-}
-}
-
-}
-
-}, 1000);
-}
-
-
-
-
-
-
-
-
-
-
 function getdata(setnumquiz){
 var getallq = getCookie("quiz");
 var createnewalljs_;
@@ -3722,7 +3329,6 @@ getdata(numid);
 
 
 }
-setQuizTypePage(type,quiz_num);
 }
 
 function setAlertQuiz(allq,trueans,success,msg){
@@ -3736,7 +3342,7 @@ Swal.fire({
 })
 
 if(TeoriaPalMixApp){
-//ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","للأسف لم تنجح، علامتك هي "+trueans+" من "+allq+". ");
+ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","للأسف لم تنجح، علامتك هي "+trueans+" من "+allq+". ")
 }
 
 
@@ -3757,8 +3363,7 @@ Swal.fire({
 });
 
 if(TeoriaPalMixApp){
-ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل رائع، لقد نجحت بامتياز تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.");
-ScriptAppWeb.showReviewManagers(trueans);
+ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل رائع، لقد نجحت بامتياز تمت الإجابة عن جميع الأسئلة بالشكل الصحيح.")
 }
 
 			} else if (trueans >= success) {
@@ -3770,16 +3375,7 @@ Swal.fire({
   html: 'عمل جيد، علامتك هي <span class="text-success">'+trueans+' من '+allq+'</span>. لا تنسى مراجعة الأخطاء.'
 });
 if(TeoriaPalMixApp){
-
-if(trueans == 29){
-ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل ممتاز، علامتك هي "+trueans+" من "+allq+".")
-}else{
 ScriptAppWeb.sendNotificationQuizs("نتيجة الإختبار","عمل جيد، علامتك هي "+trueans+" من "+allq+".")
-}
-
-if(trueans >= 28){
-ScriptAppWeb.showReviewManagers(trueans);
-}
 }
 }
 }
@@ -3810,7 +3406,7 @@ ic = '<i class="fa-solid fa-messages-question"></i>';
 }
 
 
-/*
+
    	$.getJSON("file/all.json", {
 		alt: "json"
 	}).catch(function(error) {
@@ -3828,31 +3424,23 @@ ic = '<i class="fa-solid fa-messages-question"></i>';
         if(quiz_num == m){
         numOwl = m;
         $('#linkqnumber').append('<div class="col text-center"><a class="list-group-item list-group-item-light border rounded-circle p-2 active">'+m+'</a></div>');
+
 		}else if(m == 21 && type == "private"){
           $('#linkqnumber').append('<div class="col text-center"><a title="جديد! إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)"><span class="position-absolute noticestyle translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">جديد</span><span class="visually-hidden">unread messages</span></span>'+m+'</a></div>');
         }else if(m == 22 && type == "private"){
           $('#linkqnumber').append('<div class="col text-center"><a title="جديد! إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)"><span class="position-absolute noticestyle translate-middle p-2 bg-danger border border-light rounded-circle"><span class="visually-hidden">جديد</span><span class="visually-hidden">unread messages</span></span>'+m+'</a></div>');
         }else{
         $('#linkqnumber').append('<div class="col text-center"><a title="إمتحان رقم '+m+' ('+typeAr+')" href="javascript:;" class="list-group-item list-group-item-default list-group-item-action rounded-circle text-center" onclick="startsetHtml(\''+type+'\','+m+',1,0)">'+m+'</a></div>');
-
-
         }
 
-
-
-
-
-
         }
-
-
         setOwlOp(numOwl);
     }
     }
 
     });
-*/
-setQuizTypePage(type,quiz_num);
+
+
 
 
 
@@ -3962,7 +3550,7 @@ const { value: fruit } = await Swal.fire({
   inputValidator: (value) => {
     return new Promise((resolve) => {
       if (value === 'private') {
-        privates(1)
+        private(1)
       }else if (value === 'truck') {
         truck(1)
       }else if (value === 'haulage') {
@@ -3987,7 +3575,7 @@ const { value: fruit } = await Swal.fire({
 }
 
 
-function privates(num){
+function private(num){
 var numfrome = ' (7/'+num+')';
 if(num == 1){
 var setText = '<ul class="list-group text-start">'+
@@ -4012,7 +3600,7 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
   if (result.isDenied) {
-privates(num+1)
+private(num+1)
   }
 })
 }else if(num == 2){
@@ -4034,9 +3622,9 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
   if (result.isDenied) {
-privates(num+1)
+private(num+1)
   }else if(result.isConfirmed){
-privates(num-1)
+private(num-1)
   }
 })
 
@@ -4060,9 +3648,9 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
   if (result.isDenied) {
-privates(num+1)
+private(num+1)
   }else if(result.isConfirmed){
-privates(num-1)
+private(num-1)
   }
 })
 
@@ -4086,9 +3674,9 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
   if (result.isDenied) {
-privates(num+1)
+private(num+1)
   }else if(result.isConfirmed){
-privates(num-1)
+private(num-1)
   }
 })
 
@@ -4112,9 +3700,9 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
   if (result.isDenied) {
-privates(num+1)
+private(num+1)
   }else if(result.isConfirmed){
-privates(num-1)
+private(num-1)
   }
 })
 
@@ -4138,9 +3726,9 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
   if (result.isDenied) {
-privates(num+1)
+private(num+1)
   }else if(result.isConfirmed){
-privates(num-1)
+private(num-1)
   }
 })
 
@@ -4163,7 +3751,7 @@ Swal.fire({
   cancelButtonAriaLabel: 'Thumbs down'
 }).then((result) => {
 if(result.isConfirmed){
-privates(num-1)
+private(num-1)
   }
 })
 
@@ -5607,7 +5195,7 @@ Swal.fire({
   lessons()
   } else if (result.isDenied){
 if(type == "private"){
-privates(1);
+private(1);
 }else if(type == "truck"){
 truck(1);
 }else if(type == "haulage"){
@@ -5746,43 +5334,10 @@ resultquizoff ='<div class="alert alert-primary" role="alert">لا يوجد بي
         }
 var icon = '';
 if(drive_exam_result == "ناجح"){
-icon = 'success';
-if(TeoriaPalMixApp){
-ScriptAppWeb.showReviewManagers(100);
-}
-
+icon = 'success'
 }else{
 icon = 'warning'
 }
-
-
-
-var timenow = new Date();
-var dd = timenow.getDate();
-var mm = timenow.getMonth();
-var yy = timenow.getFullYear();
-var timenows =  dd+"/"+(mm+1)+"/"+yy;
-
-if(drive_exam_result = "ناجح" && dates == timenows.replace(/-0+/g, '/')){
-
-Swal.fire({
-  icon: icon,
-  title: 'مبروك النجاح',
-  html: resultquizoff,
-  confirmButtonColor: '#198754',
-    background: 'url(./file/img/site/sw/b1.jpg)',
-  backdrop: `
-    rgba(0,0,123,0.4)
-    url("./file/img/site/sw/s.gif")
-    repeat
-  `,
-  cancelButtonText: 'إغلاق',
-  showCancelButton: false,
-  showCloseButton: true,
-  showConfirmButton: false
-});
-
-}else{
 Swal.fire({
   icon: icon,
   html: resultquizoff,
@@ -5791,18 +5346,6 @@ Swal.fire({
   showCloseButton: true,
   showConfirmButton: false
 })
-}
-
-
-
-
-
-
-
-
-
-
-
 clearInterval(timerIntervals)
 }catch(e){
 
@@ -5894,43 +5437,10 @@ resultquizoff ='<div class="alert alert-primary" role="alert">لا يوجد بي
 
 var icon = '';
 if(practical_exam_result == "ناجح"){
-icon = 'success';
-if(TeoriaPalMixApp){
-ScriptAppWeb.showReviewManagers(100);
-}
+icon = 'success'
 }else{
 icon = 'warning'
 }
-
-
-
-
-var timenow = new Date();
-var dd = timenow.getDate();
-var mm = timenow.getMonth();
-var yy = timenow.getFullYear();
-var timenows =  dd+"/"+(mm+1)+"/"+yy;
-
-if(practical_exam_result == "ناجح" && dates == timenows){
-
-Swal.fire({
-  icon: icon,
-  title: 'مبروك النجاح',
-  html: resultquizoff,
-  confirmButtonColor: '#198754',
-    background: 'url(./file/img/site/sw/b1.jpg)',
-  backdrop: `
-    rgba(0,0,123,0.4)
-    url("./file/img/site/sw/s.gif")
-    repeat
-  `,
-  cancelButtonText: 'إغلاق',
-  showCancelButton: false,
-  showCloseButton: true,
-  showConfirmButton: false
-});
-
-}else{
 Swal.fire({
   icon: icon,
   html: resultquizoff,
@@ -5939,15 +5449,6 @@ Swal.fire({
   showCloseButton: true,
   showConfirmButton: false
 })
-}
-
-
-
-
-
-
-
-
     clearInterval(timerIntervals)
 }catch(e){
 
@@ -6164,6 +5665,8 @@ getalls()
 }
 }
 
+
+
 function getalls(){
 if(window.navigator.onLine){
 
@@ -6241,8 +5744,6 @@ function setTimeoutAd(adSlotTop,adSlotCenter,adSlotBottom){
 let timeoutADS;
 let timeoutNum = 0;
 function setOutputADS() {
-
-if(!TeoriaPalMixApp){
 if(typeof googletag == 'object'){
 googletag.cmd.push(function() {googletag.display(adSlotTop)});
 googletag.cmd.push(function() {googletag.display(adSlotCenter)});
@@ -6256,22 +5757,6 @@ delayedADS();
   errorLoadAd();
   }
 }
-}else{
-
-setTimeout(() => {
-setAdsForMbileApp(1);
-}, 100)
-setTimeout(() => {
-setAdsForMbileApp(2);
-}, 200)
-setTimeout(() => {
-setAdsForMbileApp(3);
-}, 300)
-
-}
-
-
-
 }
 function delayedADS() {
   timeoutADS = setTimeout(setOutputADS, 1*1000);
@@ -6280,8 +5765,10 @@ function clearTimeoutADS() {
   clearTimeout(timeoutADS);
 }
 
-setOutputADS();
 
+if(!TeoriaPalMixApp){
+setOutputADS();
+}
 
 var script = document.createElement('script');
 script.type = 'text/javascript';
@@ -6291,100 +5778,6 @@ $('#container').append(script)
 
 
 }
-
-var timeoutAdsMobile = setTimeout(withtimeoutAdsMobile, 59000);
-function setAdsForMbileApp(num){
-var dataAds = localStorage.getItem("dataAds");
-
-if(dataAds != null){
-dataAds = window.atob(dataAds);
-var dataAdsStorage = JSON.parse(dataAds);
-
-var getLengthName = dataAdsStorage.length;
-var getAdsID = Math.floor(Math.random() * getLengthName);
-var getAdsObj = dataAdsStorage[getAdsID].objectAds.length;
-getAdsObj = Math.floor(Math.random() * getAdsObj);
-var dataGet = dataAdsStorage[getAdsID].objectAds[getAdsObj];
-var url = dataGet.url;
-var name = dataGet.name;
-var width = dataGet.width;
-var height = dataGet.height;
-var id = dataGet.id;
-var googlePlayPackage = dataGet.googlePlayPackage;
-var facebookPage = dataGet.facebookPage;
-var facebookProfile = dataGet.facebookProfile;
-var imgUrl = dataGet.img64;
-if(imgUrl == null){
-imgUrl = dataGet.img;
-}
-if(googlePlayPackage != null){
-url = "market://details?id="+googlePlayPackage;
-}
-if(facebookPage != null){
-url = "fb://page/"+facebookPage;
-}
-if(facebookProfile != null){
-url = "fb://profile/"+facebookProfile;
-}
-
-
-
-var newAdsTop = [''];
-newAdsTop.push('<a href="'+url+'">');
-newAdsTop.push('<img src="'+imgUrl+'" width="'+width+'" height="'+height+'"/>');
-newAdsTop.push('</a>');
-
-
-if(num == 1){
-$("#adsAppTop").html(newAdsTop.join(''));
-}else if(num == 2){
-$("#adsAppCenter").html(newAdsTop.join(''));
-}else if(num == 3){
-$("#adsAppBottom").html(newAdsTop.join(''));
-}
-}
-
-clearTimeout(timeoutAdsMobile);
-timeoutAdsMobile = setTimeout(withtimeoutAdsMobile, 30000);
-
-
-}
-
-
-
-function withtimeoutAdsMobile() {
-setTimeout(() => {
-setAdsForMbileApp(1);
-}, 100)
-setTimeout(() => {
-setAdsForMbileApp(2);
-}, 200)
-setTimeout(() => {
-setAdsForMbileApp(3);
-}, 300)
-}
-
-
-
-
-
-
-
-function setJsonAd(){
-if(window.navigator.onLine){
-$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/appADS.json", {
-    }).catch(function(error) {
-    }).done(function(recosts) {
-recosts = JSON.stringify(recosts);
-recosts = window.btoa(recosts);
-localStorage.setItem("dataAds",recosts);
-    });
-}
-}
-setJsonAd();
-
-
-
 
 function errorLoadAd(){
 var url = top.location.href;
@@ -6438,10 +5831,6 @@ history.pushState({page:1,rand:Math.random()},type, newlink);
 }
 
 function sethtmlsqhome(htmls,title,description,c,o,l,ic,page,_type,_num1,_num2,_ans,pageHash){
-
-
-
-
 var newlink = '?';
 if(page){
 newlink += 'page='+page;
@@ -6464,7 +5853,7 @@ newlink += '#'+pageHash;
 
 htmls.push('<div class="col-sm-6 col-xl-3 position-relative">');
 
-/*
+
 if(_type == "private" && _num1 == 21){
 	htmls.push('<span class="position-absolute noticestyle2 translate-middle badge rounded-pill bg-danger">');
     htmls.push('جديد');
@@ -6474,8 +5863,6 @@ if(_type == "private" && _num1 == 21){
     htmls.push('جديد');
     htmls.push('<span class="visually-hidden">جديد</span></span>');
 }
-*/
-
 htmls.push('<a href="'+newlink+'" class="d-flex justify-content-center align-items-center splash-'+c+' ripple p-4 bg-'+c+' bg-opacity-'+o+' rounded-3 itembtnhome" onclick="'+l+';return false">');
 
 htmls.push('<span class="display-6 lh-1 text-'+c+' mb-0"><i class="'+ic+'"></i></span>');
@@ -6491,103 +5878,6 @@ htmls.push('</div>');
 
 
 }
-
-
-function sethtmlsqhomeForQuiz(htmls,title,description,c,o,l,ic,page,_type,_num1,_num2,_ans,pageHash,quiz_num_numOwl){
-
-
-
-
-var newlink = '?';
-if(page){
-newlink += 'page='+page;
-}
-if(_type){
-newlink += '&type='+_type;
-}
-if(_num1){
-newlink += '&exam='+_num1;
-}
-if(_num2){
-newlink += '&question='+_num2;
-}
-if(_ans){
-newlink += '&view='+_ans;
-}
-if(pageHash){
-newlink += '#'+pageHash;
-}
-
-htmls.push('<div class="col-sm-6 col-xl-3 position-relative">');
-
-/*
-if(_type == "private" && _num1 == 21 && quiz_num_numOwl != _num1){
-	htmls.push('<span class="position-absolute noticestyle2 translate-middle badge rounded-pill bg-danger">');
-    htmls.push('جديد');
-    htmls.push('<span class="visually-hidden">جديد</span></span>');
-}else if(_type == "private" && _num1 == 22 && quiz_num_numOwl != _num1){
-	htmls.push('<span class="position-absolute noticestyle2 translate-middle badge rounded-pill bg-danger">');
-    htmls.push('جديد');
-    htmls.push('<span class="visually-hidden">جديد</span></span>');
-}
-*/
-
-
-
-
-if(quiz_num_numOwl == _num1){
-htmls.push('<a href="'+newlink+'" class="d-flex justify-content-center align-items-center splash-'+c+' ripple p-4 bg-'+c+' bg-opacity rounded-3 itembtnhome" onclick="'+l+';return false">');
-}else{
-htmls.push('<a href="'+newlink+'" class="d-flex justify-content-center align-items-center splash-'+c+' ripple p-4 bg-'+c+' bg-opacity-'+o+' rounded-3 itembtnhome" onclick="'+l+';return false">');
-}
-
-if(quiz_num_numOwl == _num1){
-if(c=="info"||c=="warning"||c=="orange"){
-htmls.push('<span class="display-6 lh-1 text-dark mb-0"><i class="'+ic+'"></i></span>');
-}else{
-htmls.push('<span class="display-6 lh-1 text-light mb-0"><i class="'+ic+'"></i></span>');
-}
-}else{
-htmls.push('<span class="display-6 lh-1 text-'+c+' mb-0"><i class="'+ic+'"></i></span>');
-}
-
-
-
-htmls.push('<div class="ms-4 h6 fw-normal mb-0">');
-htmls.push('<div class="d-flex">');
-
-if(quiz_num_numOwl == _num1){
-if(c=="info"||c=="warning"||c=="orange"){
-htmls.push('<h5 class="mb-1 h5 fw-bold text-dark">'+title+'</h5>');
-}else{
-htmls.push('<h5 class="mb-1 h5 fw-bold text-light">'+title+'</h5>');
-}
-
-}else{
-htmls.push('<h5 class="mb-1 h5 fw-bold text-dark">'+title+'</h5>');
-}
-htmls.push('</div>');
-
-if(quiz_num_numOwl == _num1){
-if(c=="info"||c=="warning"||c=="orange"){
-htmls.push('<p class="mb-0 fs-6 text-dark description_quiz_num"></p>');
-}else{
-htmls.push('<p class="mb-0 fs-6 text-light description_quiz_num"></p>');
-}
-}else{
-htmls.push('<p class="mb-0 fs-6 text-secondary description_quiz_num"></p>');
-}
-
-htmls.push('</div>');
-htmls.push('</a>');
-htmls.push('</div>');
-
-
-
-}
-
-
-
 function setitemsLinks(itemsLink,title,d,c,o,l,num){
 itemsLink.push('<div class="col-sm-6 col-xl-3">');
 itemsLink.push('<a class="d-flex justify-content-center align-items-centerp-4 splash-'+c+' ripple p-4 bg-'+c+' bg-opacity-'+o+' rounded-3 itembtnhome" id="link-'+l+'" href="#'+l+'">');
@@ -6889,17 +6179,11 @@ setTimeout(() => {
                         if(TeoriaPalMixApp){
                         ScriptAppWeb.hideBtnMenu();
                         }
-            }else if(hash == '#offcanvasCard'){
-                         new bootstrap.Offcanvas($('#offcanvasCard')).show();
-                                     if(TeoriaPalMixApp){
-                                     ScriptAppWeb.hideBtnMenu();
-                                     }
-                         }else{
+            }else{
             $("#ExamModal").modal('hide');
             $("#CoursesModal").modal('hide');
             $("#sidebarLink").offcanvas('hide');
             $("#text-size-quiz").offcanvas('hide');
-            $("#offcanvasCard").offcanvas('hide');
 
 
             if(TeoriaPalMixApp){
@@ -6909,12 +6193,8 @@ setTimeout(() => {
 
           //  console.log(hash);
     }else{
-          $("#ExamModal").modal('hide');
-           $("#CoursesModal").modal('hide');
-           $("#sidebarLink").offcanvas('hide');
-            $("#text-size-quiz").offcanvas('hide');
-            $("#offcanvasCard").offcanvas('hide');
-
+     $("#ExamModal").modal('hide');
+     $("#CoursesModal").modal('hide');
     showPage(true)
             if(TeoriaPalMixApp){
             ScriptAppWeb.showBtnMenu();
@@ -7014,7 +6294,7 @@ if(TeoriaPalMixApp){
 var hash = window.location.hash;
 
 
-if(Swal.isVisible() || hash == '#ExamModal' || hash == '#CoursesModal' || hash == '#sidebarLink' || hash == '#textSize' || hash == '#offcanvasCard'){
+if(Swal.isVisible() || hash == '#ExamModal' || hash == '#CoursesModal' || hash == '#sidebarLink' || hash == '#textSize'){
 ScriptAppWeb.hideBtnMenu();
 }else{
 ScriptAppWeb.showBtnMenu();
@@ -7349,7 +6629,9 @@ p1.push('<td class="t_date" title="تاريخ الإمتحان '+theDate+' - '+t
 p1.push('<td class="t_duration">'+duration+'</td>');
 p1.push('<td class="t_mark '+textcolor+'">'+number+'/'+correct_answers+'</td>');
 p1.push('<td>'+resultQuiz+'</td>');
-p1.push('<td><a onclick="startsetHtml(\''+type+'\','+quiz_ID+',1,'+num_ID+')" href="javascript:;" class="viewquiz '+viewquiz+'" title="مراجعة الإمتحان" data-toggle="tooltip"><i class="fa-solid fa-eye"></i></a></td>');
+p1.push('<td>');
+p1.push('<a onclick="startsetHtml(\''+type+'\','+quiz_ID+',1,'+num_ID+')" href="javascript:;" class="viewquiz '+viewquiz+'" title="مراجعة الإمتحان" data-toggle="tooltip"><i class="fa-solid fa-eye"></i></a>');
+p1.push('</td>');
 p1.push('</tr>');
 
 
@@ -7482,1090 +6764,8 @@ localStorage.removeItem("model");
 
 
 
- function getStatistics(recosts){
 
 
-
-
-    //admin
-  var admins = recosts.Manager;
-  var objkeys = Object.keys(admins);
-  var objvalues = Object.values(admins);
-  if(objkeys.length > 0){
-  $("#userAdmins .alert").addClass("d-none");
-  $("#userAdmins .userNum").removeClass("d-none");
-
-   $("#userAdmins_statis").html('<b>'+objkeys.length+'</b>');
-
-  for(var i = 0;i<objkeys.length;i++){
-	var adminName = objvalues[i];
-
-    var set1 = '<div class="d-flex text-muted pt-3">';
-    set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user"></i></div>';
-    if(i == (objkeys.length-1)){
-    set1 += '<div class="pb-3 mb-0 small lh-sm w-100">';
-    }else{
-    set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-    }
-
-    set1 += '<b>'+adminName+'</b>';
-    set1 += '</div></div>';
-    $("#userAdmins .userNum").append(set1);
-  }
-  }else{
-    $("#userAdmins .alert").removeClass("d-none");
-    $("#userAdmins .userNum").addClass("d-none");
-  }
-  //end_admin
-
-
-
-  //allQuiz_users
-  var allQuiz_users = recosts.quiz;
-    $("#table_statis .alert").addClass("d-none");
-  $("#table_statis .userNum").removeClass("d-none");
-   $("#allQuiz_users").html('<b>'+Object.keys(allQuiz_users).length+'</b>');
-  //allQuiz_users
-
-
-  var run_allNavigation_users = recosts.statistics.Navigation;
-  var run_allRunApp_users = recosts.statistics.RunApp;
-  var run_allfirstRunApp_users = recosts.statistics.numberDevices;
-   $("#allNavigation_users").html('<b>'+run_allNavigation_users+'</b>');
-   $("#allRunApp_users").html('<b>'+run_allRunApp_users+'</b>');
-   $("#allfirstRunApp_users").html('<b>'+run_allfirstRunApp_users+'</b>');
-
-
-
-
-
-    //user
-  var users = recosts.User;
-  var objkeys_user = Object.keys(users);
-  var objvalues_user = Object.values(users);
-
-  var usersQuizGet = recosts.quiz;
-  var objkeys_usersQuiz = Object.keys(usersQuizGet);
-  var objvalues_usersQuiz = Object.values(usersQuizGet);
-
-   $("#user_statis").html('<b>'+objkeys_user.length+'</b>');
-
-
-  if(objkeys_user.length > 0){
-  $("#users .alert").addClass("d-none");
-  $("#users .userNum").removeClass("d-none");
-
-  for(var i = 0;i<objkeys_user.length;i++){
-	var userData = objvalues_user[i].profile;
-
-
-
-
-var Email = userData.Email;
-var FirstName = userData.FirstName;
-var FullName = userData.FullName;
-var Id = userData.Id;
-var LastName = userData.LastName;
-var MiddleName = userData.MiddleName;
-var create_ccount = userData.create_ccount;
-var currentTime = userData.currentTime;
-var loginWith = userData.loginWith;
-var model = userData.model;
-var profilePic = userData.profilePic;
-var profilePic64 = userData.profilePic64;
-var version = userData.version;
-var manager = userData.manager;
-
-
-
-
-var nickname = null;
-var shareName = null;
-
-if (typeof objvalues_user[i].setting == "object"){
-nickname = objvalues_user[i].setting.nickname;
-shareName = objvalues_user[i].setting.shareName;
-}
-
-
-
-
-var connectAc = "";
-if(create_ccount){
-var date = new Date(create_ccount.time);
-connectAc = date.getDate() + '/' + (date.getMonth()+1) + '/' +   date.getFullYear();
-}
-var createAc = "";
-if(currentTime){
-var date = new Date(currentTime.time);
-createAc = date.getDate() + '/' + (date.getMonth()+1) + '/' +   date.getFullYear();
-}
-
-var iclogin = "";
-if(loginWith == "Facebook"){
-iclogin = '<i class="fa-brands fa-facebook mx-1"></i>';
-}else if(loginWith == "Google"){
-iclogin = '<i class="fa-brands fa-google mx-1"></i>';
-}
-
-
-    var set1 = '<div class="d-flex text-muted pt-3">';
-    set1 += '<a class="ImgUsers bd-placeholder-img flex-shrink-0 me-2 rounded-circle" style="background-image: url('+profilePic+');" data-bs-toggle="collapse" href="#collaps'+Id+'" role="button" aria-expanded="false" aria-controls="#collaps'+Id+'"></a>';
-    if(i == (objkeys_user.length-1)){
-    set1 += '<div class="pb-3 mb-0 small lh-sm w-100">';
-    }else{
-    set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-    }
-
-    set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps'+Id+'" role="button" aria-expanded="false" aria-controls="#collaps'+Id+'"> <b>'+FullName+'</b></a>';
-    if(manager){
-    set1 += '<i class="fa-solid fa-user-unlock mx-2 text-primary"></i>';
-    }
-    if(loginWith){
-    set1 += '<span class="d-block">عبر '+loginWith+iclogin+'</span>';
-    }
-
-    set1 += '<div class="collapse" id="collaps'+Id+'">';
-    set1 += '<div class="card-body px-0">';
-
-
-    set1 += '<div class="row">';
-    set1 += '<div class="col-sm col-12 text-center"><img class="bd-placeholder-img flex-shrink-0 me-2 rounded" src="'+profilePic+'" width="120" height="120"/></div>';
-
-set1 += '<table class="table table-borderless">';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> الإسم الكامل</th>';
-set1 += '<td>'+FullName+'</td>';
-set1 += '</tr>';
-
-if(nickname && nickname != FullName){
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> اللقب</th>';
-set1 += '<td>'+nickname+'</td>';
-set1 += '</tr>';
-}
-if(shareName != null){
-
-if(shareName == true){
-shareName = "نعم"
-}else if(shareName == false){
-shareName = "لا"
-}
-var viewName = "الإسم"
-if(nickname && nickname != FullName){
-viewName = "اللقب"
-}else{
-viewName = "الإسم"
-}
-
-
-set1 += '<tr>';
-
-
-set1 += '<th><i class="fa-solid fa-eye"></i> إظهار '+viewName+'</th>';
-
-
-
-set1 += '<td>'+shareName+'</td>';
-
-
-set1 += '</tr>';
-}
-
-
-
-
-
-if(Email){
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-envelope"></i> البريد الإلكتروني</th>';
-set1 += '<td>'+Email+'</td>';
-set1 += '</tr>';
-}
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-id-card-clip"></i> معرف المستخدم</th>';
-set1 += '<td>'+Id+'</td>';
-set1 += '</tr>';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-lock"></i> مستخدم إداري</th>';
-set1 += '<td>';
-if(manager){
-set1 += "نعم";
-}else{
-set1 += "لا";
-}
-set1 += '</td>';
-set1 += '</tr>';
-
-
-
-if(MiddleName){
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-comment-middle"></i> اللقب</th>';
-set1 += '<td>'+MiddleName+'</td>';
-set1 += '</tr>';
-}
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-right-to-bracket"></i> دخول عبر</th>';
-set1 += '<td>'+loginWith+iclogin+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ التسجيل</th>';
-set1 += '<td>'+connectAc+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-sharp fa-solid fa-key"></i> آخر دخول</th>';
-set1 += '<td>'+createAc+'</td>';
-set1 += '</tr>';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-duotone fa-code-compare"></i> إصدار التطبيق</th>';
-set1 += '<td>'+version+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-mobile-signal"></i> نوع الجهاز</th>';
-set1 += '<td>'+model+'</td>';
-set1 += '</tr>';
-
-
-var numbers_usersQuiz = 0;
-var num_usersSQuiz = 0;
-var all_usersSQuiz = 0;
-var present = 0;
-
-var allmark = 0;
-var testallmark = 0;
-
-
-  for(var s = 0;s<objkeys_usersQuiz.length;s++){
-    if(objvalues_usersQuiz[s].userId == Id){
-    numbers_usersQuiz++;
-
-var getdataStorage =  objvalues_usersQuiz[s].jsonFile;
-getdataStorage = window.atob(getdataStorage);
-var dataStorage = JSON.parse(getdataStorage);
-
-if(dataStorage.correct_answers >=25){
-all_usersSQuiz++;
-}
-
-testallmark += dataStorage.correct_answers;
-
-allmark = Math.round((testallmark/numbers_usersQuiz))
-
-var getTotalExamsFalse = Math.abs(all_usersSQuiz - numbers_usersQuiz);
-	var useransd = numbers_usersQuiz - getTotalExamsFalse;
-     present = ((useransd / numbers_usersQuiz) * 100 >> 0);
-
-
-all_usersSQuiz = all_usersSQuiz;
-
-
-
-    }
-  }
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-light fa-ballot-check"></i> مجموع الإختبارات</th>';
-set1 += '<td>'+numbers_usersQuiz+'</td>';
-set1 += '</tr>';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-percent"></i> نسبة النجاح</th>';
-set1 += '<td>'+all_usersSQuiz+'/'+numbers_usersQuiz+' ('+present+'%)</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-duotone fa-gauge-simple"></i> متوسط العلامات</th>';
-set1 += '<td>'+allmark+'/30</td>';
-set1 += '</tr>';
-
-
-set1 += '</table>';
-
-
-
-
-    set1 += '</div>';
-
-
-
-
-
-    set1 += '</div>';
-    set1 += '</div>';
-
-    set1 += '</div></div>';
-
-
-
-
-
-    $("#users .userNum").append(set1);
-  }
-  }else{
-    $("#users .alert").removeClass("d-none");
-    $("#users .userNum").addClass("d-none");
-  }
-  //end_user
-
-
-
-    //searchCard
-
-
-
-var data = recosts.pages.examis;
-if (Object.keys(data).length > 0) {
-    $("#searchCard .alert").addClass("d-none");
-    $("#searchCard .userNum").removeClass("d-none");
-    var searchCard_statis = 0;
-    var obj = [];
-    var fileNewSearch = localStorage.getItem("fileNewSearch");
-    if (fileNewSearch == null) {
-        fileNewSearch = {};
-    } else {
-        fileNewSearch = JSON.parse(fileNewSearch);
-    }
-    var set1;
-    var have_fileNewSearch = false;
-    for (var i = 0; i < Object.keys(data).length; i++) {
-        var datas = Object.values(data)[i];
-        if (datas.theory) {
-            for (var x = 0; x < Object.keys(datas.theory).length; x++) {
-                var theory_i = Object.values(datas.theory)[x];
-                obj.push(theory_i)
-            }
-        }
-        if (datas.practical) {
-            for (var x = 0; x < Object.keys(datas.practical).length; x++) {
-                var practical_i = Object.values(datas.practical)[x];
-                obj.push(practical_i)
-            }
-        }
-    }
-
-    function custom_sort(a, b) {
-        return new Date(parseInt(a.time)) - new Date(parseInt(b.time));
-    }
-    var dataNew = obj.sort(custom_sort);
-    var newData = dataNew.reverse();
-    $("#searchCard_statis").html('<b>' + newData.length + '</b>');
-    for (var i = 0; i < newData.length; i++) {
-        var id = newData[i].id;
-        var full_name = newData[i].full_name;
-        var dataget = newData[i];
-        var set2 = '<div class="d-flex text-muted pt-3">';
-        set2 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user"></i></div>';
-        set2 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-        set2 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collapsName' + id + '" role="button" aria-expanded="false" aria-controls="#collapsName' + id + '" id="collapss' + id + '"> <b>' + full_name + '</b> <span class="thisisnew"></span></a>';
-        set2 += '<div class="collapse" id="collapsName' + id + '">';
-        set2 += '</div>';
-        set2 += '</div>';
-        set2 += '</div></div>';
-        var xxx = $('#collapsName' + id).length;
-        if (xxx == 0) {
-            $("#searchCard .userNum").append(set2);
-        }
-        if (Object.values(fileNewSearch).indexOf(newData[i].time) > -1) {
-            have_fileNewSearch = true;
-        } else {
-            have_fileNewSearch = false;
-            Array.prototype.push.call(fileNewSearch, newData[i].time);
-        }
-        if (newData[i].examis == "الإمتحان النظري") {
-            var dates = dataget.dates; //تاريخ الإمتحان
-            var drive_exam_result = dataget.drive_exam_result; //نتيجة الإمتحان
-            var exam_result = dataget.exam_result; //علامة الإمتحان
-            var examis = dataget.examis; //نوع الإمتحان
-            var full_name = dataget.full_name; //الإسم
-            var hostname = dataget.hostname; //hostname
-            var id = dataget.id; //id
-            var license_degree = dataget.license_degree; //درجة الرخصة
-            var needs_examiner = dataget.needs_examiner; //بحاجة إلى فاحص
-            var pass_degree = dataget.pass_degree; //علامة النجاح
-            var time = dataget.time; //الوقت
-            var title = dataget.title; //اسم صفحة البحث
-            var url = dataget.url; //رابط صفحة البحث
-            var value = dataget.value;
-            exam_result = parseInt(exam_result);
-            pass_degree = parseInt(pass_degree);
-            var createAc = "";
-            if (time) {
-                var date = new Date(parseInt(time));
-                createAc = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-            }
-            var issuccessful = "";
-            if (exam_result >= pass_degree) {
-                issuccessful = "text-success";
-            } else if (exam_result < pass_degree) {
-                issuccessful = "text-danger";
-            }
-            if (!have_fileNewSearch) {
-                $('#collapss' + id + ' .thisisnew').html('<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>');
-            }
-            var set1 = '<div class="d-flex text-muted pt-3">';
-            set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user ' + issuccessful + '"></i></div>';
-            set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-            set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps' + id + i + '" role="button" aria-expanded="false" aria-controls="#collaps' + id + i + '"> <b>الإمتحــان النظــري</b>';
-            if (!have_fileNewSearch) {
-                set1 += '<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>';
-            }
-            set1 += '</a>';
-            set1 += '<div class="collapse" id="collaps' + id + i + '">';
-            set1 += '<div class="card-body px-0">';
-            set1 += '<table class="table table-borderless">';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-user"></i> الإسم</th>';
-            set1 += '<td>' + full_name + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ الإمتحان</th>';
-            set1 += '<td>' + dates + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-duotone fa-file-check"></i> علامة النجاح</th>';
-            set1 += '<td>' + pass_degree + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-circle-bookmark"></i> علامة الإمتحان</th>';
-            set1 += '<td><b>' + exam_result + '</b></td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-square-terminal"></i> النتيجة النهائية</th>';
-            set1 += '<td><b>' + drive_exam_result + '</b></td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-duotone fa-kerning"></i> نوع الإمتحان</th>';
-            set1 += '<td>' + examis + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-magnifying-glass-location"></i> موقع البحث</th>';
-            if (hostname == "com.teoriaps") {
-                hostname = '<i class="fa-brands fa-android mx-2 text-success"></i>تؤوريا نت';
-            }
-            set1 += '<td>' + hostname + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-sharp fa-solid fa-address-card"></i> رقم الهوية</th>';
-            set1 += '<td>' + id + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-address-card"></i> درجة الرخصة</th>';
-            set1 += '<td>' + license_degree + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-flag-checkered"></i> بحاجة إلى فاحص</th>';
-            set1 += '<td>' + needs_examiner + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-calendar-days"></i> تاريخ البحث</th>';
-            set1 += '<td>' + createAc + '</td>';
-            set1 += '</tr>';
-            set1 += '</table>';
-            set1 += '</div>';
-            set1 += '</div>';
-            set1 += '</div></div>';
-        } else if (newData[i].examis == "الإمتحان العملي") {
-            var full_name = dataget.full_name; //الإسم
-            var dates = dataget.dates; //تاريخ الإمتحان
-            var examis = dataget.examis; //نوع الإمتحان
-            var hostname = dataget.hostname; //hostname
-            var id = dataget.id; //id
-            var time = dataget.time; //الوقت
-            var school = dataget.school; // المدرسة
-            var practical_exam_result = dataget.practical_exam_result; // النتيجة
-            var license_degree = dataget.license_degree; // درجة الرخصة
-            var title = dataget.title; //اسم صفحة البحث
-            var url = dataget.url; //رابط صفحة البحث
-            var value = dataget.value;
-            var createAc = "";
-            if (time) {
-                var date = new Date(parseInt(time));
-                createAc = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-            }
-            var issuccessful = "";
-            if (practical_exam_result == "ناجح") {
-                issuccessful = "text-success";
-            } else {
-                issuccessful = "text-danger";
-            }
-            var set1 = '<div class="d-flex text-muted pt-3">';
-            set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user ' + issuccessful + '"></i></div>';
-            set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-            if (!have_fileNewSearch) {
-                $('#collapss' + id + ' .thisisnew').html('<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>');
-            }
-            set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps1' + id + i + '" role="button" aria-expanded="false" aria-controls="#collaps' + id + '"> <b>الإختبــــار العمـلــي</b>';
-            if (!have_fileNewSearch) {
-                set1 += '<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>';
-            }
-            set1 += '</a>';
-            set1 += '<div class="collapse" id="collaps1' + id + i + '">';
-            set1 += '<div class="card-body px-0">';
-            set1 += '<table class="table table-borderless">';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-user"></i> الإسم</th>';
-            set1 += '<td>' + full_name + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-sharp fa-solid fa-address-card"></i> رقم الهوية</th>';
-            set1 += '<td>' + id + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ الإمتحان</th>';
-            set1 += '<td>' + dates + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-square-terminal"></i> النتيجة</th>';
-            set1 += '<td><b>' + practical_exam_result + '</b></td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-magnifying-glass-location"></i> موقع البحث</th>';
-            if (hostname == "com.teoriaps") {
-                hostname = '<i class="fa-brands fa-android mx-2 text-success"></i>تؤوريا نت';
-            }
-            set1 += '<td>' + hostname + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-address-card"></i> درجة الرخصة</th>';
-            set1 += '<td>' + license_degree + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-school"></i> المدرسة</th>';
-            set1 += '<td>' + school + '</td>';
-            set1 += '</tr>';
-            set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-calendar-days"></i> تاريخ البحث</th>';
-            set1 += '<td>' + createAc + '</td>';
-            set1 += '</tr>';
-            set1 += '</table>';
-            set1 += '</div>';
-            set1 += '</div>';
-            set1 += '</div></div>';
-
-        }
-        if (newData[i].examis == "الإمتحان النظري" || newData[i].examis == "الإمتحان العملي") {
-            $('#collapsName' + id).append(set1);
-        }
-    }
-    var localStoragefileNewSearch = JSON.stringify(fileNewSearch);
-    localStorage.setItem("fileNewSearch", localStoragefileNewSearch);
-} else {
-    $("#searchCard .alert").removeClass("d-none");
-    $("#searchCard .userNum").addClass("d-none");
-}
-
-
-/*
-  var search = recosts.pages.examis;
-  var objkeys_search = Object.keys(search);
-  var objvalues_search = Object.values(search);
-
-var searchCard_statis = 0;
-
-
-  if(objkeys_search.length > 0){
-
-  $("#searchCard .alert").addClass("d-none");
-  $("#searchCard .userNum").removeClass("d-none");
-
-  	for(var i=0;i<objkeys_search.length;i++){
-
-
-    if(typeof objvalues_search[i].theory == "object"){
-    var getResCard_theory = Object.values(objvalues_search[i].theory);
-
-
-
-
-
-    for(var m=0;m<getResCard_theory.length;m++){
-    searchCard_statis++;
-    var dataget = getResCard_theory[m];
-
-
-var dates = dataget.dates;//تاريخ الإمتحان
-var drive_exam_result = dataget.drive_exam_result;//نتيجة الإمتحان
-var exam_result = dataget.exam_result;//علامة الإمتحان
-var examis = dataget.examis;//نوع الإمتحان
-var full_name = dataget.full_name;//الإسم
-var hostname = dataget.hostname;//hostname
-var id = dataget.id;//id
-var license_degree = dataget.license_degree;//درجة الرخصة
-var needs_examiner = dataget.needs_examiner;//بحاجة إلى فاحص
-var pass_degree = dataget.pass_degree;//علامة النجاح
-var time = dataget.time;//الوقت
-var title = dataget.title;//اسم صفحة البحث
-var url = dataget.url;//رابط صفحة البحث
-var value = dataget.value;
-
-
-exam_result = parseInt(exam_result);
-pass_degree = parseInt(pass_degree);
-
-
-var createAc = "";
-if(time){
-var date = new Date(parseInt(time));
-createAc = date.getDate() + '/' + (date.getMonth()+1) + '/' +   date.getFullYear();
-}
-var issuccessful = "";
-if(exam_result >= pass_degree){
-issuccessful = "text-success";
-}else if(exam_result<pass_degree){
-issuccessful = "text-danger";
-}
-
-
-
-    var set1 = '<div class="d-flex text-muted pt-3">';
-    set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user '+issuccessful+'"></i></div>';
-    set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-
-    set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps'+id+m+'" role="button" aria-expanded="false" aria-controls="#collaps'+id+m+'"> <b>الإمتحــان النظــري</b></a>';
-
-    set1 += '<div class="collapse" id="collaps'+id+m+'">';
-
-
-    set1 += '<div class="card-body px-0">';
-set1 += '<table class="table table-borderless">';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> الإسم</th>';
-set1 += '<td>'+full_name+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ الإمتحان</th>';
-set1 += '<td>'+dates+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-duotone fa-file-check"></i> علامة النجاح</th>';
-set1 += '<td>'+pass_degree+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-regular fa-circle-bookmark"></i> علامة الإمتحان</th>';
-set1 += '<td><b>'+exam_result+'</b></td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-square-terminal"></i> النتيجة النهائية</th>';
-set1 += '<td><b>'+drive_exam_result+'</b></td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-duotone fa-kerning"></i> نوع الإمتحان</th>';
-set1 += '<td>'+examis+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-magnifying-glass-location"></i> موقع البحث</th>';
-
-if(hostname == "com.teoriaps"){
-hostname = '<i class="fa-brands fa-android mx-2 text-success"></i>تؤوريا نت';
-}
-
-set1 += '<td>'+hostname+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-sharp fa-solid fa-address-card"></i> رقم الهوية</th>';
-set1 += '<td>'+id+'</td>';
-set1 += '</tr>';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-regular fa-address-card"></i> درجة الرخصة</th>';
-set1 += '<td>'+license_degree+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-flag-checkered"></i> بحاجة إلى فاحص</th>';
-set1 += '<td>'+needs_examiner+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-calendar-days"></i> تاريخ البحث</th>';
-set1 += '<td>'+createAc+'</td>';
-set1 += '</tr>';
-
-
-
-
-
-
-
-set1 += '</table>';
-
-set1 += '</div>';
-
-
-
-
-
-    set1 += '</div>';
-    set1 += '</div></div>';
-
-
-
-    var set2 = '<div class="d-flex text-muted pt-3">';
-    set2 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user"></i></div>';
-    set2 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-    set2 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collapsName'+id+'" role="button" aria-expanded="false" aria-controls="#collaps'+id+'"> <b>'+full_name+'</b></a>';
-    set2 += '<div class="collapse" id="collapsName'+id+'">';
-    set2 += '</div>';
-    set2 += '</div>';
-    set2 += '</div></div>';
-
-
-var xxx = $('#collapsName'+id).length;
-if(xxx == 0){
-$("#searchCard .userNum").append(set2);
-}
-$('#collapsName'+id).append(set1);
-
-
-
-
-//if(xxx == 0){
-//    var set2 = '<div class="d-flex text-muted pt-3">';
-//    set2 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user '+issuccessful+'"></i></div>';
-//    set2 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-//    set2 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collapsName'+id+'" role="button" aria-expanded="false" aria-controls="#collaps'+id+'"> <b>'+full_name+'</b></a>';
-//    set2 += '<div class="collapse" id="collaps'+id+'">';
-//    $("#searchCard .userNum").append(set1);
-//    set2 += '</div>';
-//    set2 += '</div>';
-//    set2 += '</div></div>';
-//
-//}else{
-//$('#collaps'+id).append(set1);
-//
-//}
-
-
-    }
-	}
-
-
-
-    if(typeof objvalues_search[i].practical == "object"){
-    var getResCard_practical = Object.values(objvalues_search[i].practical);
-
-    for(var m=0;m<getResCard_practical.length;m++){
-    var dataget = getResCard_practical[m];
-    searchCard_statis++;
-
-
-var full_name = dataget.full_name;//الإسم
-var dates = dataget.dates;//تاريخ الإمتحان
-var examis = dataget.examis;//نوع الإمتحان
-var hostname = dataget.hostname;//hostname
-var id = dataget.id;//id
-var time = dataget.time;//الوقت
-var school = dataget.school;// المدرسة
-var practical_exam_result = dataget.practical_exam_result;// النتيجة
-var license_degree = dataget.license_degree;// درجة الرخصة
-var title = dataget.title;//اسم صفحة البحث
-var url = dataget.url;//رابط صفحة البحث
-var value = dataget.value;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var createAc = "";
-if(time){
-var date = new Date(parseInt(time));
-createAc = date.getDate() + '/' + (date.getMonth()+1) + '/' +   date.getFullYear();
-}
-
-var issuccessful = "";
-if(practical_exam_result == "ناجح"){
-issuccessful = "text-success";
-}else{
-issuccessful = "text-danger";
-}
-
-    var set1 = '<div class="d-flex text-muted pt-3">';
-    set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user '+issuccessful+'"></i></div>';
-    set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-
-    set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps1'+id+m+'" role="button" aria-expanded="false" aria-controls="#collaps'+id+'"> <b>الإختبــــار العمـلــي</b></a>';
-
-    set1 += '<div class="collapse" id="collaps1'+id+m+'">';
-
-
-    set1 += '<div class="card-body px-0">';
-set1 += '<table class="table table-borderless">';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> الإسم</th>';
-set1 += '<td>'+full_name+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-sharp fa-solid fa-address-card"></i> رقم الهوية</th>';
-set1 += '<td>'+id+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ الإمتحان</th>';
-set1 += '<td>'+dates+'</td>';
-set1 += '</tr>';
-
-
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-square-terminal"></i> النتيجة</th>';
-set1 += '<td><b>'+practical_exam_result+'</b></td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-magnifying-glass-location"></i> موقع البحث</th>';
-if(hostname == "com.teoriaps"){
-hostname = '<i class="fa-brands fa-android mx-2 text-success"></i>تؤوريا نت';
-}
-set1 += '<td>'+hostname+'</td>';
-set1 += '</tr>';
-
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-regular fa-address-card"></i> درجة الرخصة</th>';
-set1 += '<td>'+license_degree+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-school"></i> المدرسة</th>';
-set1 += '<td>'+school+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-calendar-days"></i> تاريخ البحث</th>';
-set1 += '<td>'+createAc+'</td>';
-set1 += '</tr>';
-
-
-
-
-
-
-
-set1 += '</table>';
-
-set1 += '</div>';
-
-
-
-
-
-    set1 += '</div>';
-    set1 += '</div></div>';
- //   $("#searchCard .userNum").append(set1);
-
-
-    var set2 = '<div class="d-flex text-muted pt-3">';
-    set2 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user"></i></div>';
-    set2 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-    set2 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collapsName'+id+'" role="button" aria-expanded="false" aria-controls="#collapsName'+id+'"> <b>'+full_name+'</b></a>';
-    set2 += '<div class="collapse" id="collapsName'+id+'">';
-
-    set2 += '</div>';
-    set2 += '</div>';
-    set2 += '</div></div>';
-
-
-var xxx = $('#collapsName'+id).length;
-if(xxx == 0){
-$("#searchCard .userNum").append(set2);
-}
-$('#collapsName'+id).append(set1);
-
-
-
-
-
-
-
-
-    }
-	}
-
-      $("#searchCard_statis").html('<b>'+searchCard_statis+'</b>');
-
- 	}
-
-  }else{
-    $("#searchCard .alert").removeClass("d-none");
-  $("#searchCard .userNum").addClass("d-none");
-  }
-
-*/
-   //searchCard
-
-
-
-
-
-
-
-     //reports
-  var reports = recosts.report;
-
-  if(reports != null){
-
-    var objkeys_reports = Object.keys(reports);
-    var objvalues_reports = Object.values(reports);
-  if(objkeys_reports.length){
-  $("#reports .alert").addClass("d-none");
-  $("#reports .userNum").removeClass("d-none");
-
-  $("#reports_statis").html('<b>'+objkeys_reports.length+'</b>');
-  for(var b=0;b<objkeys_reports.length;b++){
-    var getRes_reports = Object.values(objvalues_reports[b]);
-      var c_data = objvalues_reports[b];
-
-      var UserId = c_data.UserId
-      var currentTime = c_data.currentTime;
-      var model = c_data.model;
-      var text = c_data.text;
-      var version = c_data.version;
-
-if(currentTime){
-var date = new Date(currentTime.time);
-createAc = date.getDate() + '/' + (date.getMonth()+1) + '/' +   date.getFullYear();
-}
-
-
-    var set1 = '<div class="d-flex text-muted pt-3">';
-    set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-solid fa-messages-question"></i></div>';
-    set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
-
-    set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps'+id+currentTime.time+'" role="button" aria-expanded="false" aria-controls="collaps'+id+currentTime.time+'"> <b>'+createAc+'</b></a>';
-
-    set1 += '<div class="collapse" id="collaps'+id+currentTime.time+'">';
-
-
-    set1 += '<div class="card-body px-0">';
-set1 += '<table class="table table-borderless">';
-
-if(UserId){
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> معرّف المستخدم</th>';
-set1 += '<td>'+UserId+'</td>';
-set1 += '</tr>';
-}
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> تاريخ اللإقتراح</th>';
-set1 += '<td>'+createAc+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> نوع الجهاز</th>';
-set1 += '<td>'+model+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<th><i class="fa-solid fa-user"></i> إصدار التطبيق</th>';
-set1 += '<td>'+version+'</td>';
-set1 += '</tr>';
-
-set1 += '<tr class="text-center">';
-set1 += '<td colspan="2" class="border"><b>نص اللإقتراح</b></td>';
-set1 += '</tr>';
-
-set1 += '<tr>';
-set1 += '<td colspan="2" class="border">'+text+'</td>';
-set1 += '</tr>';
-
-
-
-
-set1 += '</table>';
-
-set1 += '</div>';
-
-
-
-
-
-    set1 += '</div>';
-    set1 += '</div></div>';
-
-
-
-  $("#reports .userNum").append(set1);
-
-
-
-
-
-
-  }
-
-
-
-  }else{
-  $("#reports .alert").removeClass("d-none");
-  $("#reports .userNum").addClass("d-none");
-  }
-  }else{
-       $("#reports .alert").removeClass("d-none");
-       $("#reports .userNum").addClass("d-none");
-       }
-     //reports
-
-
-
-}
- function testUserAdmin(userId){
-     $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/.json", {
-         }).catch(function(error) {
-$('#loding_statistics').html('<div class="alert alert-danger" role="alert">حدث خطأ ما! يرجى إعادة المحاولة</div>');
-
-    }).done(function(recosts) {
- var getAdmin = recosts.Manager;
- var findadmin = Object.prototype.hasOwnProperty.call(getAdmin, "ID"+userId);
-    if(findadmin){
-
-
-     getStatistics(recosts);
-
-$('#loding_statistics').addClass('d-none');
-
-    }else{
-    $('#loding_statistics').html('<div class="alert alert-danger" role="alert">يرجى التحقق من تسجيل الدخول</div>');
-
-    }
-    });
-    }
 
 
 function goToManagerPage(){
@@ -8578,292 +6778,7 @@ sethtmlcontainer('managerPage');
 
 
 
-//set quiz page
-function setQuizTypePage(type,quiz_num_numOwl) {
 
-    var htmls = ['<div class="">'];
-    var setHTML = [''];
-    $.getJSON("file/all.json", {
-        alt: "json"
-    }).catch(function(error) {
-        console.log("error", error)
-    }).done(function(data) {
-        var all = data.result;
-        var title = "";
-        var text_t = "تؤوريا ";
-        var c = "info";
-        var o = "15";
-        var l = "";
-        var ic = "";
-        var typeAr, ic;
-        if (type == "private") {
-            typeAr = "خصوصي";
-            ic = 'fa-solid fa-car-side';
-            c = "info";
-            o = "15";
-        } else if (type == "truck") {
-            typeAr = 'شحن خفيف';
-            ic = 'fa-solid fa-truck';
-            c = "primary";
-            o = "10";
-        } else if (type == "haulage") {
-            typeAr = "شحن ثقيل"
-            ic = 'fa-solid fa-truck-container-empty';
-            c = "purple";
-            o = "10";
-        } else if (type == "taxi") {
-            typeAr = "عمومي"
-            ic = 'fa-solid fa-taxi-bus';
-            c = "warning";
-            o = "10";
-        } else if (type == "tractor") {
-            typeAr = "تراكتور"
-            ic = 'fa-solid fa-tractor';
-            c = "success";
-            o = "10";
-        } else if (type == "motorcycle") {
-            typeAr = "دراجة نارية"
-            ic = 'fa-solid fa-motorcycle';
-            c = "orange";
-            o = "15";
-        } else {
-            typeAr = type;
-            ic = 'fa-solid fa-messages-question';
-        }
-        for (var i = 0; i < all.length; i++) {
-            var n = 0;
-            if (all[i].name == type) {
-                n = all[i].number;
-                var numOwl = 1;
-                htmls.push('<div class="container py-3 boxbtnlink containeranimate">');
-                htmls.push('<div class="row mb-4">');
-                htmls.push('<div class="col-lg-8 mx-auto text-center">');
-                htmls.push('<h4 class="fs-3">قائمة النماذج (' + typeAr + ')</h4>');
-                htmls.push('</div>');
-                htmls.push('</div>');
-                htmls.push('<hr/>');
-                htmls.push('<div class="row g-4">');
-                var _ans = 0;
-                var _num1 = 1;
-                var _num2 = 1;
-                var _type = type;
-                var page = type;
-                for (var s = 0; s < n; s++) {
-                    title = "إمتحان (" + (s + 1) + ")";
-                    text_t = "إمتحان " + typeAr + " (" + (s + 1) + ")";
-                    if (i == 0) {
-                        l = "startsetHtml(\'" + type + "\'," + (s + 1) + ",1,0)";
-                    } else if (i == 1) {
-                        l = "startsetHtml(\'" + type + "\'," + (s + 1) + ",1,0)";
-                    } else if (i == 2) {
-                        l = "startsetHtml(\'" + type + "\'," + (s + 1) + ",1,0)";
-                    } else if (i == 3) {
-                        l = "startsetHtml(\'" + type + "\'," + (s + 1) + ",1,0)";
-                    } else if (i == 4) {
-                        l = "startsetHtml(\'" + type + "\'," + (s + 1) + ",1,0)";
-                    } else if (i == 5) {
-                        l = "startsetHtml(\'" + type + "\'," + (s + 1) + ",1,0)";
-                    }
-                    page = 'ExamPage';
-                    _type = type;
-                    _num1 = (s + 1);
-                    _num2 = 1;
-                    _ans = 0;
-                    sethtmlsqhomeForQuiz(htmls, title, text_t, c, o, l, ic, page, _type, _num1, _num2, _ans,null,quiz_num_numOwl);
 
-                }
-                htmls.push('</div>');
-                htmls.push('</div>');
-                htmls.push('</div>');
-            }
-        }
-        setHTML.push(htmls.join(''));
-        var htmlset = setHTML.join('');
-        $('.all_examis_quizs').html(htmlset);
 
-    });
-}
-
-
-
-
-function tableMarksAll(){
-$('#btnShowtableMarksAll').attr('disabled',true)
-$('#btnShowtableMarksAll').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> إنتظر... ');
-
-               $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz.json", {
-                alt: "json"
-            }).catch(function(error) {
-                console.log("error", error);
-                setnote('حدث خطأ! تحقق من إتصالك بالإنترنت');
-                $('#btnShowtableMarksAll').html('عرض جميع نتائج الإختبارات');
-                $('#btnShowtableMarksAll').removeAttr('disabled');
-            }).done(function(data) {
-            var reLangth = Object.keys(data).length;
-            var item,itematob,itematobJson;
-
-            //
-         //   var data = [];
-             // console.log(data)
-
-
-
-
-
-
-
-            for(var i=0;i<reLangth;i++){
-            item= Object.values(data)[i].jsonFile;
-            itematob = window.atob(item);
-
-            setAllQuizTableSarver(item);
-
-
-            }
-            $('#tableMarksAll').removeClass('d-none');
-            $('#btnShowtableMarksAll').addClass('d-none');
-
-            });
-
-
-        var QuizNumper = 0;
-        function setAllQuizTableSarver(createallqj){
-        QuizNumper++;
-        var p1 = [''];
-
-        var correct_answers,duration,num_ID,number,quiz_ID,type,dates,resultQuiz,year,month,date,theTime,theDate,active,viewquiz,typeAr,hours12,textcolor,l10;
-
-        active = '';
-        l10 = 0;
-
-        var itematob = window.atob(createallqj);
-        var dataStorage = JSON.parse(itematob);
-
-
-        correct_answers = dataStorage.correct_answers;
-        duration = dataStorage.duration;
-        num_ID = dataStorage.num_ID;
-        number = dataStorage.number;
-        quiz_ID = dataStorage.quiz_ID;
-        type = dataStorage.type;
-        dates = dataStorage.date;
-
-        if(correct_answers == 30){
-        resultQuiz = '<i class="fa-solid fa-trophy-star text-success" title="ناجح بامتياز"></i> ناجح'
-        textcolor = 'text-success';
-        }else if(correct_answers >= 25){
-        resultQuiz = '<i class="fa-solid fa-face-smile text-success" title="ناجح"></i> ناجح'
-        textcolor = 'text-success';
-        }else{
-        resultQuiz = '<i class="fa-solid fa-face-frown text-danger" title="لم تنجح"></i> راسب';
-        textcolor = 'text-danger';
-        }
-
-        var setDate = new Date(dates);
-
-        year = setDate.getFullYear();
-        month = setDate.getMonth() + 1;
-        date = setDate.getDate();
-        hours12 = formatAMPM(setDate);
-
-        theDate = year+'/'+month+'/'+date;
-        theTime = hours12;
-
-
-
-
-
-
-        if(type == "private"){
-        typeAr = "خصوصي"
-        }else if(type == "truck"){
-        typeAr = "شحن خفيف"
-        }else if(type == "haulage"){
-        typeAr = "شحن ثقيل"
-        }else if(type == "taxi"){
-        typeAr = "عمومي"
-        }else if(type == "tractor"){
-        typeAr = "تراكتور"
-        }else if(type == "motorcycle"){
-        typeAr = "دراجة نارية"
-        }else{
-        typeAr = type;
-        }
-
-
-        p1.push('<tr class="'+active+'">');
-        p1.push('<td>'+QuizNumper+'</td>');
-        p1.push('<td class="t_type"><a onclick="sethtmlcontainer(\''+type+'\');return false" href="?page='+type+'">'+typeAr+'</a></td>');
-        p1.push('<td class="t_date" title="تاريخ الإمتحان '+theDate+' - '+theTime+'">'+theDate+'</td>');
-        p1.push('<td class="t_mark '+textcolor+'">'+number+'/'+correct_answers+'</td>');
-
-        p1.push('<td><a onclick="setViewCard(\''+typeAr+'\',\''+quiz_ID+'\',\''+theDate+'\',\''+theTime+'\',\''+duration+'\',\''+number+'\',\''+correct_answers+'\',\''+QuizNumper+'\');return false;" class="viewquiz '+viewquiz+'" title="مراجعة الإمتحان"><i class="fa-regular fa-circle-info fs-4"></i></a></td>');
-        p1.push('</tr>');
-
-
-
-
-
-
-
-
-
-
-        $("#tableSetAll").append(p1.join())
-
-
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-    }
-        function setViewCard(typeAr,quiz_ID,theDate,theTime,duration,number,correct_answers,QuizNumper) {
-            $('#titlesCard').html('إختبار رقم ' + QuizNumper);
-            $('#QtypeAr').html(typeAr);
-        $('#QidQuiz').html(quiz_ID);
-        $('#Qdate').html(theDate + ' - ' + theTime);
-        $('#Qduration').html(duration);
-
-
-        if(correct_answers == 30){
-        resultQuiz = '<i class="fa-solid fa-trophy-star text-success" title="ناجح بامتياز"></i> ناجح بامتياز'
-        textcolor = 'text-success';
-        }else if(correct_answers >= 25){
-        resultQuiz = '<i class="fa-solid fa-face-smile text-success" title="ناجح"></i> ناجح'
-        textcolor = 'text-success';
-        }else{
-        resultQuiz = '<i class="fa-solid fa-face-frown text-danger" title="لم تنجح"></i> راسب';
-        textcolor = 'text-danger';
-        }
-
-
-        $('#Qmark').html(number+'/'+correct_answers);
-        $('#QresultQuiz').html(resultQuiz);
-
-
-
-        if(window.location.hash != '#offcanvasCard'){
-            window.location.hash = 'offcanvasCard';
-        }else{
-            new bootstrap.Offcanvas($('#offcanvasCard')).show();
-        }
-
-
-
-
-
-        }
 
