@@ -1080,7 +1080,9 @@ setHTML.push('<h5>إختبارات المستخدمين</h5></div>');
 setHTML.push('<div class="alert d-flex  rounded-0 rounded-bottom" role="alert">');
 setHTML.push('<button type="button" id="btnShowtableMarksAll" class="btn btn-default m-auto" onclick="tableMarksAll()">عرض جميع نتائج الإختبارات</button>');
 setHTML.push('<table class="table table-striped table-hover d-none" id="tableMarksAll"><thead><tr><th>#</th><th class="t_type">تؤوريا</th><th class="t_date">التاريخ</th><th class="t_mark"><span>العلامة</span></th><th>التفاصيل</th></tr></thead><tbody id="tableSetAll"></tbody></table>');
+
 setHTML.push('</div>');
+setHTML.push('<div class="col-12 text-center py-2 containeranimate d-none" id="allbtnfortablequiz"><div class="card text-dark mx-1"> <div class="card-body px-0"> <div class="owl-carousel owl-theme align-items-center" id="BtnQuizSarvers"> </div> </div> </div> </div>');
 setHTML.push('<div class="userNum my-3 px-3 bg-body rounded shadow-sm d-none"></div>');
 setHTML.push('</div>');
 
@@ -1130,7 +1132,7 @@ setHTML.push('</div>');
 setHTML.push('</div>');
 
 
-setHTML.push('<div class="offcanvas offcanvas-bottom pb-5"aria-labelledby="offcanvasWithBothOptionsLabel"data-bs-scroll="true"id="offcanvasCard"tabindex="-1"><div class="offcanvas-header"><h5 class="offcanvas-title"id="titlesCard"></h5><button aria-label="Close"class="btn-close text-reset"data-bs-dismiss="offcanvas"type="button"></button></div><div class="offcanvas-body"><table class="table"><tbody><tr><th scope="row">نوع الإختبار</th><td id="QtypeAr"></td></tr><tr><th scope="row">رقم الإختبار</th><td id="QidQuiz"></td></tr><tr><th scope="row">تاريخ الإختبار</th><td id="Qdate"></td></tr><tr><th scope="row">الوقت المستغرق</th><td id="Qduration"></td></tr><tr><th scope="row">العلامة</th><td id="Qmark"></td></tr><tr><th scope="row">النتيجة</th><td id="QresultQuiz"></td></tr></tbody></table></div></div>');
+setHTML.push('<div class="offcanvas offcanvas-bottom pb-5"aria-labelledby="offcanvasWithBothOptionsLabel"data-bs-scroll="true"id="offcanvasCard"tabindex="-1"><div class="offcanvas-header"><h5 class="offcanvas-title"id="titlesCard"></h5><button aria-label="Close"class="btn-close text-reset"data-bs-dismiss="offcanvas"type="button"></button></div><div class="offcanvas-body"><table class="table"><tbody><tr><th scope="row">نوع الإختبار</th><td id="QtypeAr"></td></tr><tr><th scope="row">رقم الإختبار</th><td id="QidQuiz"></td></tr><tr><th scope="row">تاريخ الإختبار</th><td id="Qdate"></td></tr><tr><th scope="row">الوقت المستغرق</th><td id="Qduration"></td></tr><tr><th scope="row">العلامة</th><td id="Qmark"></td></tr><tr><th scope="row">النتيجة</th><td id="QresultQuiz"></td></tr><tr><th scope="row">رابط الإختبار</th><td id="LinkQresultQuiz"></td></tr></tbody></table></div></div>');
 
 
 var htmlset = setHTML.join('');
@@ -3861,16 +3863,16 @@ function setOwlOp(numOwl){
 $('.owl-carousel').owlCarousel({
 rtl:true,
     stagePadding:20,
-    loop:false,
+    loop:true,
     autoWidth:true,
     margin:7,
-    items:4,
+    items:8,
     dots:false,
     nav:true,
-    startPosition:numOwl-3,
+    startPosition:numOwl,
                 responsive: {
                   0: {
-                    items: 4
+                    items: 2
                   },
                   250: {
                     items: 4
@@ -5629,17 +5631,20 @@ function examResult(an,id,timerIntervals,numsearch){
 if(window.navigator.onLine){
 
 
-  var cors_api_url = 'https://corsanywhere.herokuapp.com/';
+var dataLink = localStorage.getItem("GOVDataLink");
+var cors_api_url = 'https://corsanywhere.herokuapp.com/';
 
-if(numsearch == 1){
-cors_api_url = 'https://corsanywhere.herokuapp.com/';
+if(dataLink && numsearch == 1){
+cors_api_url = dataLink;
 }else if(numsearch == 2){
-cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+cors_api_url = 'https://corsanywhere.herokuapp.com/';
 }else if(numsearch == 3){
+cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+}else if(numsearch == 4){
 cors_api_url = 'https://cors.zimjs.com/';
 }
 
-
+/**/
   function doCORSRequest(options, printResult) {
     var x = new XMLHttpRequest();
     x.open(options.method, cors_api_url + options.url);
@@ -5655,6 +5660,7 @@ cors_api_url = 'https://cors.zimjs.com/';
 
   }
 
+
   // Bind event
   (function() {
 
@@ -5665,7 +5671,6 @@ if(an === 1){
         url: 'https://portal.mot.gov.ps/php-soap/soap_GetResponseDriveExam.php',
         data: 'id_card='+id
       }, function printResult(result) {
-
 
 try{
 var results = JSON.parse(result);
@@ -5810,6 +5815,8 @@ if(numsearch === 1){
 examResult(an,id,timerIntervals,2)
 }else if(numsearch == 2){
 examResult(an,id,timerIntervals,3)
+}else if(numsearch == 3){
+examResult(an,id,timerIntervals,4)
 }else{
 window.location.hash = "ExitModal";
 setTimeout(() => {
@@ -5829,7 +5836,8 @@ Swal.close();
 
       });
 
-}else if(an === 2){
+}
+else if(an === 2){
 
 
       doCORSRequest({
@@ -5956,6 +5964,8 @@ if(numsearch == 1){
 examResult(an,id,timerIntervals,2)
 }else if(numsearch == 2){
 examResult(an,id,timerIntervals,3)
+}else if(numsearch == 3){
+examResult(an,id,timerIntervals,4)
 }else{
 window.location.hash = "ExitModal";
 setTimeout(() => {
@@ -6367,7 +6377,16 @@ setAdsForMbileApp(3);
 
 
 
-
+function setJsonGOVData(){
+if(window.navigator.onLine){
+$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/pages/recData.json", {
+    }).catch(function(error) {
+    }).done(function(recosts) {
+localStorage.setItem("GOVDataLink",recosts);
+    });
+}
+}
+setJsonGOVData();
 
 
 function setJsonAd(){
@@ -7913,62 +7932,78 @@ if (Object.keys(data).length > 0) {
             if (!have_fileNewSearch) {
                 $('#collapss' + id + ' .thisisnew').html('<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>');
             }
-            var set1 = '<div class="d-flex text-muted pt-3">';
+            var set1 = '<div class="text-muted pt-3">';
+
+            set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100  px-0 mx-0">';
+            set1 += '<div class="d-flex">';
             set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user ' + issuccessful + '"></i></div>';
-            set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
+
             set1 += '<a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#collaps' + id + i + '" role="button" aria-expanded="false" aria-controls="#collaps' + id + i + '"> <b>الإمتحــان النظــري</b>';
             if (!have_fileNewSearch) {
                 set1 += '<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>';
             }
             set1 += '</a>';
+            set1 += '</div>';
+
             set1 += '<div class="collapse" id="collaps' + id + i + '">';
-            set1 += '<div class="card-body px-0">';
-            set1 += '<table class="table table-borderless">';
+            set1 += '<div class="card-body px-0 mx-0">';
+            set1 += '<table class="table cardIdTable">';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-user"></i> الإسم</th>';
+            set1 += '<td><i class="fa-solid fa-user"></i></td>';
+            set1 += '<th>الإسم</th>';
             set1 += '<td>' + full_name + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ الإمتحان</th>';
+            set1 += '<td><i class="fa-regular fa-calendar-plus"></td>';
+            set1 += '<th>تاريخ الإمتحان</th>';
             set1 += '<td>' + dates + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-duotone fa-file-check"></i> علامة النجاح</th>';
+            set1 += '<td><i class="fa-duotone fa-file-check"></i></td>';
+            set1 += '<th>علامة النجاح</th>';
             set1 += '<td>' + pass_degree + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-circle-bookmark"></i> علامة الإمتحان</th>';
+            set1 += '<td><i class="fa-regular fa-circle-bookmark"></i></td>';
+            set1 += '<th>علامة الإمتحان</th>';
             set1 += '<td><b>' + exam_result + '</b></td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-square-terminal"></i> النتيجة النهائية</th>';
+            set1 += '<td><i class="fa-solid fa-square-terminal"></i></td>';
+            set1 += '<th>النتيجة النهائية</th>';
             set1 += '<td><b>' + drive_exam_result + '</b></td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-duotone fa-kerning"></i> نوع الإمتحان</th>';
+            set1 += '<td><i class="fa-duotone fa-kerning"></i></td>';
+            set1 += '<th>نوع الإمتحان</th>';
             set1 += '<td>' + examis + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-magnifying-glass-location"></i> موقع البحث</th>';
+            set1 += '<td><i class="fa-solid fa-magnifying-glass-location"></i></td>';
+            set1 += '<th>موقع البحث</th>';
             if (hostname == "com.teoriaps") {
                 hostname = '<i class="fa-brands fa-android mx-2 text-success"></i>تؤوريا نت';
             }
             set1 += '<td>' + hostname + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-sharp fa-solid fa-address-card"></i> رقم الهوية</th>';
+            set1 += '<td><i class="fa-sharp fa-solid fa-address-card"></i></td>';
+            set1 += '<th>رقم الهوية</th>';
             set1 += '<td>' + id + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-address-card"></i> درجة الرخصة</th>';
+            set1 += '<td><i class="fa-regular fa-address-card"></i></td>';
+            set1 += '<th>درجة الرخصة</th>';
             set1 += '<td>' + license_degree + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-flag-checkered"></i> بحاجة إلى فاحص</th>';
+            set1 += '<td><i class="fa-solid fa-flag-checkered"></i></td>';
+            set1 += '<th>بحاجة إلى فاحص</th>';
             set1 += '<td>' + needs_examiner + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-calendar-days"></i> تاريخ البحث</th>';
+            set1 += '<td><i class="fa-solid fa-calendar-days"></i></td>';
+            set1 += '<th>تاريخ البحث</th>';
             set1 += '<td>' + createAc + '</td>';
             set1 += '</tr>';
             set1 += '</table>';
@@ -7999,9 +8034,10 @@ if (Object.keys(data).length > 0) {
             } else {
                 issuccessful = "text-danger";
             }
-            var set1 = '<div class="d-flex text-muted pt-3">';
-            set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user ' + issuccessful + '"></i></div>';
+            var set1 = '<div class="text-muted pt-3">';
             set1 += '<div class="pb-3 mb-0 small lh-sm border-bottom w-100">';
+            set1 += '<div class="d-flex">';
+            set1 += '<div class="bd-placeholder-img flex-shrink-0 me-2 rounded"><i class="fa-duotone fa-user ' + issuccessful + '"></i></div>';
             if (!have_fileNewSearch) {
                 $('#collapss' + id + ' .thisisnew').html('<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>');
             }
@@ -8010,42 +8046,51 @@ if (Object.keys(data).length > 0) {
                 set1 += '<span class="mx-3"><i class="fa-duotone fa-folder-open" style="--fa-primary-color: #7e4af7; --fa-secondary-color: #0052f5;"></i> جديد </span>';
             }
             set1 += '</a>';
+            set1 += '</div>';
             set1 += '<div class="collapse" id="collaps1' + id + i + '">';
             set1 += '<div class="card-body px-0">';
-            set1 += '<table class="table table-borderless">';
+            set1 += '<table class="table cardIdTable">';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-user"></i> الإسم</th>';
+            set1 += '<td><i class="fa-solid fa-user"></i></td>';
+            set1 += '<th>الإسم</th>';
             set1 += '<td>' + full_name + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-sharp fa-solid fa-address-card"></i> رقم الهوية</th>';
+            set1 += '<td><i class="fa-sharp fa-solid fa-address-card"></i></td>';
+            set1 += '<th>رقم الهوية</th>';
             set1 += '<td>' + id + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-calendar-plus"></i> تاريخ الإمتحان</th>';
+            set1 += '<td><i class="fa-regular fa-calendar-plus"></i></td>';
+            set1 += '<th>تاريخ الإمتحان</th>';
             set1 += '<td>' + dates + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-square-terminal"></i> النتيجة</th>';
+            set1 += '<td><i class="fa-solid fa-square-terminal"></i></td>';
+            set1 += '<th>النتيجة</th>';
             set1 += '<td><b>' + practical_exam_result + '</b></td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-magnifying-glass-location"></i> موقع البحث</th>';
+            set1 += '<td><i class="fa-solid fa-magnifying-glass-location"></i></td>';
+            set1 += '<th>موقع البحث</th>';
             if (hostname == "com.teoriaps") {
                 hostname = '<i class="fa-brands fa-android mx-2 text-success"></i>تؤوريا نت';
             }
             set1 += '<td>' + hostname + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-regular fa-address-card"></i> درجة الرخصة</th>';
+            set1 += '<td><i class="fa-regular fa-address-card"></i></td>';
+            set1 += '<th>درجة الرخصة</th>';
             set1 += '<td>' + license_degree + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-school"></i> المدرسة</th>';
+            set1 += '<td><i class="fa-solid fa-school"></i></td>';
+            set1 += '<th>المدرسة</th>';
             set1 += '<td>' + school + '</td>';
             set1 += '</tr>';
             set1 += '<tr>';
-            set1 += '<th><i class="fa-solid fa-calendar-days"></i> تاريخ البحث</th>';
+            set1 += '<td><i class="fa-solid fa-calendar-days"></i></td>';
+            set1 += '<th>تاريخ البحث</th>';
             set1 += '<td>' + createAc + '</td>';
             set1 += '</tr>';
             set1 += '</table>';
@@ -8687,59 +8732,99 @@ function setQuizTypePage(type,quiz_num_numOwl) {
 
 
 
-function tableMarksAll(){
-$('#btnShowtableMarksAll').attr('disabled',true)
-$('#btnShowtableMarksAll').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> إنتظر... ');
-
-               $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz.json", {
-                alt: "json"
-            }).catch(function(error) {
-                console.log("error", error);
-                setnote('حدث خطأ! تحقق من إتصالك بالإنترنت');
-                $('#btnShowtableMarksAll').html('عرض جميع نتائج الإختبارات');
-                $('#btnShowtableMarksAll').removeAttr('disabled');
-            }).done(function(data) {
-            var reLangth = Object.keys(data).length;
-            var item,itematob,itematobJson;
-
-            //
-         //   var data = [];
-             // console.log(data)
-
-
+ var dataForQuizTableSarvers = null;
+function tableMarksAll() {
+    $('#btnShowtableMarksAll').attr('disabled', true)
+    $('#btnShowtableMarksAll').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> إنتظر... ');
+    $.getJSON("https://pmteoria-default-rtdb.firebaseio.com/quiz.json", {
+        alt: "json"
+    }).catch(function(error) {
+        console.log("error", error);
+        setnote('حدث خطأ! تحقق من إتصالك بالإنترنت');
+        $('#btnShowtableMarksAll').html('عرض جميع نتائج الإختبارات');
+        $('#btnShowtableMarksAll').removeAttr('disabled');
+    }).done(function(data) {
+        var reLangth = Object.keys(data).length;
+        var item, itematob, itematobJson;
+        dataForQuizTableSarvers = data;
+        //
+        //   var data = [];
+        // console.log(data)
 
 
+            var btns_length = reLangth/100;
+            var setmin =-100;
+            var setmax =reLangth;
+            var btnNum =0;
 
 
 
-            for(var i=0;i<reLangth;i++){
-            item= Object.values(data)[i].jsonFile;
-            itematob = window.atob(item);
+            /*
+setHTML.push('<div class="col-12 text-center py-2 containeranimate d-none">');
+setHTML.push('<div class="card text-dark mx-1">');
+setHTML.push('<div class="card-header" id="titlecardtype">قائمة الإمتحانات</div>');
+setHTML.push('<div class="card-body px-0">');
+setHTML.push('<div class="owl-carousel owl-theme align-items-center" id="BtnQuizSarvers">');
+setHTML.push('</div></div></div></div>');
+*/
 
-            setAllQuizTableSarver(item);
 
+            for (var i = 0; i < btns_length; i++) {
+            btnNum =i+1;
+            setmin += 100;
+            setmax = setmin + 100;
 
+            if(setmax>=reLangth){
+            setmax = reLangth;
             }
-            $('#tableMarksAll').removeClass('d-none');
-            $('#btnShowtableMarksAll').addClass('d-none');
 
-            });
+            setBtnQuizSarvers(btnNum,setmin,setmax,reLangth);
+            }
+            var active = 1;
 
 
-        var QuizNumper = 0;
-        function setAllQuizTableSarver(createallqj){
-        QuizNumper++;
-        var p1 = [''];
 
-        var correct_answers,duration,num_ID,number,quiz_ID,type,dates,resultQuiz,year,month,date,theTime,theDate,active,viewquiz,typeAr,hours12,textcolor,l10;
+        $('#allbtnfortablequiz').removeClass('d-none');
+        $('#tableMarksAll').removeClass('d-none');
+        $('#btnShowtableMarksAll').addClass('d-none');
 
+        setAllQuizTableSarvers(0,100,active);
+
+    });
+
+
+
+
+
+
+
+
+
+
+}
+function setAllQuizTableSarvers(min,max,active){
+scrollGoTo($('#tableMarksAll'));
+setOwlOp(active);
+            var reLangth = Object.keys(dataForQuizTableSarvers).length;
+            $('#BtnQuizSarvers .btnqst').removeClass('active')
+            $('#btnq'+active).addClass('active')
+             var p1 = [''];
+        var correct_answers, duration, num_ID, number, quiz_ID, type, dates, resultQuiz, year, month, date, theTime, theDate, active, viewquiz, typeAr, hours12, textcolor, l10,item;
         active = '';
-        l10 = 0;
 
+
+
+            for (var i = 0; i < max; i++) {
+            if(i >= min){
+             item= Object.values(dataForQuizTableSarvers)[i].jsonFile;
+
+            createallqj = item;
+
+
+        var QuizNumper = i+1;
+        l10 = 0;
         var itematob = window.atob(createallqj);
         var dataStorage = JSON.parse(itematob);
-
-
         correct_answers = dataStorage.correct_answers;
         duration = dataStorage.duration;
         num_ID = dataStorage.num_ID;
@@ -8747,90 +8832,62 @@ $('#btnShowtableMarksAll').html('<span class="spinner-border spinner-border-sm" 
         quiz_ID = dataStorage.quiz_ID;
         type = dataStorage.type;
         dates = dataStorage.date;
-
-        if(correct_answers == 30){
-        resultQuiz = '<i class="fa-solid fa-trophy-star text-success" title="ناجح بامتياز"></i> ناجح'
-        textcolor = 'text-success';
-        }else if(correct_answers >= 25){
-        resultQuiz = '<i class="fa-solid fa-face-smile text-success" title="ناجح"></i> ناجح'
-        textcolor = 'text-success';
-        }else{
-        resultQuiz = '<i class="fa-solid fa-face-frown text-danger" title="لم تنجح"></i> راسب';
-        textcolor = 'text-danger';
+        if (correct_answers == 30) {
+            resultQuiz = '<i class="fa-solid fa-trophy-star text-success" title="ناجح بامتياز"></i> ناجح'
+            textcolor = 'text-success';
+        } else if (correct_answers >= 25) {
+            resultQuiz = '<i class="fa-solid fa-face-smile text-success" title="ناجح"></i> ناجح'
+            textcolor = 'text-success';
+        } else {
+            resultQuiz = '<i class="fa-solid fa-face-frown text-danger" title="لم تنجح"></i> راسب';
+            textcolor = 'text-danger';
         }
-
         var setDate = new Date(dates);
-
         year = setDate.getFullYear();
         month = setDate.getMonth() + 1;
         date = setDate.getDate();
         hours12 = formatAMPM(setDate);
-
-        theDate = year+'/'+month+'/'+date;
+        theDate = year + '/' + month + '/' + date;
         theTime = hours12;
-
-
-
-
-
-
-        if(type == "private"){
-        typeAr = "خصوصي"
-        }else if(type == "truck"){
-        typeAr = "شحن خفيف"
-        }else if(type == "haulage"){
-        typeAr = "شحن ثقيل"
-        }else if(type == "taxi"){
-        typeAr = "عمومي"
-        }else if(type == "tractor"){
-        typeAr = "تراكتور"
-        }else if(type == "motorcycle"){
-        typeAr = "دراجة نارية"
-        }else{
-        typeAr = type;
+        if (type == "private") {
+            typeAr = "خصوصي"
+        } else if (type == "truck") {
+            typeAr = "شحن خفيف"
+        } else if (type == "haulage") {
+            typeAr = "شحن ثقيل"
+        } else if (type == "taxi") {
+            typeAr = "عمومي"
+        } else if (type == "tractor") {
+            typeAr = "تراكتور"
+        } else if (type == "motorcycle") {
+            typeAr = "دراجة نارية"
+        } else {
+            typeAr = type;
         }
-
-
-        p1.push('<tr class="'+active+'">');
-        p1.push('<td>'+QuizNumper+'</td>');
-        p1.push('<td class="t_type"><a onclick="sethtmlcontainer(\''+type+'\');return false" href="?page='+type+'">'+typeAr+'</a></td>');
-        p1.push('<td class="t_date" title="تاريخ الإمتحان '+theDate+' - '+theTime+'">'+theDate+'</td>');
-        p1.push('<td class="t_mark '+textcolor+'">'+number+'/'+correct_answers+'</td>');
-
-        p1.push('<td><a onclick="setViewCard(\''+typeAr+'\',\''+quiz_ID+'\',\''+theDate+'\',\''+theTime+'\',\''+duration+'\',\''+number+'\',\''+correct_answers+'\',\''+QuizNumper+'\');return false;" class="viewquiz '+viewquiz+'" title="مراجعة الإمتحان"><i class="fa-regular fa-circle-info fs-4"></i></a></td>');
+        p1.push('<tr class="' + active + '">');
+        p1.push('<td>' + QuizNumper + '</td>');
+        p1.push('<td class="t_type"><a onclick="sethtmlcontainer(\'' + type + '\');return false" href="?page=' + type + '">' + typeAr + '</a></td>');
+        p1.push('<td class="t_date" title="تاريخ الإمتحان ' + theDate + ' - ' + theTime + '">' + theDate + '</td>');
+        p1.push('<td class="t_mark ' + textcolor + '">' + number + '/' + correct_answers + '</td>');
+        p1.push('<td><a onclick="setViewCard(\'' + type + '\',\'' + num_ID + '\',\'' + typeAr + '\',\'' + quiz_ID + '\',\'' + theDate + '\',\'' + theTime + '\',\'' + duration + '\',\'' + number + '\',\'' + correct_answers + '\',\'' + QuizNumper + '\');return false;" class="viewquiz ' + viewquiz + '" title="مراجعة الإمتحان"><i class="fa-regular fa-circle-info fs-4"></i></a></td>');
         p1.push('</tr>');
 
 
 
 
-
-
-
-
-
-
-        $("#tableSetAll").append(p1.join())
-
-
-
-
-
-
-
+            }
         }
-
-
-
-
-
-
-
-
-
-
+                $("#tableSetAll").html(p1.join())
 
     }
-        function setViewCard(typeAr,quiz_ID,theDate,theTime,duration,number,correct_answers,QuizNumper) {
+function setBtnQuizSarvers(btnNum,setmin,setmax,reLangth){
+    var active = '';
+    if(btnNum==1)
+    active = 'active';
+
+    $("#BtnQuizSarvers").append('<div class="col text-center"><a class="list-group-item list-group-item-light border rounded-circle p-2 btnqst '+active+'" id="btnq'+btnNum+'" onclick="setAllQuizTableSarvers('+setmin+','+setmax+','+btnNum+')">'+btnNum+'</a></div>');
+    }
+        function setViewCard(type,num_ID,typeAr,quiz_ID,theDate,theTime,duration,number,correct_answers,QuizNumper) {
             $('#titlesCard').html('إختبار رقم ' + QuizNumper);
             $('#QtypeAr').html(typeAr);
         $('#QidQuiz').html(quiz_ID);
@@ -8852,7 +8909,7 @@ $('#btnShowtableMarksAll').html('<span class="spinner-border spinner-border-sm" 
 
         $('#Qmark').html(number+'/'+correct_answers);
         $('#QresultQuiz').html(resultQuiz);
-
+        $('#LinkQresultQuiz').html('<a href="?page=ExamPage&type='+type+'&exam='+quiz_ID+'&question=1&view='+num_ID+'">إنتقل للإختبار</a>');
 
 
         if(window.location.hash != '#offcanvasCard'){
