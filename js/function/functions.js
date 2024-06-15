@@ -1,4 +1,3 @@
-
 var TeoriaPalMixApp = /TeoriaPalMixApp/.test(navigator.userAgent);
 
 function setSiteColor(color){
@@ -5632,9 +5631,13 @@ if(window.navigator.onLine){
 
 
 var dataLink = localStorage.getItem("GOVDataLink");
+
+
+
+
 var cors_api_url = 'https://corsanywhere.herokuapp.com/';
 
-if(dataLink && numsearch == 1){
+if(dataLink && driveDataLink && numsearch == 1){
 cors_api_url = dataLink;
 }else if(numsearch == 2){
 cors_api_url = 'https://corsanywhere.herokuapp.com/';
@@ -5663,12 +5666,12 @@ cors_api_url = 'https://cors.zimjs.com/';
 
   // Bind event
   (function() {
-
-
+var driveDataLink = localStorage.getItem("driveDataLink");
+var practicalDataLink = localStorage.getItem("practicalDataLink");
 if(an === 1){
       doCORSRequest({
         method: 'POST',
-        url: 'https://portal.mot.gov.ps/php-soap/soap_GetResponseDriveExam.php',
+        url: driveDataLink||'https://portal.mot.gov.ps/php-soap/soap_GetResponseDriveExam.php',
         data: 'id_card='+id
       }, function printResult(result) {
 
@@ -5842,7 +5845,7 @@ else if(an === 2){
 
       doCORSRequest({
         method: 'POST',
-        url: 'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php',
+        url: practicalDataLink||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php',
         data: '_cardId='+id
       }, function printResult(result) {
 
@@ -6379,10 +6382,14 @@ setAdsForMbileApp(3);
 
 function setJsonGOVData(){
 if(window.navigator.onLine){
-$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/pages/recData.json", {
+$.getJSON("https://pmteoria-default-rtdb.firebaseio.com/pages/srcData.json", {
     }).catch(function(error) {
     }).done(function(recosts) {
-localStorage.setItem("GOVDataLink",recosts);
+localStorage.setItem("GOVDataLink",recosts.src);
+localStorage.setItem("driveDataLink",recosts.drive);
+localStorage.setItem("practicalDataLink",recosts.practical);
+
+
     });
 }
 }
