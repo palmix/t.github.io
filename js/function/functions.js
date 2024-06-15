@@ -1,4 +1,3 @@
-
 var TeoriaPalMixApp = /TeoriaPalMixApp/.test(navigator.userAgent);
 
 function setSiteColor(color){
