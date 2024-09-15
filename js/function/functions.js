@@ -1,3 +1,4 @@
+
 var TeoriaPalMixApp = /TeoriaPalMixApp/.test(navigator.userAgent);
 
 function setSiteColor(color){
@@ -5634,6 +5635,8 @@ var dataLink = localStorage.getItem("GOVDataLink");
 var driveDataLink = localStorage.getItem("driveDataLink")||'https://portal.mot.gov.ps/php-soap/soap_GetResponseDriveExam.php';
 var practicalDataLink = localStorage.getItem("practicalDataLink")||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php';
 
+var driveDataLinkForm = localStorage.getItem("driveDataLinkForm")||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php';
+var practicalDataLinkForm = localStorage.getItem("practicalDataLinkForm")||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php';
 
 
 var cors_api_url = 'https://corsanywhere.herokuapp.com/';
@@ -5825,7 +5828,8 @@ window.location.hash = "ExitModal";
 setTimeout(() => {
 window.location.hash = "ExamModal";
  $("#modalExam").html('نتيجة إمتحان التؤوريا');
- $("#iframeExam").attr('src','https://portal.mot.gov.ps/drive_exam_check.php');
+var driveForm = driveDataLinkForm || 'https://portal.mot.gov.ps/drive_exam_check.php';
+ $("#iframeExam").attr('src',driveForm);
 Swal.close();
 }, 1000)
 
@@ -5974,7 +5978,8 @@ window.location.hash = "ExitModal";
 setTimeout(() => {
 window.location.hash = "ExamModal";
 $("#modalExam").html('نتيجة الإمتحان العملي');
- $("#iframeExam").attr('src','https://portal.mot.gov.ps/practical_exam_check.php');
+var practicalForm = practicalDataLinkForm || 'https://portal.mot.gov.ps/practical_exam_check.php';
+ $("#iframeExam").attr('src',practicalForm);
 Swal.close();
 }, 1000)
 }
@@ -6389,6 +6394,8 @@ localStorage.setItem("GOVDataLink",recosts.src);
 localStorage.setItem("driveDataLink",recosts.drive);
 localStorage.setItem("practicalDataLink",recosts.practical);
 
+localStorage.setItem("driveDataLinkForm",recosts.driveForm);
+localStorage.setItem("practicalDataLinkForm",recosts.practicalForm);
 
     });
 }
