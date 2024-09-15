@@ -5635,8 +5635,8 @@ var dataLink = localStorage.getItem("GOVDataLink");
 var driveDataLink = localStorage.getItem("driveDataLink")||'https://portal.mot.gov.ps/php-soap/soap_GetResponseDriveExam.php';
 var practicalDataLink = localStorage.getItem("practicalDataLink")||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php';
 
-var driveDataLinkForm = localStorage.getItem("driveDataLinkForm")||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php';
-var practicalDataLinkForm = localStorage.getItem("practicalDataLinkForm")||'https://portal.mot.gov.ps/php-soap/soap_PracticalExam.php';
+var driveDataLinkForm = localStorage.getItem("driveDataLinkForm")||'https://portal.mot.gov.ps/drive_exam_check.php';
+var practicalDataLinkForm = localStorage.getItem("practicalDataLinkForm")||'https://portal.mot.gov.ps/practical_exam_check.php';
 
 
 var cors_api_url = 'https://corsanywhere.herokuapp.com/';
