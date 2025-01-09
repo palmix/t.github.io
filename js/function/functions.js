@@ -5774,7 +5774,7 @@ var mm = timenow.getMonth();
 var yy = timenow.getFullYear();
 var timenows =  dd+"/"+(mm+1)+"/"+yy;
 
-if(drive_exam_result = "ناجح" && dates == timenows.replace(/-0+/g, '/')){
+if(drive_exam_result == "ناجح" && dates == timenows.replace(/-0+/g, '/')){
 
 Swal.fire({
   icon: icon,
