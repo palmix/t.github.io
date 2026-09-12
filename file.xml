@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>تؤوريا نت</title>
+  <link>https://teoria.pmix.net</link>
+  <description>تطبيق شامل لكل ما يلزم للنجاح في إمتحانات التؤوريا الرسمية، يحتوي التطبيق على مزايا عديدة</description>
+  <item>
+    <title>امتحانات تؤوريا خصوصي</title>
+    <link>https://teoria.pmix.net/?page=private</link>
+    <description>نماذج إمتحانات واختبارات تؤوريا خصوصي</description>
+  </item>
+  <item>
+    <title>امتحانات تؤوريا شحن خفيف</title>
+    <link>https://teoria.pmix.net/?page=truck</link>
+    <description>نماذج إمتحانات واختبارات تؤوريا شحن خفيف</description>
+  </item>
+    <item>
+    <title>امتحانات تؤوريا شحن ثقيل</title>
+    <link>https://teoria.pmix.net/?page=haulage</link>
+    <description>نماذج إمتحانات واختبارات تؤوريا شحن ثقيل</description>
+  </item>
+    <item>
+    <title>امتحانات تؤوريا عمومي</title>
+    <link>https://teoria.pmix.net/?page=taxi</link>
+    <description>نماذج إمتحانات واختبارات تؤوريا عمومي</description>
+  </item>
+    <item>
+    <title>امتحانات تؤوريا تراكتور</title>
+    <link>https://teoria.pmix.net/?page=tractor</link>
+    <description>نماذج إمتحانات واختبارات تؤوريا تراكتور</description>
+  </item>
+    <item>
+    <title>امتحانات تؤوريا دراجة نارية</title>
+    <link>https://teoria.pmix.net/?page=motorcycle</link>
+    <description>نماذج إمتحانات واختبارات تؤوريا دراجة نارية</description>
+  </item>
+    <item>
+    <title>إشارات المرور</title>
+    <link>https://teoria.pmix.net/?page=signalsPage</link>
+    <description>تعرف على إشارات المرور في فلسطين وتدرب عليها بالصوت والصورة</description>
+  </item>
+    <item>
+    <title>كتاب التؤوريا</title>
+    <link>https://teoria.pmix.net/?page=ProgramPDF</link>
+    <description>نموذج PDF يعتبر دوسية التؤوريا للتعلم على قيادة المركبات وانواعها وطرق معالجة المشاكل</description>
+  </item>
+    <item>
+    <title>قانون المرور</title>
+    <link>https://teoria.pmix.net/?page=TrafficLawPage</link>
+    <description>شروط واحكام وقانون المرور المتبع في فلسطين</description>
+  </item>
+    <item>
+    <title>نتيجة الإمتحانات الرسمية</title>
+    <link>https://teoria.pmix.net/?page=HomePage#getalls</link>
+    <description>تحقق من نتائج الإمتحانات العملية والنظرية</description>
+  </item>
+    <item>
+    <title>إجراءات الرخصة</title>
+    <link>https://teoria.pmix.net/?page=HomePage#steps</link>
+    <description>الإجراءات التي يجب إتباعها للحصول على الرخصة</description>
+  </item>
+    <item>
+    <title>مواعيد الخدمات</title>
+    <link>https://teoria.pmix.net/?page=HomePage#services</link>
+    <description>المواعيد الرسمية للدوائر الحكومية</description>
+  </item>
+    <item>
+    <title>الأسعار</title>
+    <link>https://teoria.pmix.net/?page=HomePage#lessons</link>
+    <description>أسعار الدروس والإختبارات العملية</description>
+  </item>
+    <item>
+    <title>الأسعار الدورات</title>
+    <link>https://teoria.pmix.net/?page=HomePage#CoursesModal</link>
+    <description>أسعار الدورات الإستكمالية</description>
+  </item>
+    <item>
+    <title>سياسات الخصوصية</title>
+    <link>https://teoria.pmix.net/?page=privacy</link>
+    <description>الخصوصية وبيان سريّة المعلومات</description>
+  </item>
+    <item>
+    <title>إتصل بنا</title>
+    <link>https://teoria.pmix.net/?page=ContactUsPage</link>
+    <description>تواصل معنا</description>
+  </item>
+  
+</channel>
+
+</rss>

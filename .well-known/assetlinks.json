@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.teoriaps",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C",
+        "8E:53:1A:53:89:92:56:C0:E1:9A:BB:BA:2A:D0:A7:45:5C:97:3B:F3:A5:79:E9:BC:7B:CF:AC:B7:C9:44:D4:FD"
+      ]
+    }
+  }]
